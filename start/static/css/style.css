@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.noir {
+    background-color: black;
+}
+.no-pad-no-marg{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 0px;
+}
+.no-padl{
+    padding-left: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.droite {
+    text-align: right;
+    align-items: right;
+}
+.vcenter {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.googlebt1 {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    background-image: url("../img/google_sign.png");
+    position: relative;
+    width: 500px;
+    height: 63px;
+}
+.googlebt2 {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #555;
+    text-decoration: none;
+    width: 486px;
+    height: 63px;
+}
+.profil-pic {
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
