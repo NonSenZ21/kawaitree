@@ -54,8 +54,7 @@
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="rounded-circle profil-pic" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="{% trans 'Profile' %}" />
-          </a>
+            <img class="rounded-circle profil-pic" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="{% trans 'Profile' %}"/></a>
           <div class="dropdown-menu dropdown-menu-end">
             <a class="dropdown-item" href="/accounts/logout/">{% trans "Logout" %}</a>
           </div>
