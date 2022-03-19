@@ -3,7 +3,7 @@
 {% block content %}
   {% load socialaccount %}
 <div class="container" xmlns="http://www.w3.org/1999/html">
-    <h1>{{ content.titre }}</h1>
+    <h1 class="mt-3">{{ content.titre }}</h1>
 
 <div class="accordion" id="accordiontrees">
     {% if not trees %}
@@ -19,17 +19,21 @@
     </h2>
     <div id="collapse{{ tree.id }}" class="accordion-collapse collapse" aria-labelledby="heading {{ tree.id }}" data-bs-parent="#accordiontrees">
       <div class="accordion-body">
-        <p>{% trans 'Species:' %} {{ tree.speciesfk.sname }} </br>
-        {% trans 'Description:' %} {{ tree.description }} </br>
-        <i><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></i></br>
-        <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small></br>
-        <small>{% trans 'Shop/ex-owner:' %} {{ tree.shop }} </small></br>
+        <p>{% trans 'Species:' %} {{ tree.speciesfk.sname }} <br>
+        {% trans 'Description:' %} {{ tree.description }} <br>
+        <i><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></i><br>
+        <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
+        <small>{% trans 'Shop/ex-owner:' %} {{ tree.shop }} </small><br>
         {{ tree.ownerfk }}
         </p>
+        <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Detail' %}</a>
+        <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
+        <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
       </div>
     </div>
   </div>
     {% endfor %}
+<a href="{% url 'tree-create'%}" class="btn btn-outline-success btn-sm mt-1" role="button" >{% trans 'Add a tree' %}</a>
 </div>
 
 

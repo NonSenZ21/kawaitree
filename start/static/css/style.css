@@ -29,7 +29,8 @@
     display: block;
     background-image: url("../img/google_sign.png");
     position: relative;
-    width: 390px;
+    min-width: 320px;
+    max-width: 360px;
     height: 63px;
     border: solid;
     border-width: 1px;
@@ -42,7 +43,7 @@
     vertical-align: middle;
     color: #555;
     text-decoration: none;
-    width: 390px;
+    min-width: 330px;
     height: 63px;
 }
 

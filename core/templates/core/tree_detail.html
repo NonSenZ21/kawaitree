@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+  {% load socialaccount %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1 class="mt-3">{% trans 'Detail' %}</h1>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
+      <div class="card-header">{{ object.tname }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{% trans 'Species:' %} {{ object.speciesfk.sname }}</h5>
+        <p class="card-text">{% trans 'Description:' %} {{ object.description }} <br>
+        <i><small>{% trans 'Planting date:' %} {{ object.bdate }} </small></i><br>
+        <small>{% trans 'Acquisition date:' %} {{ object.adate }} </small><br>
+        <small>{% trans 'Shop/ex-owner:' %} {{ object.shop }} </small><br>
+        {{ object.ownerfk }}<br>
+
+        <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
+        <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+        </p>
+      </div>
+    </div>
+</div>
+{% endblock content%}
