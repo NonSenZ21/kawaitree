@@ -3,6 +3,7 @@ backports.zoneinfo==0.2.1
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
+crispy-bootstrap5==0.6
 cryptography==36.0.1
 defusedxml==0.7.1
 Deprecated==1.2.13
@@ -15,6 +16,7 @@ django-shortcuts==1.6
 idna==3.3
 jwcrypto==1.0
 oauthlib==3.2.0
+Pillow==9.0.1
 pycparser==2.21
 PyJWT==2.3.0
 python3-openid==3.2.0
