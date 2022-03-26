@@ -7,8 +7,6 @@ db.sqlite3
 media
 settings.py
 
-# Secrets settings #
-/secrets.json
 
 # Backup files # 
 *.bak 

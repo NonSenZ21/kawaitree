@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from PIL import Image
+from django.utils.translation import gettext as _
+
 
 class Species(models.Model):
     sname = models.CharField(max_length=100)
@@ -9,14 +12,16 @@ class Species(models.Model):
     def __str__(self):
         return self.sname
 
+
 class Tree(models.Model):
-    tname = models.CharField(max_length=100)
-    shop = models.CharField(max_length=100, blank=True)
-    description = models.TextField(blank=True)
-    speciesfk = models.ForeignKey(Species, on_delete=models.CASCADE)
-    bdate = models.DateField(null=True, blank=True)
-    adate = models.DateField(null=True, blank=True, default=timezone.now)
-    ownerfk = models.ForeignKey(User, on_delete=models.CASCADE)
+    tname = models.CharField(max_length=100, verbose_name=_('Name'))
+    shop = models.CharField(max_length=100, blank=True, verbose_name=_('Shop/ex-owner'))
+    description = models.TextField(blank=True, verbose_name=_('Description'))
+    speciesfk = models.ForeignKey(Species, on_delete=models.CASCADE, verbose_name=_('Species'))
+    bdate = models.DateField(null=True, blank=True, verbose_name=_('Planting date'))
+    adate = models.DateField(null=True, blank=True, default=timezone.now, verbose_name=_('Acquisition date'))
+    ownerfk = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('Owner'))
+    treePic = models.ImageField(default='default.png', upload_to='tree_pics', verbose_name=_('Main picture'))
 
     def __str__(self):
         return self.tname
@@ -24,7 +29,29 @@ class Tree(models.Model):
     def get_absolute_url(self):
         return reverse('tree-detail', kwargs={'pk': self.pk})
 
+    def save(self, *args, **kwargs):
+        if not self.id and not self.treePic:
+            return
+        super(Tree, self).save(*args, **kwargs)
 
+        img = Image.open(self.treePic)
+        (width, height) = img.size
 
+        # resize @ 300px small size
+        if 300 / width < 300 / height:
+            factor = 300 / height
+        else:
+            factor = 300 / width
 
+        size = (int(width * factor), int(height * factor))
+        img = img.resize(size, Image.ANTIALIAS)
+        (width, height) = img.size
 
+        # crop @ 300 x 300 px
+        x1 = int((width - 300) / 2)
+        y1 = int((height - 300) / 2)
+        x2 = int((width + 300) / 2)
+        y2 = int((height + 300) / 2)
+        img = img.crop((x1, y1, x2, y2))
+
+        img.save(self.treePic.path)

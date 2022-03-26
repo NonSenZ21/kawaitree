@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.views.generic import (
     ListView,
     DetailView,
@@ -7,6 +8,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Species, Tree
+from .forms import TreeUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext as _
@@ -14,8 +16,6 @@ from django.utils.translation import gettext as _
 
 @login_required
 def tdb(request):
-
-    #trees = Tree.objects.all()
     trees = Tree.objects.filter(ownerfk=request.user).order_by('tname')
     content = {
         'titre': _("Dashboard"),
@@ -25,11 +25,31 @@ def tdb(request):
         'trees': trees}
     return render(request, 'core/tdb.html',context)
 
-class TreeListView(ListView):
-    model = Tree
-    #template_name = 'core/tree_list.html'
-    context_object_name = 'trees'
-    ordering = ['tname']
+@login_required
+def UpdateTree(request,pk):
+    tree = Tree.objects.filter(id=pk).first()
+
+    if request.method == 'POST':
+        tree_form = TreeUpdateForm(request.POST, request.FILES)
+        if tree_form.is_valid():
+            tree_form.instance.ownerfk = tree.ownerfk
+            tree_form.instance.id = pk
+            if tree_form.instance.treePic == "default.png" and tree.treePic != "default.png":
+                tree_form.instance.treePic = tree.treePic
+            tree_form.save()
+            messages.success(request, f'Your tree has been updated!')
+            messages.info(request, f'tree_form.instance.treePic : {tree_form.instance.treePic}')
+            messages.info(request, f'tree.treePic : {tree.treePic}')
+        else:
+            messages.warning(request, f'Something went wrong!')
+            return redirect('core-tdb')
+    else:
+        tree_form = TreeUpdateForm(instance=tree)
+
+    context = {
+        'tree_form': tree_form,
+    }
+    return render(request,'core/tree_form.html',context)
 
 class TreeListView(ListView):
     model = Tree
@@ -42,7 +62,7 @@ class TreeDetailView(DetailView):
 
 class TreeCreateView(LoginRequiredMixin, CreateView):
     model = Tree
-    fields = ['tname', 'shop', 'description', 'speciesfk', 'bdate', 'adate']
+    fields = ['tname', 'shop', 'description', 'speciesfk', 'bdate', 'adate', 'treePic']
 
     def form_valid(self, form):
         form.instance.ownerfk = self.request.user
@@ -50,7 +70,7 @@ class TreeCreateView(LoginRequiredMixin, CreateView):
 
 class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tree
-    fields = ['tname', 'shop', 'description', 'speciesfk', 'bdate', 'adate']
+    fields = ['tname', 'shop', 'description', 'speciesfk', 'bdate', 'adate', 'treePic']
 
     def form_valid(self, form):
         form.instance.ownerfk = self.request.user
@@ -61,6 +81,8 @@ class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == tree.ownerfk:
             return True
         return False
+
+
 
 class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tree

@@ -1,0 +1,89 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block content %}
+{% load socialaccount %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col col-xs-auto">
+                {% if user.socialaccount_set.all.0.get_avatar_url %}
+                    <img class="mr-3 mb-3 rounded-circle" src="{{ user.socialaccount_set.all.0.get_avatar_url }}">
+                {% endif %}
+            </div>
+            <div class="col">
+                <h1>{{ user.username }}</h1>
+                <p>{{ user.email }}</p>
+            </div>
+        </div>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {% if user.profile.public_profile %}
+                <p>{% trans 'Your profile is public. Other members can find your localisation, send you a message and see your collection.' %}</p>
+            {% else %}
+                <p>{% trans "Your profile is <strong>NOT</strong> public. Other members can't find your localisation, send you a message or see your collection." %}</p>
+            {% endif %}
+        </div>
+        <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
+            <div class="row">
+                <div class="col-xl">
+                  {{ uc_form.username|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                  {{ uc_form.email|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                  {{ pc_form.public_profile|as_crispy_field }}
+                </div>
+            </div>
+            <div class="alert alert-warning">
+                <p>{% trans 'This map will allow weather alerts and will help other members to contact you if your profile is public. We suggest you do not give your home address, but specify only your town, for privacy and security reasons.' %}</p>
+            </div>
+            <div id="profile_map"></div>
+            <div class="form-row">
+                <div class="col">
+                  {{ pc_form.lat|as_crispy_field }}
+                </div>
+                <div class="col">
+                  {{ pc_form.long|as_crispy_field }}
+                </div>
+
+            </div>
+            <div class="form-row">
+                <button class="btn btn-outline-success" type="submit">{% trans 'Update' %}</button>
+                <a href="{% url 'core-tdb' %}" class="btn btn-outline-info" type="cancel">{% trans 'Cancel' %}</a>
+                <a href="{% url 'user-delete' user.id %}" class="btn btn-outline-danger" type="Delete">{% trans 'Delete user' %}</a>
+            </div>
+
+         </fieldset>
+        </form>
+
+
+
+    </div>
+
+
+<script>
+    var lat = document.getElementById('id_lat').value;
+    var lon = document.getElementById('id_long').value;
+
+    var carte1 = L.map('profile_map').setView([lat, lon],5);
+    // On charge les "tuiles"
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        minZoom: 1,
+        maxZoom: 15
+    }).addTo(carte1);
+
+
+    var marqueur = L.marker([lat, lon], {draggable: 'True'}).addTo(carte1);
+    marqueur.on('dragend', function (e) {
+        document.getElementById('id_lat').value = marqueur.getLatLng().lat.toFixed(6);
+        document.getElementById('id_long').value = marqueur.getLatLng().lng.toFixed(6);
+    });
+
+</script>
+{% endblock content%}

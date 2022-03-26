@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+{% load socialaccount %}
+<div class="container">
+  <form method="post">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mp-4">{% trans 'Delete your account' %}</legend>
+      <h2>{% trans 'Are you sure you want to delete your account?'%}</h2>
+      <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <h4 class="alert-heading">{% trans 'WARNING!' %}</h4>
+        <p class="mb-0">{% trans 'Think about it twice. All your data will be lost! Not the end of the world but still...' %}</p>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-danger" type="submit">{% trans 'Yes delete' %}</button>
+      <a class="btn btn-outline-secondary" href="{% url 'core-tdb' %}">{% trans 'Cancel' %}</a>
+    </div>
+  </form>
+</div>
+{% endblock content%}

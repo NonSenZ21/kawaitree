@@ -1,9 +1,9 @@
 {% extends "start/base.html" %}
 {% load i18n %}
 {% block content %}
-  {% load socialaccount %}
+{% load socialaccount %}
   {% if user.is_authenticated %}
-  <div class="container">
+  <div class="container mt-3">
     <p><img class="rounded-circle" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" /></p>
     <p>{% trans "Welcome, You are logged in as " %}{{ user.username }}</p>
     <p>{% trans "Your email address is " %}{{ user.email }}</p>
@@ -12,28 +12,32 @@
     </div>
   </div>
     {% else %}
-    <div class="container">
-    <div class="card-deck">
-      <div class="card text-white bg-secondary float-start  mb-3" style="max-width: 50%;">
-      <div class="card-header">{% trans "What?" %}</div>
-      <div class="card-body">
-      <h4 class="card-title">{% trans "What is kawaïtree?" %}</h4>
-      <p class="card-text">{% trans "Kawaïtree is an app that help you manage your bonsaï collection." %}</p>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card text-white bg-secondary mb-3 float-left" style="max-width: 30rem;">
+            <div class="card-header">{% trans "What?" %}</div>
+            <div class="card-body">
+              <h4 class="card-title">{% trans "What is kawaïtree?" %}</h4>
+              <p class="card-text">{% trans "Kawaïtree is an app that help you manage your bonsaï collection." %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card text-white bg-secondary mb-3 float-left" style="max-width: 30rem;">
+            <div class="card-header">{% trans "How?" %}</div>
+            <div class="card-body">
+              <h4 class="card-title">{% trans "How can I create/use an account?" %}</h4>
+              <p class="card-text">{% trans "To create or use an account, just log in with Google." %}</p>
+              <div class="googlebt1">
+                <p><a class="googlebt2" href="{% provider_login_url 'google' %}">
+                {% trans "Login With Google" %}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
 
-      <div class="card text-white bg-secondary mb-3 float-end" style="min-width: 420px; max-width: 60%;">
-      <div class="card-header">{% trans "How?" %}</div>
-      <div class="card-body">
-      <h4 class="card-title">{% trans "How can I create/use an account?" %}</h4>
-      <p class="card-text">{% trans "To create or use an account, just log in with Google." %}</p>
-      <div class="googlebt1">
-        <p><a class="googlebt2" href="{% provider_login_url 'google' %}">
-          {% trans "Login With Google" %}</a></p>
-      </div>
-      </div>
-      </div>
-    </div>
-    </div>
   {% endif %}
 {% endblock content%}

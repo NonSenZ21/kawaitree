@@ -4,14 +4,15 @@
 {% block content %}
 {% load socialaccount %}
 <div class="container">
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mp-4">{% trans 'New tree' %}</legend>
+      <legend class="border-bottom mp-4">{% trans 'Tree' %}</legend>
       {{ form|crispy }}
     </fieldset>
     <div class="form-group">
-      <button class="btn btn-outline-info" type="submit">{% trans 'Add' %}</button>
+      <button class="btn btn-outline-success" type="submit">{% trans 'Ok' %}</button>
+      <a href="{% url 'core-tdb' %}" class="btn btn-outline-info">{% trans 'Cancel' %}</a>
     </div>
   </form>
 </div>

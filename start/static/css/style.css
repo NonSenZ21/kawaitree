@@ -29,7 +29,7 @@
     display: block;
     background-image: url("../img/google_sign.png");
     position: relative;
-    min-width: 320px;
+    min-width: 300px;
     max-width: 360px;
     height: 63px;
     border: solid;
@@ -52,3 +52,4 @@
     height: 50px;
     text-decoration: none;
 }
+#profile_map { height: 400px; }
