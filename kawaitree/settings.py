@@ -12,7 +12,17 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from .env import ENV
+import psycopg2.extensions
 import os
+
+if ENV == 'dev':
+    print('Environnement de développement')
+elif ENV == 'preprod':
+    print('Environnement de préproduction')
+else:
+    print('Environnement de production')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +35,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['MYSECRETKEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ENV == 'dev':
+    DEBUG = True
+    ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
+elif ENV == 'preprod':
+    DEBUG = True
+    ALLOWED_HOSTS = ['peter.nonsenz.lan','preprod.kawaitree.com']
+    CSRF_TRUSTED_ORIGINS = ['https://preprod.kawaitree.com','http://peter.nonsenz.lan:81']
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+
+else:
+    DEBUG = False
+    ALLOWED_HOSTS = ['peter.nonsenz.lan','kawaitree.com']
+    CSRF_TRUSTED_ORIGINS = ['https://kawaitree.com','http://peter.nonsenz.lan']
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 SITE_ID = 1
 LOGIN_URL = '/'
@@ -100,14 +122,35 @@ WSGI_APPLICATION = 'kawaitree.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if ENV == 'dev':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
+elif ENV == 'preprod':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'kawaitree-preprod',
+            'USER': os.environ['KAWAIDBUSERPP'],
+            'PASSWORD': os.environ['KAWAIDBPWPP'],
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'kawaitree',
+            'USER': os.environ['KAWAIDBUSER'],
+            'PASSWORD': os.environ['KAWAIDBPW'],
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -152,12 +195,10 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-
-]
-#STATIC_ROOT = "/home/nonsenz/prog/prj1/kawaitree/start/static/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = []
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
