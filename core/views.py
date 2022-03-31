@@ -12,6 +12,7 @@ from .forms import TreeUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext as _
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 
 
 @login_required
@@ -25,31 +26,31 @@ def tdb(request):
         'trees': trees}
     return render(request, 'core/tdb.html',context)
 
-@login_required
-def UpdateTree(request,pk):
-    tree = Tree.objects.filter(id=pk).first()
-
-    if request.method == 'POST':
-        tree_form = TreeUpdateForm(request.POST, request.FILES)
-        if tree_form.is_valid():
-            tree_form.instance.ownerfk = tree.ownerfk
-            tree_form.instance.id = pk
-            if tree_form.instance.treePic == "default.png" and tree.treePic != "default.png":
-                tree_form.instance.treePic = tree.treePic
-            tree_form.save()
-            messages.success(request, f'Your tree has been updated!')
-            messages.info(request, f'tree_form.instance.treePic : {tree_form.instance.treePic}')
-            messages.info(request, f'tree.treePic : {tree.treePic}')
-        else:
-            messages.warning(request, f'Something went wrong!')
-            return redirect('core-tdb')
-    else:
-        tree_form = TreeUpdateForm(instance=tree)
-
-    context = {
-        'tree_form': tree_form,
-    }
-    return render(request,'core/tree_form.html',context)
+# @login_required
+# def UpdateTree(request,pk):
+#     tree = Tree.objects.filter(id=pk).first()
+#
+#     if request.method == 'POST':
+#         tree_form = TreeUpdateForm(request.POST, request.FILES)
+#         if tree_form.is_valid():
+#             tree_form.instance.ownerfk = tree.ownerfk
+#             tree_form.instance.id = pk
+#             if tree_form.instance.treePic == "default.png" and tree.treePic != "default.png":
+#                 tree_form.instance.treePic = tree.treePic
+#             tree_form.save()
+#             messages.success(request, f'Your tree has been updated!')
+#             messages.info(request, f'tree_form.instance.treePic : {tree_form.instance.treePic}')
+#             messages.info(request, f'tree.treePic : {tree.treePic}')
+#         else:
+#             messages.warning(request, f'Something went wrong!')
+#             return redirect('core-tdb')
+#     else:
+#         tree_form = TreeUpdateForm(instance=tree)
+#
+#     context = {
+#         'tree_form': tree_form,
+#     }
+#     return render(request,'core/tree_form.html',context)
 
 class TreeListView(ListView):
     model = Tree
@@ -82,7 +83,10 @@ class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
-
+    def get_form(self):
+        form = super().get_form()
+        form.fields['bdate'].widget.attrs['type'] = 'date'
+        return form
 
 class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tree
