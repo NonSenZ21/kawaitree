@@ -1,5 +1,6 @@
+# from .forms import TreeUpdateForm
+# from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.views.generic import (
     ListView,
     DetailView,
@@ -8,11 +9,10 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Species, Tree
-from .forms import TreeUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext as _
-from bootstrap_datepicker_plus.widgets import DateTimePickerInput
+
 
 
 @login_required
