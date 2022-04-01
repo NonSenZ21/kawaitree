@@ -69,6 +69,12 @@ class TreeCreateView(LoginRequiredMixin, CreateView):
         form.instance.ownerfk = self.request.user
         return super().form_valid(form)
 
+    def get_form(self):
+        form = super().get_form()
+        form.fields['bdate'].widget.input_type = 'date'
+        form.fields['adate'].widget.input_type = 'date'
+        return form
+
 class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tree
     fields = ['tname', 'shop', 'description', 'speciesfk', 'bdate', 'adate', 'treePic']
@@ -85,7 +91,8 @@ class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_form(self):
         form = super().get_form()
-        form.fields['bdate'].widget.attrs['type'] = 'date'
+        form.fields['bdate'].widget.input_type = 'date'
+        form.fields['adate'].widget.input_type = 'date'
         return form
 
 class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
