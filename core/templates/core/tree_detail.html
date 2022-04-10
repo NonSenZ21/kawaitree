@@ -1,7 +1,7 @@
 {% extends "core/base.html" %}
 {% load i18n %}
 {% block content %}
-  {% load socialaccount %}
+{% load socialaccount %}
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <h1 class="mt-3">{% trans 'Detail' %}</h1>
     <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
@@ -13,11 +13,12 @@
             <p class="card-text">{% trans 'Description:' %} {{ object.description }} <br>
             <i><small>{% trans 'Planting date:' %} {{ object.bdate }} </small></i><br>
             <small>{% trans 'Acquisition date:' %} {{ object.adate }} </small><br>
-            <small>{% trans 'Shop/ex-owner:' %} {{ object.shop }} </small><br>
+            <small>{% trans 'Origin:' %} {{ object.originfk }} </small><br>
             {{ object.ownerfk }}<br>
-
-            <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
-            <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            {% if request.user == object.ownerfk %}
+              <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
+              <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            {% endif %}
             </p>
           </div>
           <div class="col">

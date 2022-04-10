@@ -12,12 +12,17 @@ class Species(models.Model):
     def __str__(self):
         return self.sname
 
+class Origin(models.Model):
+    oname = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.oname
 
 class Tree(models.Model):
     tname = models.CharField(max_length=100, verbose_name=_('Name'))
-    shop = models.CharField(max_length=100, blank=True, verbose_name=_('Shop/ex-owner'))
+    originfk = models.ForeignKey(Origin, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Origin'))
     description = models.TextField(blank=True, verbose_name=_('Description'))
-    speciesfk = models.ForeignKey(Species, on_delete=models.CASCADE, verbose_name=_('Species'))
+    speciesfk = models.ForeignKey(Species, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Species'))
     bdate = models.DateField(null=True, blank=True, verbose_name=_('Planting date'))
     adate = models.DateField(null=True, blank=True, default=timezone.now, verbose_name=_('Acquisition date'))
     ownerfk = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('Owner'))
@@ -55,3 +60,19 @@ class Tree(models.Model):
         img = img.crop((x1, y1, x2, y2))
 
         img.save(self.treePic.path)
+
+class Tasklist(models.Model):
+    tlname = models.CharField(max_length=100, verbose_name=_('Name'))
+
+    def __str__(self):
+        return self.tlname
+
+class Task(models.Model):
+    tasklistfk = models.ForeignKey(Tasklist, default=1, on_delete=models.SET_DEFAULT, verbose_name=_('Type'))
+    treefk = models.ForeignKey(Tree, on_delete=models.CASCADE, verbose_name=_('Tree'))
+    description = models.TextField(blank=True, verbose_name=_('Description'))
+    plan_date = models.DateField(null=True, blank=True, verbose_name=_('Planned date'))
+    real_date = models.DateField(null=True, blank=True, verbose_name=_('Realisation date'))
+
+    def get_absolute_url(self):
+        return reverse('tree-detail', kwargs={'pk': self.treefk.id})

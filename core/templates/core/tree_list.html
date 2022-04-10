@@ -23,7 +23,7 @@
         {% trans 'Description:' %} {{ tree.description }} <br>
         <i><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></i><br>
         <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
-        <small>{% trans 'Shop/ex-owner:' %} {{ tree.shop }} </small><br>
+        <small>{% trans 'Origin:' %} {{ tree.originfk }} </small><br>
         {{ tree.ownerfk }}
         </p>
         <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Detail' %}</a>

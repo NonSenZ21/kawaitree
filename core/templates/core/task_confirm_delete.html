@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+{% load socialaccount %}
+<div class="container">
+  <form method="post">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mp-4">{% trans 'Delete task' %}</legend>
+      <h2>{% trans 'Are you sure you want to delete the task'%} "{{ object.tasklistfk }}" {% trans 'for the tree' %} "{{ object.treefk }}" ?</h2>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-danger" type="submit">{% trans 'Yes delete' %}</button>
+      <a class="btn btn-outline-secondary" href="{% url 'core-tdb' %}">{% trans 'Cancel' %}</a>
+    </div>
+  </form>
+</div>
+{% endblock content%}

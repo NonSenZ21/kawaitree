@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load i18n %}
+
 {% load crispy_forms_tags %}
 {% block content %}
 {% load socialaccount %}
@@ -8,13 +9,13 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mp-4">{% trans 'Tree' %}</legend>
+      <legend class="border-bottom mp-4">{% trans 'Task' %}</legend>
       <div class="row">
         <div class="col-xl">
-          {{ form.tname|as_crispy_field }}
+          {{ form.tasklistfk|as_crispy_field }}
         </div>
         <div class="col-xl">
-          {{ form.originfk|as_crispy_field }}
+          {{ form.treefk|as_crispy_field }}
         </div>
       </div>
       <div class="row">
@@ -24,21 +25,16 @@
       </div>
       <div class="row">
         <div class="col-xl">
-          <div id="div_id_bdate" class="mb-3">
-              <label for="id_bdate" class="form-label">{% trans 'Planting date' %}</label>
-              <input type="date" name="bdate" value="{{ form.bdate.value|date:'Y-m-d' }}" class="dateinput form-control" id="id_bdate">
+          <div id="div_id_plan_date" class="mb-3">
+              <label for="id_plan_date" class="form-label">{% trans 'Planned date' %}</label>
+              <input type="date" name="plan_date" value="{{ form.plan_date.value|date:'Y-m-d' }}" class="dateinput form-control" id="id_plan_date">
           </div>
         </div>
         <div class="col-xl">
-          <div id="div_id_adate" class="mb-3">
-              <label for="id_adate" class="form-label">{% trans 'Acquisition date' %}</label>
-              <input type="date" name="adate" value="{{ form.adate.value|date:'Y-m-d' }}" class="dateinput form-control" id="id_adate">
+          <div id="div_id_real_date" class="mb-3">
+              <label for="id_real_date" class="form-label">{% trans 'Realisation date' %}</label>
+              <input type="date" name="real_date" value="{{ form.real_date.value|date:'Y-m-d' }}" class="dateinput form-control" id="id_real_date">
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl">
-          {{ form.treePic|as_crispy_field }}
         </div>
       </div>
     </fieldset>
