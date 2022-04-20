@@ -1,10 +1,5 @@
-from django import forms
 from django.forms import ModelForm
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
-from .models import Task,Tree
+from .models import Task, Photo
 
 
 class TaskCreateForm(ModelForm):
@@ -15,10 +10,18 @@ class TaskCreateForm(ModelForm):
 
     class Meta:
         model = Task
-        fields = ['tasklistfk', 'treefk', 'description', 'plan_date', 'real_date']
+        fields = ['tasklistfk', 'treefk', 'description', 'plan_date', 'real_date', 'url']
+
 
 class TaskUpdateForm(ModelForm):
 
     class Meta:
         model = Task
-        fields = ['tasklistfk', 'treefk', 'description', 'plan_date', 'real_date']
+        fields = ['tasklistfk', 'treefk', 'description', 'plan_date', 'real_date', 'url']
+
+
+class PhotoCreateForm(ModelForm):
+
+    class Meta:
+        model = Photo
+        fields = ['treefk', 'taskfk', 'description', 'shot_date', 'before_pic', 'after_pic', 'picture', 'thumb']

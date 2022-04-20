@@ -9,7 +9,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Tree, Task
-from .forms import TaskCreateForm, TaskUpdateForm
+from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext as _
@@ -38,12 +38,14 @@ def tdb(request):
     }
     return render(request, 'core/tdb.html', context)
 
+
 # Manage the trees
 class TreeListView(ListView):
     model = Tree
     # template_name = 'core/tree_list.html'
     context_object_name = 'trees'
     ordering = ['tname']
+
 
 class TreeDetailView(UserPassesTestMixin, DetailView):
     model = Tree
@@ -54,9 +56,10 @@ class TreeDetailView(UserPassesTestMixin, DetailView):
             return True
         return False
 
+
 class TreeCreateView(LoginRequiredMixin, CreateView):
     model = Tree
-    fields = ['tname', 'originfk', 'description', 'speciesfk', 'bdate', 'adate', 'treePic']
+    fields = ['tname', 'originfk', 'description', 'speciesfk', 'bdate', 'adate', 'treePic', 'url']
 
     def form_valid(self, form):
         form.instance.ownerfk = self.request.user
@@ -68,9 +71,10 @@ class TreeCreateView(LoginRequiredMixin, CreateView):
         form.fields['adate'].widget.input_type = 'date'
         return form
 
+
 class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tree
-    fields = ['tname', 'originfk', 'description', 'speciesfk', 'bdate', 'adate', 'treePic']
+    fields = ['tname', 'originfk', 'description', 'speciesfk', 'bdate', 'adate', 'treePic', 'url']
 
     def form_valid(self, form):
         form.instance.ownerfk = self.request.user
@@ -87,6 +91,7 @@ class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.fields['bdate'].widget.input_type = 'date'
         form.fields['adate'].widget.input_type = 'date'
         return form
+
 
 class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tree
@@ -98,7 +103,18 @@ class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
 # Manage the tasks
+class TaskDetailView(UserPassesTestMixin, DetailView):
+    model = Task
+
+    def test_func(self):
+        task = self.get_object()
+        if self.request.user == task.treefk.ownerfk or task.treefk.ownerfk.profile.public_profile:
+            return True
+        return False
+
+
 @login_required
 def TaskCreate(request, treepk):
     # tree = Tree.objects.get(id=treepk)
@@ -143,6 +159,31 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == task.treefk.ownerfk:
             return True
         return False
+
+@login_required
+def PhotoCreate(request):
+    form = PhotoCreateForm()
+    # form.fields['shot_date'].widget.input_type = 'date'
+    # form.fields['treefk'].queryset = Tree.objects.filter(pk=treepk)
+
+    if request.method == 'POST':
+        form = PhotoCreateForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            # form.fields['thumb'] = form.fields['picture']
+            form.save()
+            return redirect('core-tdb')
+        else:
+            print("error !!!!")
+            print(form.errors)
+            print(form.non_field_errors)
+            print(request.POST)
+            return redirect('photo-create')
+    else:
+        context = {'form': form}
+        return render(request, 'core/photo_form.html', context)
+
+
 
 @login_required
 def about(request):
