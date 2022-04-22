@@ -5,23 +5,59 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <h1 class="mt-3">{% trans 'Details' %}</h1>
     <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
-      <div class="card-header">{{ object.tasklistfk }}</div>
+      <div class="card-header">{{ task.tasklistfk }}</div>
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title">{% trans 'Tree:' %} <i>{{ object.treefk }}</i></h5>
-            <p class="card-text">{% trans 'Description:' %} <i>{{ object.description }} </i><br>
-            <span class="font-italic"><small>{% trans 'Planned date:' %} {{ object.plan_date }} </small></span><br>
-            <small>{% trans 'Realisation date:' %} {{ object.real_date }} </small><br>
-            {% if object.url %}
-              <a href="{{ object.url }}" target="_blank">{{ object.url }}</a><br>
-            {% endif %}
-            <br>
-            {% if request.user == object.treefk.ownerfk %}
-              <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
-              <a href="{% url 'task-delete' task.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            <h5 class="card-title">{% trans 'Tree:' %} <i><a href="{% url 'tree-detail' task.treefk.id %}">{{ task.treefk }}</a></i></h5>
+            <p class="card-text">{% trans 'Description:' %} <i>{{ task.description }} </i><br>
+            <span class="font-italic"><small>{% trans 'Planned date:' %} {{ task.plan_date }} </small></span><br>
+            <small>{% trans 'Realisation date:' %} {{ task.real_date }} </small><br>
+            {% if task.url %}
+              <a href="{{ task.url }}" target="_blank">{{ task.url }}</a><br>
             {% endif %}
             </p>
+            {% if request.user == task.treefk.ownerfk %}
+              <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
+              <a href="{% url 'task-delete' task.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            </div>
+          {% endif %}
+        </div>
+        {% if photos_before %}
+        <div class="row mt-2 mb-2">
+          <h5>Before</h5>
+        {% for photo in photos_before %}
+          <div class="col mt-2 mb-2">
+              <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
+          </div>
+        {% endfor%}
+        </div>
+        {% endif %}
+        {% if photos_during %}
+        <div class="row mt-2 mb-2">
+          <h5>During</h5>
+        {% for photo in photos_during %}
+          <div class="col mt-2 mb-2">
+              <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
+          </div>
+        {% endfor%}
+        </div>
+        {% endif %}
+        {% if photos_after %}
+        <div class="row mt-2 mb-2">
+          <h5>After</h5>
+        {% for photo in photos_after %}
+          <div class="col mt-2 mb-2">
+              <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
+          </div>
+        {% endfor%}
+        </div>
+        {% endif %}
+      <div class="row mt-2 mb-2">
+        <div class="col mt-2 mb-2">
+            {% if request.user == task.treefk.ownerfk %}
+              <a href="{% url 'photo-create' task.treefk.id task.id %}" class="btn btn-outline-success btn-sm mt-1" role="button" >{% trans 'Add picture' %}</a>
+            {% endif %}
           </div>
         </div>
       </div>

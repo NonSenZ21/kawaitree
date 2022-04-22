@@ -5,30 +5,84 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <h1 class="mt-3">{% trans 'Details' %}</h1>
     <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
-      <div class="card-header">{{ object.tname }}</div>
+      <div class="card-header">{{ tree.tname }}</div>
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title">{% trans 'Species:' %} <i>{{ object.speciesfk }}</i></h5>
-            <p class="card-text">{% trans 'Description:' %} <i>{{ object.description }} </i><br>
-            <span class="font-italic"><small>{% trans 'Planting date:' %} {{ object.bdate }} </small></span><br>
-            <small>{% trans 'Acquisition date:' %} {{ object.adate }} </small><br>
-            <small>{% trans 'Origin:' %} {{ object.originfk }} </small><br>
-            {{ object.ownerfk }}<br>
-            {% if object.url %}
-              <a href="{{ object.url }}" target="_blank">{{ object.url }}</a><br>
+            <h5 class="card-title">{% trans 'Species:' %} <i>{{ tree.speciesfk }}</i></h5>
+            <p class="card-text">{% trans 'Description:' %} <i>{{ tree.description }} </i><br>
+            <span class="font-italic"><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></span><br>
+            <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
+            <small>{% trans 'Origin:' %} {{ tree.originfk }} </small><br>
+            {{ tree.ownerfk }}</p>
+            {% if tree.url %}
+              <a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a><br>
             {% endif %}
             <br>
-            {% if request.user == object.ownerfk %}
-              <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
-              <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            {% if request.user == tree.ownerfk %}
+              <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button">{% trans 'Edit' %}</a>
+              <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button">{% trans 'Delete' %}</a>
             {% endif %}
-            </p>
           </div>
           <div class="col">
             <img src="{{ tree.treePic.url }}">
           </div>
         </div>
+        <div class="row mt-2 mb-2">
+        {% for photo in photos %}
+          <div class="col mt-2 mb-2">
+              <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
+          </div>
+        {% endfor%}
+        </div>
+        {% if request.user == tree.ownerfk %}
+        <div class="row mt-2 mb-2">
+          <div class="col">
+              <a href="{% url 'photo-create' tree.id '0' %}" class="btn btn-outline-success btn-sm mt-1" role="button">{% trans 'Add picture' %}</a>
+          </div>
+        </div>
+        {% endif %}
+        {% if tasks %}
+        <table class="table table-dark mt-2">
+            <thead>
+              <tr>
+                <th>{% trans 'Task' %}</th>
+                <th>{% trans 'Planned date' %}</th>
+                <th>{% trans 'Realisation date' %}</th>
+                <th></th>
+                <th class="d-none d-md-table-cell"></th>
+                <th class="d-none d-md-table-cell"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for task in tasks %}
+              <tr>
+                {% if task.treefk == tree %}
+                  <td>
+                    {{ task.tasklistfk }}
+                  </td>
+                  <td>
+                    {{ task.plan_date }}
+                  </td>
+                  <td>
+                    {{ task.real_date }}
+                  </td>
+                  <td>
+                    <a href="{% url 'task-detail' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Details' %}</a>
+                  </td>
+                  <td class="d-none d-md-table-cell">
+                    <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Edit' %}</a>
+                  </td>
+                  <td class="d-none d-md-table-cell">
+                    <a href="{% url 'task-delete' task.id %}" class="btn btn-outline-danger btn-sm mt-1" role="button" >{% trans 'Delete' %}</a>
+                  </td>
+                {% endif %}
+            </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <a href="{% url 'task-create' tree.id %}" class="btn btn-outline-success btn-sm mt-1" role="button" >{% trans 'Add task' %}</a>
+        {% endif %}
       </div>
     </div>
 </div>

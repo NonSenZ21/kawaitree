@@ -1,5 +1,5 @@
 # from .forms import TreeUpdateForm
-# from django.contrib import messages
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.generic import (
     ListView,
@@ -8,12 +8,13 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Tree, Task
+from .models import Tree, Task, Photo
 from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext as _
 from django.utils import timezone
+from PIL import Image
 from datetime import timedelta
 
 
@@ -27,6 +28,9 @@ def tdb(request):
                                                                       plan_date__gt=timezone.now(),
                                                                       plan_date__lt=timezone.now() + timedelta(
                                                                           days=92)).order_by('plan_date')
+    overduetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
+                                                                      plan_date__isnull=False,
+                                                                      plan_date__lt=timezone.now()).order_by('plan_date')
     content = {
         'titre': _("Dashboard"),
     }
@@ -35,6 +39,7 @@ def tdb(request):
         'trees': trees,
         'tasks': tasks,
         'nexttasks': nexttasks,
+        'overduetasks': overduetasks,
     }
     return render(request, 'core/tdb.html', context)
 
@@ -47,14 +52,17 @@ class TreeListView(ListView):
     ordering = ['tname']
 
 
-class TreeDetailView(UserPassesTestMixin, DetailView):
-    model = Tree
+def treedetail(request, pk):
+    tree = Tree.objects.get(pk=pk)
+    tasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
+    photos = Photo.objects.filter(treefk=pk)
+    if request.user != tree.ownerfk and not tree.ownerfk.profile.public_profile:
+        mes = _("Trying to see private tree?")
+        messages.warning(request, mes)
+        return redirect('core-tdb')
 
-    def test_func(self):
-        tree = self.get_object()
-        if self.request.user == tree.ownerfk or tree.ownerfk.profile.public_profile:
-            return True
-        return False
+    context = {'tree': tree, 'photos': photos, 'tasks': tasks}
+    return render(request, 'core/tree_detail.html', context)
 
 
 class TreeCreateView(LoginRequiredMixin, CreateView):
@@ -65,7 +73,7 @@ class TreeCreateView(LoginRequiredMixin, CreateView):
         form.instance.ownerfk = self.request.user
         return super().form_valid(form)
 
-    def get_form(self):
+    def get_form(self, *args, **kwargs):
         form = super().get_form()
         form.fields['bdate'].widget.input_type = 'date'
         form.fields['adate'].widget.input_type = 'date'
@@ -86,7 +94,7 @@ class TreeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
-    def get_form(self):
+    def get_form(self, *args, **kwargs):
         form = super().get_form()
         form.fields['bdate'].widget.input_type = 'date'
         form.fields['adate'].widget.input_type = 'date'
@@ -105,18 +113,23 @@ class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 # Manage the tasks
-class TaskDetailView(UserPassesTestMixin, DetailView):
-    model = Task
+def taskdetail(request, pk):
+    task = Task.objects.get(pk=pk)
+    photos_before = Photo.objects.filter(taskfk=pk).filter(before_pic=True)
+    photos_during = Photo.objects.filter(taskfk=pk).exclude(before_pic=True).exclude(after_pic=True)
+    photos_after = Photo.objects.filter(taskfk=pk).filter(after_pic=True)
+    if request.user != task.treefk.ownerfk and not task.treefk.ownerfk.profile.public_profile:
+        mes = _("Trying to see private task?")
+        messages.warning(request, mes)
+        return redirect('core-tdb')
 
-    def test_func(self):
-        task = self.get_object()
-        if self.request.user == task.treefk.ownerfk or task.treefk.ownerfk.profile.public_profile:
-            return True
-        return False
+    context = {'task': task, 'photos_before': photos_before, 'photos_during': photos_during,
+               'photos_after': photos_after}
+    return render(request, 'core/task_detail.html', context)
 
 
 @login_required
-def TaskCreate(request, treepk):
+def taskcreate(request, treepk):
     # tree = Tree.objects.get(id=treepk)
     form = TaskCreateForm()
     form.fields['plan_date'].widget.input_type = 'date'
@@ -124,16 +137,25 @@ def TaskCreate(request, treepk):
     form.fields['treefk'].queryset = Tree.objects.filter(pk=treepk)
 
     if request.method == 'POST':
+
+        print('request.post', request.POST.get('plan_date'))
         form = TaskCreateForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('core-tdb')
+            if not request.POST.get('plan_date') and not request.POST.get('real_date'):
+                mes = _("You need to specify a planned date or a realisation date please.")
+                messages.warning(request, mes)
+                context = {'form': form}
+                return render(request, 'core/task_form.html', context)
+            else:
+                form.save()
+                return redirect('core-tdb')
     else:
         context = {'form': form}
         return render(request, 'core/task_form.html', context)
 
+
 @login_required
-def TaskUpdate(request, pk):
+def taskupdate(request, pk):
     task = Task.objects.get(id=pk)
     form = TaskUpdateForm(instance=task)
     form.fields['plan_date'].widget.input_type = 'date'
@@ -143,8 +165,14 @@ def TaskUpdate(request, pk):
     if request.method == 'POST':
         form = TaskUpdateForm(request.POST, instance=task)
         if form.is_valid():
-            form.save()
-            return redirect('core-tdb')
+            if not request.POST.get('plan_date') and not request.POST.get('real_date'):
+                mes = _("You need to specify a planned date or a realisation date please.")
+                messages.warning(request, mes)
+                context = {'form': form}
+                return render(request, 'core/task_form.html', context)
+            else:
+                form.save()
+                return redirect('core-tdb')
     else:
         context = {'form': form}
         return render(request, 'core/task_form.html', context)
@@ -160,29 +188,70 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
+class PhotoDetailView(UserPassesTestMixin, DetailView):
+    model = Photo
+
+    def test_func(self):
+        photo = self.get_object()
+        if self.request.user == photo.treefk.ownerfk or photo.treefk.ownerfk.profile.public_profile:
+            return True
+        return False
+
+
 @login_required
-def PhotoCreate(request):
+def photocreate(request, tree, task):
+    if tree == 0:
+        mes = _('Trying to add an image to unidentified tree?')
+        messages.warning(request, mes)
+        return redirect('core-tdb')
+    else:
+        mytree = Tree.objects.get(id=tree)
+        if mytree.ownerfk != request.user:
+            mes = _("Trying to add an image to someone else's tree?")
+            messages.warning(request, mes)
+            return redirect('core-tdb')
+
     form = PhotoCreateForm()
-    # form.fields['shot_date'].widget.input_type = 'date'
-    # form.fields['treefk'].queryset = Tree.objects.filter(pk=treepk)
 
     if request.method == 'POST':
-        form = PhotoCreateForm(request.POST,request.FILES)
+        form = PhotoCreateForm(request.POST, request.FILES)
 
         if form.is_valid():
-            # form.fields['thumb'] = form.fields['picture']
-            form.save()
+            img = Image.open(request.FILES['picture'])
+            if img.format != 'JPEG':
+                mes = _('Only JPG images are allowed, sorry!')
+                messages.warning(request, mes)
+                return redirect('photo-create', tree=tree, task=task)
+            else:
+                form.save()
+
+
             return redirect('core-tdb')
         else:
-            print("error !!!!")
-            print(form.errors)
-            print(form.non_field_errors)
-            print(request.POST)
-            return redirect('photo-create')
+            mes = _("Your form is not valid and I don't know why!")
+            messages.warning(request, mes)
+            return redirect('core-tdb')
     else:
+        form.fields['treefk'].queryset = Tree.objects.filter(pk=tree)
+        if task == 0:
+            form.fields['taskfk'].queryset = Task.objects.filter(treefk=tree)
+        else:
+            form.fields['taskfk'].queryset = Task.objects.filter(pk=task)
+            form.initial['taskfk'] = task
         context = {'form': form}
         return render(request, 'core/photo_form.html', context)
 
+
+class PhotoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Photo
+    success_url = '/core/'
+
+    def test_func(self):
+        photo = self.get_object()
+        if self.request.user == photo.treefk.ownerfk:
+            return True
+        return False
 
 
 @login_required

@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+{% load socialaccount %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1 class="mt-3">{% trans 'Details' %}</h1>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
+      <div class="card-header">{{ object.treefk }}</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <p class="card-text">
+              {% if object.taskfk %}
+                {% trans 'Task:' %} <i>{{ object.taskfk }} </i><br>
+              {% endif %}
+              {% trans 'Description:' %} <i>{{ object.description }} </i><br>
+            <small>{% trans 'Shot date:' %} {{ object.shot_date }} </small><br>
+            {% if object.before_pic %}
+              <i>{% trans 'Picture taken before executing the task.' %}</i><br>
+            {% endif %}
+            {% if object.after_pic %}
+              <i>{% trans 'Picture taken after executing the task.' %}</i><br>
+            {% endif %}
+            </p>
+          </div>
+        </div>
+        <div class="row mt-2 mb-2">
+          <div class="col">
+            <img src="{{ object.picture.url }}">
+          </div>
+        </div>
+            {% if request.user == object.treefk.ownerfk %}
+              <a href="{% url 'photo-delete' photo.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+            {% endif %}
+      </div>
+    </div>
+</div>
+{% endblock content%}

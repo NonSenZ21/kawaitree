@@ -5,7 +5,7 @@ from .models import Task, Photo
 class TaskCreateForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
-        super(TaskCreateForm, self).__init__(*args, **kwargs)  # populates the post
+        super(TaskCreateForm, self).__init__(*args, **kwargs)
         self.fields['treefk'].empty_label = None
 
     class Meta:
@@ -21,6 +21,10 @@ class TaskUpdateForm(ModelForm):
 
 
 class PhotoCreateForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(PhotoCreateForm, self).__init__(*args, **kwargs)
+        self.fields['treefk'].empty_label = None
 
     class Meta:
         model = Photo

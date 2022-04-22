@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
+from datetime import datetime
 from django.utils.translation import gettext as _
 import os
 
@@ -84,6 +85,14 @@ class Task(models.Model):
     def get_absolute_url(self):
         return reverse('tree-detail', kwargs={'pk': self.treefk.id})
 
+    def __str__(self):
+        if self.real_date:
+            real_date = self.real_date.strftime('%d/%m/%Y')
+            task_string = self.treefk.__str__() + " - " + self.tasklistfk.__str__() + " - " + str(real_date)
+        else:
+            plan_date = self.plan_date.strftime('%d/%m/%Y')
+            task_string = self.treefk.__str__() + " - " + self.tasklistfk.__str__() + " - " + str(plan_date)
+        return task_string
 
 class Photo(models.Model):
     treefk = models.ForeignKey(Tree, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Tree'))
