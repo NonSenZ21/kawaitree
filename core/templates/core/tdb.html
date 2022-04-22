@@ -40,7 +40,7 @@
                     {{ overduetask.tasklistfk }}
                   </td>
                   <td>
-                    <a href="{% url 'task-detail' overduetask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Details' %}</a>
+                    <a href="{% url 'task-detail' overduetask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Detail' %}</a>
                   </td>
                   <td class="d-none d-md-table-cell">
                     <a href="{% url 'task-update' overduetask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Edit' %}</a>
@@ -96,7 +96,7 @@
                     {{ nexttask.tasklistfk }}
                   </td>
                   <td>
-                    <a href="{% url 'task-detail' nexttask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Details' %}</a>
+                    <a href="{% url 'task-detail' nexttask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Detail' %}</a>
                   </td>
                   <td class="d-none d-md-table-cell">
                     <a href="{% url 'task-update' nexttask.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Edit' %}</a>
@@ -138,7 +138,7 @@
                 <br><a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a>
               {% endif %}
               </p>
-              <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Details' %}</a>
+              <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Detail' %}</a>
               <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
               <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
             </div>
@@ -171,7 +171,7 @@
                     {{ task.real_date }}
                   </td>
                   <td>
-                    <a href="{% url 'task-detail' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Details' %}</a>
+                    <a href="{% url 'task-detail' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Detail' %}</a>
                   </td>
                   <td class="d-none d-md-table-cell">
                     <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Edit' %}</a>

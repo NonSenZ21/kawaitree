@@ -30,7 +30,7 @@
         {% endif %}
         </p>
         {% if tree.ownerfk == request.user %}
-          <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Details' %}</a>
+          <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Detail' %}</a>
           <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
           <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
         {% endif %}

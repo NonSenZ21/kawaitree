@@ -52,4 +52,10 @@
     height: 50px;
     text-decoration: none;
 }
+.autoresizeimg {
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+}
+
 #profile_map { height: 400px; }

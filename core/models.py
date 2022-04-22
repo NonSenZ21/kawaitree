@@ -130,7 +130,7 @@ class Photo(models.Model):
             img = img.resize(size, Image.ANTIALIAS)
             (width, height) = img.size
 
-        img.save(self.picture.path)
+        img.save(self.picture.path, 'JPEG', quality=85)
 
 
         # resize thumbnail @ 150 px height max size
@@ -141,7 +141,7 @@ class Photo(models.Model):
             size = (int(150 * ratio), 150)
             thumb = thumb.resize(size, Image.ANTIALIAS)
 
-        thumb.save(self.thumb.path)
+        thumb.save(self.thumb.path, 'JPEG')
         thumb.close()
         img.close()
 

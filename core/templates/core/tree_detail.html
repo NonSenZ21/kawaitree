@@ -3,7 +3,7 @@
 {% block content %}
 {% load socialaccount %}
 <div class="container" xmlns="http://www.w3.org/1999/html">
-    <h1 class="mt-3">{% trans 'Details' %}</h1>
+    <h1 class="mt-3">{% trans 'Detail' %}</h1>
     <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
       <div class="card-header">{{ tree.tname }}</div>
       <div class="card-body">
@@ -68,7 +68,7 @@
                     {{ task.real_date }}
                   </td>
                   <td>
-                    <a href="{% url 'task-detail' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Details' %}</a>
+                    <a href="{% url 'task-detail' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Detail' %}</a>
                   </td>
                   <td class="d-none d-md-table-cell">
                     <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm mt-1" role="button" >{% trans 'Edit' %}</a>

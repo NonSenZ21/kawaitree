@@ -24,13 +24,15 @@ def tdb(request):
     trees = Tree.objects.filter(ownerfk=request.user).order_by('tname')
     tasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by('-real_date')
     nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
+                                                                      real_date__isnull=True,
                                                                       plan_date__isnull=False,
                                                                       plan_date__gt=timezone.now(),
                                                                       plan_date__lt=timezone.now() + timedelta(
                                                                           days=92)).order_by('plan_date')
     overduetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
-                                                                      plan_date__isnull=False,
-                                                                      plan_date__lt=timezone.now()).order_by('plan_date')
+                                                                         real_date__isnull=True,
+                                                                         plan_date__isnull=False,
+                                                                         plan_date__lt=timezone.now()).order_by('plan_date')
     content = {
         'titre': _("Dashboard"),
     }
@@ -225,9 +227,13 @@ def photocreate(request, tree, task):
                 return redirect('photo-create', tree=tree, task=task)
             else:
                 form.save()
+            if task != 0:
+                return redirect('task-detail', pk=task)
+            elif tree !=0:
+                return redirect('tree-detail', pk=tree)
+            else:
+                return redirect('photo-create', tree=tree, task=task)
 
-
-            return redirect('core-tdb')
         else:
             mes = _("Your form is not valid and I don't know why!")
             messages.warning(request, mes)
