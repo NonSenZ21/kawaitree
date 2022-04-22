@@ -41,14 +41,14 @@ if ENV == 'dev':
 
 elif ENV == 'preprod':
     DEBUG = True
-    ALLOWED_HOSTS = ['peter.nonsenz.lan','preprod.kawaitree.com']
-    CSRF_TRUSTED_ORIGINS = ['https://preprod.kawaitree.com','http://peter.nonsenz.lan:81']
+    ALLOWED_HOSTS = ['peter.nonsenz.lan', 'preprod.kawaitree.com']
+    CSRF_TRUSTED_ORIGINS = ['https://preprod.kawaitree.com', 'http://peter.nonsenz.lan:81']
     ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 else:
     DEBUG = False
-    ALLOWED_HOSTS = ['peter.nonsenz.lan','kawaitree.com']
-    CSRF_TRUSTED_ORIGINS = ['https://kawaitree.com','http://peter.nonsenz.lan']
+    ALLOWED_HOSTS = ['peter.nonsenz.lan', 'kawaitree.com']
+    CSRF_TRUSTED_ORIGINS = ['https://kawaitree.com', 'http://peter.nonsenz.lan']
     ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 SITE_ID = 1
@@ -76,7 +76,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'crispy_forms',
     'crispy_bootstrap5',
-
+    'vinaigrette',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'vinaigrette.middleware.VinaigretteAdminLanguageMiddleware',
 ]
 SOCIALACCOUNT_PROVIDERS = {
    'google': {
@@ -176,7 +177,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-#LANGUAGE_CODE = 'fr'
+# LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 USE_I18N = True

@@ -1,4 +1,3 @@
-# from .forms import TreeUpdateForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.generic import (
@@ -12,7 +11,7 @@ from .models import Tree, Task, Photo
 from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from PIL import Image
 from datetime import timedelta

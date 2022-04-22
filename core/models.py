@@ -4,22 +4,27 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
 from datetime import datetime
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 import os
 
 
 class Species(models.Model):
-    sname = models.CharField(max_length=100)
+    cat = models.CharField(max_length=3, default='A')
+    name = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ('cat', 'name')
 
     def __str__(self):
-        return self.sname
+        specstr = self.cat + ' - ' + self.name
+        return specstr
 
 
 class Origin(models.Model):
-    oname = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.oname
+        return self.name
 
 
 class Tree(models.Model):
@@ -68,10 +73,10 @@ class Tree(models.Model):
 
 
 class Tasklist(models.Model):
-    tlname = models.CharField(max_length=100, verbose_name=_('Name'))
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
 
     def __str__(self):
-        return self.tlname
+        return self.name
 
 
 class Task(models.Model):

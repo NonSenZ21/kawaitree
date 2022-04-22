@@ -19,7 +19,7 @@
     </h2>
     <div id="collapse{{ tree.id }}" class="accordion-collapse collapse" aria-labelledby="heading {{ tree.id }}" data-bs-parent="#accordiontrees">
       <div class="accordion-body">
-        <p>{% trans 'Species:' %} {{ tree.speciesfk.sname }} <br>
+        <p>{% trans 'Species:' %} {{ tree.speciesfk.name }} <br>
         {% trans 'Description:' %} {{ tree.description }} <br>
         <i><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></i><br>
         <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
