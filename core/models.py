@@ -103,7 +103,7 @@ class Photo(models.Model):
     treefk = models.ForeignKey(Tree, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Tree'))
     taskfk = models.ForeignKey(Task, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Task'))
     description = models.TextField(blank=True, verbose_name=_('Description'))
-    shot_date = models.DateField(null=True, blank=True, verbose_name=_('Shot date'))
+    shot_date = models.DateField(null=True, blank=True, default=timezone.now, verbose_name=_('Shot date'))
     before_pic = models.BooleanField(default=False, verbose_name=_('Shot before task'))
     after_pic = models.BooleanField(default=False, verbose_name=_('Shot after task'))
     picture = models.ImageField(upload_to='trees-tasks_pics', verbose_name=_('Picture'))

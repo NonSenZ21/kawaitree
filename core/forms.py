@@ -15,6 +15,10 @@ class TaskCreateForm(ModelForm):
 
 class TaskUpdateForm(ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super(TaskUpdateForm, self).__init__(*args, **kwargs)
+        self.fields['treefk'].empty_label = None
+
     class Meta:
         model = Task
         fields = ['tasklistfk', 'treefk', 'description', 'plan_date', 'real_date', 'url']

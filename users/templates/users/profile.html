@@ -15,27 +15,27 @@
                 <p>{{ user.email }}</p>
             </div>
         </div>
-        <div class="alert alert-dismissible alert-info">
+        <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
+            <div class="alert alert-dismissible alert-info">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             {% if user.profile.public_profile %}
                 <p>{% trans 'Your profile is public. Other members can find your localisation, send you a message and see your collection.' %}</p>
             {% else %}
                 <p>{% trans "Your profile is <strong>NOT</strong> public. Other members can't find your localisation, send you a message or see your collection." %}</p>
             {% endif %}
-        </div>
-        <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
+            </div>
             <div class="row">
+                <div class="col-xl">
+                  {{ pc_form.public_profile|as_crispy_field }}
+                </div>
                 <div class="col-xl">
                   {{ uc_form.username|as_crispy_field }}
                 </div>
                 <div class="col-xl">
                   {{ uc_form.email|as_crispy_field }}
-                </div>
-                <div class="col-xl">
-                  {{ pc_form.public_profile|as_crispy_field }}
                 </div>
             </div>
             <div class="alert alert-warning">
@@ -54,7 +54,7 @@
             <div class="form-row">
                 <button class="btn btn-outline-success" type="submit">{% trans 'Update' %}</button>
                 <a href="{% url 'core-tdb' %}" class="btn btn-outline-info" type="cancel">{% trans 'Cancel' %}</a>
-                <a href="{% url 'user-delete' user.id %}" class="btn btn-outline-danger" type="Delete">{% trans 'Delete user' %}</a>
+                <a href="{% url 'user-delete' user.id %}" class="btn btn-outline-danger  mt-2" type="Delete">{% trans 'Delete user' %}</a>
             </div>
 
          </fieldset>

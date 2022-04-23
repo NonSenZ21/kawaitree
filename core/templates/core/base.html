@@ -32,26 +32,41 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'core-tdb' %}">{% trans 'Collection' %}
-            <span class="visually-hidden">(current)</span>
-          </a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans 'Collection' %}
+            <span class="visually-hidden">(current)</span></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core-tdb' %}">{% trans "Dashboard" %}</a>
+            <a class="dropdown-item" href="#">{% trans "All photos" %}</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">{% trans "Care" %}</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Maintenance" %}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">{% trans "Next tasks" %}</a>
+            <a class="dropdown-item" href="#">{% trans "Overdue tasks" %}</a>
+            <a class="dropdown-item" href="#">{% trans "All tasks" %}</a>
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Members" %}</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">{% trans "Map" %}</a>
             <a class="dropdown-item" href="#">{% trans "Gallery" %}</a>
-            <a class="dropdown-item" href="#">{% trans "Discussion group" %}</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">{% trans "Contact a member" %}</a>
+            <a class="dropdown-item" href="#">{% trans "Links" %}</a>
+            <a class="dropdown-item" href="#">{% trans "Library" %}</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'core-about' %}">{% trans "About" %}</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About" %}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core-about' %}">{% trans "General info" %}</a>
+            <a class="dropdown-item" href="#">{% trans "FAQ" %}</a>
+            <a class="dropdown-item" href="#">{% trans "GDPR" %}</a>
+            <a class="dropdown-item" href="#">{% trans "Legal policies" %}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">{% trans "Contact the author" %}</a>
+          </div>
         </li>
       </ul>
       <div >
@@ -61,7 +76,6 @@
             <img class="rounded-circle profil-pic" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="{% trans 'Profile' %}"/></a>
           <div class="dropdown-menu dropdown-menu-end">
             <a class="dropdown-item" href="{% url 'profile' %}">{% trans 'Profile' %}</a>
-            <a class="dropdown-item" href="{% url 'tree-create' %}">{% trans 'Add a tree' %}</a>
             <a class="dropdown-item" href="/accounts/logout/">{% trans "Logout" %}</a>
           </div>
         </li>

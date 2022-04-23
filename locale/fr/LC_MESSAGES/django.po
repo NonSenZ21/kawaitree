@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-22 16:40+0000\n"
+"POT-Creation-Date: 2022-04-23 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Description"
 
 #: core/models.py:34
 msgid "Species"
-msgstr "Espèces"
+msgstr "Espèce"
 
 #: core/models.py:35 core/templates/core/tree_form.html:34
 msgid "Planting date"
@@ -103,44 +103,79 @@ msgstr "Miniature"
 msgid "Collection"
 msgstr "Collection"
 
-#: core/templates/core/base.html:41
-msgid "Care"
-msgstr "Entretien"
+#: core/templates/core/base.html:39 core/views.py:36
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: core/templates/core/base.html:40
+msgid "All photos"
+msgstr "Toutes les photos"
 
 #: core/templates/core/base.html:44
+msgid "Maintenance"
+msgstr "Entretien"
+
+#: core/templates/core/base.html:46
+msgid "Next tasks"
+msgstr "Prochaines tâches"
+
+#: core/templates/core/base.html:47 core/templates/core/tdb.html:9
+msgid "Overdue tasks"
+msgstr "Tâches en retard"
+
+#: core/templates/core/base.html:48
+msgid "All tasks"
+msgstr "Toutes les tâches"
+
+#: core/templates/core/base.html:52
 msgid "Members"
 msgstr "Membres"
 
-#: core/templates/core/base.html:46
+#: core/templates/core/base.html:54
 msgid "Map"
 msgstr "Carte"
 
-#: core/templates/core/base.html:47
+#: core/templates/core/base.html:55
 msgid "Gallery"
 msgstr "Galerie"
 
-#: core/templates/core/base.html:48
-msgid "Discussion group"
-msgstr "Forum"
+#: core/templates/core/base.html:56
+msgid "Links"
+msgstr "Liens"
 
-#: core/templates/core/base.html:50
-msgid "Contact a member"
-msgstr "Contacter un membre"
+#: core/templates/core/base.html:57
+msgid "Library"
+msgstr "Bibliothèque"
 
-#: core/templates/core/base.html:54 core/views.py:265
+#: core/templates/core/base.html:61 core/views.py:265
 msgid "About"
 msgstr "A propos"
 
-#: core/templates/core/base.html:61 core/templates/core/base.html:63
+#: core/templates/core/base.html:63
+msgid "General info"
+msgstr "Infos générales"
+
+#: core/templates/core/base.html:64
+msgid "FAQ"
+msgstr "FAQ"
+
+#: core/templates/core/base.html:65
+msgid "GDPR"
+msgstr "RGPD"
+
+#: core/templates/core/base.html:66
+msgid "Legal policies"
+msgstr "Mentions légales"
+
+#: core/templates/core/base.html:68
+msgid "Contact the author"
+msgstr "Contacter l'auteur"
+
+#: core/templates/core/base.html:76 core/templates/core/base.html:78
 msgid "Profile"
 msgstr "Profil"
 
-#: core/templates/core/base.html:64 core/templates/core/tdb.html:193
-#: core/templates/core/tree_list.html:41
-msgid "Add a tree"
-msgstr "Ajouter un arbre"
-
-#: core/templates/core/base.html:65
+#: core/templates/core/base.html:79
 msgid "Logout"
 msgstr "Se déconnecter"
 
@@ -257,10 +292,6 @@ msgstr "Modifier"
 msgid "Add picture"
 msgstr "Ajouter une photo"
 
-#: core/templates/core/tdb.html:9
-msgid "Overdue tasks"
-msgstr "Tâches en retard"
-
 #: core/templates/core/tdb.html:14
 msgid "You may be late..."
 msgstr "Vous êtes peut-être en retard..."
@@ -309,9 +340,13 @@ msgstr "Date d'acquisition :"
 msgid "Origin:"
 msgstr "Origine :"
 
-#: core/templates/core/tdb.html:187 core/templates/core/tree_detail.html:84
+#: core/templates/core/tdb.html:187 core/templates/core/tree_detail.html:85
 msgid "Add task"
 msgstr "Ajouter une tâche"
+
+#: core/templates/core/tdb.html:193 core/templates/core/tree_list.html:41
+msgid "Add a tree"
+msgstr "Ajouter un arbre"
 
 #: core/templates/core/tree_confirm_delete.html:9
 msgid "Delete tree"
@@ -325,10 +360,6 @@ msgstr "Etes-vous sûr de vouloir supprimer l'arbre"
 msgid "A = Evergreen tree, B = Deciduous tree, C = Pines and Conifers"
 msgstr ""
 "A =  Feuillages persistants, B = Feuilles caduques, C = Pins et Conifères"
-
-#: core/views.py:36
-msgid "Dashboard"
-msgstr "Tableau de bord"
 
 #: core/views.py:61
 msgid "Trying to see private tree?"
@@ -880,6 +911,10 @@ msgstr "Se connecter avec Google"
 msgid "what?"
 msgstr "Quoi ?"
 
+#: users/models.py:7
+msgid "Public profile"
+msgstr "Profil public"
+
 #: users/models.py:8
 msgid "Latitude"
 msgstr "Latitude"
@@ -909,6 +944,10 @@ msgstr ""
 "fin du monde mais quand même..."
 
 #: users/templates/users/profile.html:21
+msgid "Profile Info"
+msgstr "Profil"
+
+#: users/templates/users/profile.html:25
 msgid ""
 "Your profile is public. Other members can find your localisation, send you a "
 "message and see your collection."
@@ -916,7 +955,7 @@ msgstr ""
 "Votre profil est public. Les autres membres peuvent voir votre "
 "géolocalisation, vous envoyer un message et voir votre collection"
 
-#: users/templates/users/profile.html:23
+#: users/templates/users/profile.html:27
 msgid ""
 "Your profile is <strong>NOT</strong> public. Other members can't find your "
 "localisation, send you a message or see your collection."
@@ -924,12 +963,6 @@ msgstr ""
 "Votre profil n'est <strong>PAS</strong> public. Les autres membres ne "
 "peuvent pas voir votre géolocalisation, vous envoyer un message ou voir "
 "votre collection."
-
-#: users/templates/users/profile.html:29
-#, fuzzy
-#| msgid "Profile"
-msgid "Profile Info"
-msgstr "Profil"
 
 #: users/templates/users/profile.html:42
 msgid ""
@@ -939,8 +972,8 @@ msgid ""
 msgstr ""
 "Cette carte permettra de vous envoyer des alertes météo et aidera les autres "
 "membres à vous contacter si votre profil est public. Nous vous invitons à ne "
-"pas marquer votre adresse exacte mais uniquement votre ville pour des raison "
-"de sécurité et de respect de la vie privée."
+"pas marquer votre adresse exacte mais uniquement votre ville pour des "
+"raisons de sécurité et de respect de la vie privée."
 
 #: users/templates/users/profile.html:55
 msgid "Update"
@@ -1301,3 +1334,7 @@ msgstr "Haubaner"
 #: core.Tasklist/name:10
 msgid "Repotting"
 msgstr "Rempoter"
+
+#: core.Tasklist/name:11
+msgid "Pinching"
+msgstr "Pincer"
