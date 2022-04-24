@@ -16,6 +16,7 @@ urlpatterns = [
    path('photo/<int:pk>/', PhotoDetailView.as_view(), name='photo-detail'),
    path('photo/new/<int:tree>/<int:task>/', views.photocreate, name='photo-create'),
    # path('photo/<int:pk>/update/', PhotoUpdateView.as_view(), name='photo-update'),
+   path('photo/list/<int:owner>/', views.photolist, name='photo-list'),
    path('photo/<int:pk>/delete/', PhotoDeleteView.as_view(), name='photo-delete'),
    path('about/', views.about, name='core-about'),
 ]

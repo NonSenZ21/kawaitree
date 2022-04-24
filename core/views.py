@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import (
     ListView,
     DetailView,
@@ -7,12 +7,13 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Tree, Task, Photo
+from .models import Tree, Task, Photo, User
 from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.core.paginator import Paginator
 from PIL import Image
 from datetime import timedelta
 
@@ -188,6 +189,37 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == task.treefk.ownerfk:
             return True
         return False
+
+@login_required
+def photolist(request, owner):
+    ownerobj = get_object_or_404(User, pk=owner)
+    if ownerobj == request.user or ownerobj.profile.public_profile == True:
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('shot_date')
+        paginator = Paginator(photos, 5)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {'owner': ownerobj, 'page_obj': page_obj}
+        print(context)
+        return render(request, 'core/photo_list.html', context)
+    else:
+        mes = _("Are you trying to list private pictures?")
+        messages.warning(request, mes)
+        return redirect('core-tdb')
+
+
+# class PhotoListView(LoginRequiredMixin, ListView):
+#     model = Photo
+#     template_name = 'core/photo_list.html'
+#     context_object_name = 'photos'
+#     paginate_by = 10
+#
+#     def get_owner(self):
+#         return self.kwargs.get('owner')
+#
+#     def get_queryset(self):
+#         photoset = Photo.objects.filter(treefk__ownerfk=self.get_owner())
+#         print('photoset:', photoset)
+#         return photoset
 
 
 class PhotoDetailView(UserPassesTestMixin, DetailView):

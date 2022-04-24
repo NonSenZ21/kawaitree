@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-23 09:52+0000\n"
+"POT-Creation-Date: 2022-04-24 15:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,7 +103,7 @@ msgstr "Miniature"
 msgid "Collection"
 msgstr "Collection"
 
-#: core/templates/core/base.html:39 core/views.py:36
+#: core/templates/core/base.html:39 core/views.py:37
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -147,7 +147,7 @@ msgstr "Liens"
 msgid "Library"
 msgstr "Bibliothèque"
 
-#: core/templates/core/base.html:61 core/views.py:265
+#: core/templates/core/base.html:61 core/views.py:297
 msgid "About"
 msgstr "A propos"
 
@@ -185,7 +185,7 @@ msgstr "Supprimer la photo"
 
 #: core/templates/core/photo_confirm_delete.html:10
 msgid "Are you sure you want to delete this picture?"
-msgstr "Etes vous sûr de vouloir supprimer cette photo ?"
+msgstr "Etes vous sûr de vouloir supprimer cette photo&nbsp;?"
 
 #: core/templates/core/photo_confirm_delete.html:13
 #: core/templates/core/task_confirm_delete.html:13
@@ -195,7 +195,7 @@ msgid "Yes delete"
 msgstr "Oui supprimer"
 
 #: core/templates/core/photo_confirm_delete.html:14
-#: core/templates/core/photo_form.html:52
+#: core/templates/core/photo_form.html:50
 #: core/templates/core/task_confirm_delete.html:14
 #: core/templates/core/task_form.html:48
 #: core/templates/core/tree_confirm_delete.html:14
@@ -216,18 +216,18 @@ msgstr "Détail"
 
 #: core/templates/core/photo_detail.html:14
 msgid "Task:"
-msgstr "Tâche :"
+msgstr "Tâche&nbsp;:"
 
 #: core/templates/core/photo_detail.html:16
 #: core/templates/core/task_detail.html:13 core/templates/core/tdb.html:133
 #: core/templates/core/tree_detail.html:13
 #: core/templates/core/tree_list.html:23
 msgid "Description:"
-msgstr "Description :"
+msgstr "Description&nbsp;:"
 
 #: core/templates/core/photo_detail.html:17
 msgid "Shot date:"
-msgstr "Date du cliché :"
+msgstr "Date du cliché&nbsp;:"
 
 #: core/templates/core/photo_detail.html:19
 msgid "Picture taken before executing the task."
@@ -250,10 +250,34 @@ msgstr "Supprimer"
 msgid "Photo"
 msgstr "Photo"
 
-#: core/templates/core/photo_form.html:51 core/templates/core/task_form.html:47
+#: core/templates/core/photo_form.html:49 core/templates/core/task_form.html:47
 #: core/templates/core/tree_form.html:57
 msgid "Ok"
 msgstr "Ok"
+
+#: core/templates/core/photo_list.html:6
+msgid "Photos of "
+msgstr "Photo de "
+
+#: core/templates/core/photo_list.html:9
+msgid "No photo in your collection."
+msgstr "Pas de photo dans votre collection."
+
+#: core/templates/core/photo_list.html:19
+msgid "first"
+msgstr "premier"
+
+#: core/templates/core/photo_list.html:20
+msgid "previous"
+msgstr "précédent"
+
+#: core/templates/core/photo_list.html:30
+msgid "next"
+msgstr "suivant"
+
+#: core/templates/core/photo_list.html:31
+msgid "last"
+msgstr "dernier"
 
 #: core/templates/core/task_confirm_delete.html:9
 msgid "Delete task"
@@ -269,15 +293,15 @@ msgstr "pour l'arbre"
 
 #: core/templates/core/task_detail.html:12
 msgid "Tree:"
-msgstr "Arbre :"
+msgstr "Arbre&nbsp;:"
 
 #: core/templates/core/task_detail.html:14
 msgid "Planned date:"
-msgstr "Date prévue :"
+msgstr "Date prévue&nbsp;:"
 
 #: core/templates/core/task_detail.html:15
 msgid "Realisation date:"
-msgstr "Date de réalisation :"
+msgstr "Date de réalisation&nbsp;:"
 
 #: core/templates/core/task_detail.html:21 core/templates/core/tdb.html:46
 #: core/templates/core/tdb.html:102 core/templates/core/tdb.html:142
@@ -323,22 +347,22 @@ msgstr "Pas d'arbre dans votre collection."
 #: core/templates/core/tdb.html:132 core/templates/core/tree_detail.html:12
 #: core/templates/core/tree_list.html:22
 msgid "Species:"
-msgstr "Espèces :"
+msgstr "Espèces&nbsp;:"
 
 #: core/templates/core/tdb.html:134 core/templates/core/tree_detail.html:14
 #: core/templates/core/tree_list.html:24
 msgid "Planting date:"
-msgstr "Date de plantation :"
+msgstr "Date de plantation&nbsp;:"
 
 #: core/templates/core/tdb.html:135 core/templates/core/tree_detail.html:15
 #: core/templates/core/tree_list.html:25
 msgid "Acquisition date:"
-msgstr "Date d'acquisition :"
+msgstr "Date d'acquisition&nbsp;:"
 
 #: core/templates/core/tdb.html:136 core/templates/core/tree_detail.html:16
 #: core/templates/core/tree_list.html:26
 msgid "Origin:"
-msgstr "Origine :"
+msgstr "Origine&nbsp;:"
 
 #: core/templates/core/tdb.html:187 core/templates/core/tree_detail.html:85
 msgid "Add task"
@@ -361,32 +385,38 @@ msgid "A = Evergreen tree, B = Deciduous tree, C = Pines and Conifers"
 msgstr ""
 "A =  Feuillages persistants, B = Feuilles caduques, C = Pins et Conifères"
 
-#: core/views.py:61
+#: core/views.py:62
 msgid "Trying to see private tree?"
-msgstr "Vous essayez de supprimer un arbre privé ?"
+msgstr "Vous essayez de supprimer un arbre privé&nbsp;?"
 
-#: core/views.py:123
+#: core/views.py:124
 msgid "Trying to see private task?"
-msgstr "Vous essayez de voir une tâche privée ?"
+msgstr "Vous essayez de voir une tâche privée&nbsp;?"
 
-#: core/views.py:146 core/views.py:170
+#: core/views.py:147 core/views.py:171
 msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:206
+#: core/views.py:205
+#, fuzzy
+#| msgid "Trying to see private tree?"
+msgid "Are you trying to list private pictures?"
+msgstr "Vous essayez de supprimer un arbre privé&nbsp;?"
+
+#: core/views.py:238
 msgid "Trying to add an image to unidentified tree?"
-msgstr "Vous essayez d'ajouter une image à un arbre non identifié ?"
+msgstr "Vous essayez d'ajouter une image à un arbre non identifié&nbsp;?"
 
-#: core/views.py:212
+#: core/views.py:244
 msgid "Trying to add an image to someone else's tree?"
-msgstr "Vous essayez d'ajouter une photo à l'arbre de quelqu'un d'autre ?"
+msgstr "Vous essayez d'ajouter une photo à l'arbre de quelqu'un d'autre&nbsp;?"
 
-#: core/views.py:224
+#: core/views.py:256
 msgid "Only JPG images are allowed, sorry!"
 msgstr "Seules les images JPG sont autorisées, désolé."
 
-#: core/views.py:237
+#: core/views.py:269
 msgid "Your form is not valid and I don't know why!"
 msgstr "Votre formulaire n'est pas valide et je ne sais pas pourquoi."
 
@@ -417,7 +447,7 @@ msgstr "Adresses e-mail"
 
 #: start/templates/account/email.html:10
 msgid "The following e-mail addresses are associated with your account:"
-msgstr "Les adresses e-mail suivantes sont associées à votre compte :"
+msgstr "Les adresses e-mail suivantes sont associées à votre compte&nbsp;:"
 
 #: start/templates/account/email.html:24
 msgid "Verified"
@@ -446,7 +476,7 @@ msgstr "Supprimer"
 
 #: start/templates/account/email.html:43
 msgid "Warning:"
-msgstr "Attention :"
+msgstr "Attention&nbsp;:"
 
 #: start/templates/account/email.html:43
 msgid ""
@@ -467,12 +497,12 @@ msgstr "Ajouter e-mail"
 
 #: start/templates/account/email.html:63
 msgid "Do you really want to remove the selected e-mail address?"
-msgstr "Voulez-vous vraiment supprimer l'adresse e-mail sélectionnée ?"
+msgstr "Voulez-vous vraiment supprimer l'adresse e-mail sélectionnée&nbsp;?"
 
 #: start/templates/account/email/base_message.txt:1
 #, python-format
 msgid "Hello from %(site_name)s!"
-msgstr "Bonjour de %(site_name)s !"
+msgstr "Bonjour de %(site_name)s&nbsp;!"
 
 #: start/templates/account/email/base_message.txt:5
 #, python-format
@@ -867,11 +897,11 @@ msgstr ""
 
 #: start/templates/start/home.html:8
 msgid "Welcome, You are logged in as "
-msgstr "Bienvenue, vous êtes connecté(e) en : "
+msgstr "Bienvenue, vous êtes connecté(e) en&nbsp;: "
 
 #: start/templates/start/home.html:9
 msgid "Your email address is "
-msgstr "Votre adresse e-mail est : "
+msgstr "Votre adresse e-mail est&nbsp;: "
 
 #: start/templates/start/home.html:11
 msgid "Logout With Google"
@@ -879,25 +909,27 @@ msgstr "Se déconnecter avec Google"
 
 #: start/templates/start/home.html:19
 msgid "What?"
-msgstr "Quoi ?"
+msgstr "Quoi&nbsp;?"
 
 #: start/templates/start/home.html:21
 msgid "What is kawaïtree?"
-msgstr "Qu'est-ce que Kawaïtree ?"
+msgstr "Qu'est-ce que Kawaïtree&nbsp;?"
 
 #: start/templates/start/home.html:22
-msgid "Kawaïtree is an app that help you manage your bonsaï collection."
+#, fuzzy
+#| msgid "Kawaïtree is an app that help you manage your bonsaï collection."
+msgid "Kawaïtree is an app that helps you manage your bonsaï collection."
 msgstr ""
-"Kawaïtree est une application qui vous permet de gérer votre collection de "
-"bonsaï."
+"Kawaïtree est une application web qui vous permet de gérer votre collection "
+"de bonsaï."
 
 #: start/templates/start/home.html:28
 msgid "How?"
-msgstr "Comment ?"
+msgstr "Comment&nbsp;?"
 
 #: start/templates/start/home.html:30
 msgid "How can I create/use an account?"
-msgstr "Comment créer/utiliser un compte ?"
+msgstr "Comment créer/utiliser un compte&nbsp;?"
 
 #: start/templates/start/home.html:31
 msgid "To create or use an account, just log in with Google."
@@ -909,7 +941,7 @@ msgstr "Se connecter avec Google"
 
 #: start/views.py:10
 msgid "what?"
-msgstr "Quoi ?"
+msgstr "Quoi&nbsp;?"
 
 #: users/models.py:7
 msgid "Public profile"
@@ -929,19 +961,19 @@ msgstr "Supprimer votre compte"
 
 #: users/templates/users/User_confirm_delete.html:10
 msgid "Are you sure you want to delete your account?"
-msgstr "Etes-vous sûr de vouloir supprimer votre compte ?"
+msgstr "Etes-vous sûr de vouloir supprimer votre compte&nbsp;?"
 
 #: users/templates/users/User_confirm_delete.html:13
 msgid "WARNING!"
-msgstr "ATTENTION !"
+msgstr "ATTENTION&nbsp;!"
 
 #: users/templates/users/User_confirm_delete.html:14
 msgid ""
 "Think about it twice. All your data will be lost! Not the end of the world "
 "but still..."
 msgstr ""
-"Prenez le temps de la réflexion. Toutes vos données seront perdues ! pas la "
-"fin du monde mais quand même..."
+"Prenez le temps de la réflexion. Toutes vos données seront perdues&nbsp;! "
+"pas la fin du monde mais quand même..."
 
 #: users/templates/users/profile.html:21
 msgid "Profile Info"
@@ -985,7 +1017,7 @@ msgstr "Supprimer l'utilisateur"
 
 #: users/views.py:20
 msgid "Your account has been updated!"
-msgstr "Votre compte a été mis à jour !"
+msgstr "Votre compte a été mis à jour&nbsp;!"
 
 #: core.Origin/name:1
 msgid "Seed"
