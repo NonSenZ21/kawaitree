@@ -257,7 +257,7 @@ msgstr "Ok"
 
 #: core/templates/core/photo_list.html:6
 msgid "Photos of "
-msgstr "Photo de "
+msgstr "Photos de "
 
 #: core/templates/core/photo_list.html:9
 msgid "No photo in your collection."
