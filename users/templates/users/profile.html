@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "core/base-leaflet.html" %}
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block content %}
@@ -78,8 +78,17 @@
         maxZoom: 15
     }).addTo(carte1);
 
+    var icone = L.icon({
+        iconUrl: "/static/img/icone.png",
+        iconSize: [50,50],
+        iconAnchor: [25,50],
+        popupAnchor: [0,-35],
+        shadowUrl: "/static/img/ombre.png",
+        shadowSize: [35,35],
+        shadowAnchor: [0,35]
+    })
 
-    var marqueur = L.marker([lat, lon], {draggable: 'True'}).addTo(carte1);
+    var marqueur = L.marker([lat, lon], {icon: icone, draggable: 'true'}).addTo(carte1);
     marqueur.on('dragend', function (e) {
         document.getElementById('id_lat').value = marqueur.getLatLng().lat.toFixed(6);
         document.getElementById('id_long').value = marqueur.getLatLng().lng.toFixed(6);

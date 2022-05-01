@@ -298,3 +298,39 @@ def about(request):
     }
     context = {'content': content}
     return render(request, 'core/about.html', context)
+
+
+def tasks(request, action):
+    # Next tasks
+    if action == 1:
+        nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
+                                                                          real_date__isnull=True,
+                                                                          plan_date__isnull=False,
+                                                                          plan_date__gt=timezone.now()).order_by('plan_date')
+        context = {'title': _('Next tasks'), 'tasks': nexttasks, 'action': 1}
+        return render(request, 'core/tasks.html', context)
+    # Overdue tasks
+    elif action == 2:
+        overduetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
+                                                                             real_date__isnull=True,
+                                                                             plan_date__isnull=False,
+                                                                             plan_date__lt=timezone.now()).order_by('plan_date')
+        context = {'title': _('Overdue tasks'), 'tasks': overduetasks, 'action': 2}
+        return render(request, 'core/tasks.html', context)
+    # All tasks
+    elif action == 3:
+        tasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by(
+            '-real_date')
+        context = {'title': _('All tasks'), 'tasks': tasks, 'action': 3}
+        return render(request, 'core/tasks.html', context)
+    # url hack
+    else:
+        mes = _('Unknown action... WTF are you doing?')
+        messages.warning(request, mes)
+        return redirect('core-tdb')
+
+
+def membersmap(request):
+    members = User.objects.filter(profile__public_profile=True)
+    context = {'title': _('Members map'), 'members': members}
+    return render(request, 'core/membersmap.html', context)
