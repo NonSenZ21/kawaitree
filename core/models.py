@@ -6,6 +6,7 @@ from PIL import Image
 from datetime import datetime
 from django.utils.translation import gettext_lazy as _
 import os
+from .imgtransform import image_autorotate
 
 
 class Species(models.Model):
@@ -49,7 +50,8 @@ class Tree(models.Model):
             return
         super(Tree, self).save(*args, **kwargs)
 
-        img = Image.open(self.treePic)
+        # img = Image.open(self.treePic)
+        img = image_autorotate(self.treePic)
         (width, height) = img.size
 
         # resize @ 300px small size
@@ -121,7 +123,8 @@ class Photo(models.Model):
 
         super().save(*args, **kwargs)
 
-        img = Image.open(self.picture)
+        # img = Image.open(self.picture)
+        img = image_autorotate(self.picture)
         (width, height) = img.size
 
         # resize @ 1200 x 800 max size
