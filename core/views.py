@@ -54,6 +54,7 @@ class TreeListView(ListView):
     ordering = ['tname']
 
 
+@login_required
 def treedetail(request, pk):
     tree = Tree.objects.get(pk=pk)
     tasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
@@ -115,6 +116,7 @@ class TreeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 # Manage the tasks
+@login_required
 def taskdetail(request, pk):
     task = Task.objects.get(pk=pk)
     photos_before = Photo.objects.filter(taskfk=pk).filter(before_pic=True)
@@ -300,6 +302,7 @@ def about(request):
     return render(request, 'core/about.html', context)
 
 
+@login_required
 def tasks(request, action):
     # Next tasks
     if action == 1:
@@ -330,6 +333,7 @@ def tasks(request, action):
         return redirect('core-tdb')
 
 
+@login_required
 def membersmap(request):
     members = User.objects.filter(profile__public_profile=True)
     context = {'title': _('Members map'), 'members': members}
