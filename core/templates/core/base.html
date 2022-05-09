@@ -44,6 +44,11 @@
             <a class="dropdown-item" href="{% url 'core-tasks' '3' %}">{% trans "All tasks" %}</a>
           </div>
         </li>
+        {% if request.user.profile.weather is True %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">{% trans "Weather" %}</a>
+          </li>
+        {% endif %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Members" %}</a>
           <div class="dropdown-menu">
@@ -86,7 +91,7 @@
     {% for message in messages %}
         <div class="container alert alert-dismissible alert-{{ message.tags }} mt-3">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            {{message}}
+            {{message|safe}}
         </div>
     {% endfor%}
 {% endif %}

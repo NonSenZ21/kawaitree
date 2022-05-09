@@ -22,7 +22,7 @@
     <!-- leaflet marker cluster -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" crossorigin=""/></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" crossorigin=""></script>
 
 </head>
 <body>
@@ -53,6 +53,11 @@
             <a class="dropdown-item" href="{% url 'core-tasks' '3' %}">{% trans "All tasks" %}</a>
           </div>
         </li>
+        {% if request.user.profile.weather is True %}
+          <li class="nav-item">
+          <a class="nav-link" href="#">{% trans "Weather" %}</a>
+        </li>
+        {% endif %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Members" %}</a>
           <div class="dropdown-menu">
@@ -87,7 +92,6 @@
       </ul>
     </div>
     </div>
-
   </div>
 </nav>
 </div>
@@ -95,7 +99,7 @@
     {% for message in messages %}
         <div class="container alert alert-dismissible alert-{{ message.tags }} mt-3">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            {{message}}
+            {{message|safe}}
         </div>
     {% endfor%}
 {% endif %}

@@ -5,12 +5,14 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 from .models import Profile
 
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -30,4 +32,5 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['public_profile', 'lat', 'long']
+        fields = ['public_profile', 'lat', 'long', 'weather', 'unites', 'max_temp', 'min_temp',
+                  'max_wind', 'fb', 'yt', 'insta', 'valid_user', 'expert']

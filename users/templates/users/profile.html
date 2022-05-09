@@ -41,30 +41,68 @@
             <div class="alert alert-warning">
                 <p>{% trans 'This map will allow weather alerts and will help other members to contact you if your profile is public. We suggest you do not give your home address, but specify only your town, for privacy and security reasons.' %}</p>
             </div>
-            <div id="profile_map"></div>
-            <div class="form-row">
-                <div class="col">
+            <div id="profile_map" class="mb-2"></div>
+            <div class="row">
+                <div class="col-xl">
                   {{ pc_form.lat|as_crispy_field }}
                 </div>
-                <div class="col">
+                <div class="col-xl">
                   {{ pc_form.long|as_crispy_field }}
                 </div>
+            </div>
+            <div class="alert alert-info">
+                {% trans 'Check "Weather alert" if you want to receive weather alerts by email.' %}
+            </div>
 
+            <div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  {{ pc_form.weather|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row d-none" id="wvalues">
+                <div class="col-xl">
+                    {{ pc_form.unites|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                    {{ pc_form.max_temp|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                    {{ pc_form.min_temp|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                    {{ pc_form.max_wind|as_crispy_field }}
+                </div>
+            </div>
+            <div class="alert alert-info">
+                {% trans 'If you wish, you can fill in the information below. It will be visible in your profile (only if it is public).' %}
+            </div>
+            <div class="row">
+                <div class="col-xl">
+                  {{ pc_form.fb|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                  {{ pc_form.yt|as_crispy_field }}
+                </div>
+                <div class="col-xl">
+                  {{ pc_form.insta|as_crispy_field }}
+                </div>
+            </div>
+            <div class="alert alert-info">
+                {% trans 'You can hide all help messages like this one by checking the Expert box below.' %}
+            </div>
+            <div class="row">
+                {{ pc_form.expert|as_crispy_field }}
             </div>
             <div class="form-row">
-                <button class="btn btn-outline-success" type="submit">{% trans 'Update' %}</button>
-                <a href="{% url 'core-tdb' %}" class="btn btn-outline-info" type="cancel">{% trans 'Cancel' %}</a>
-                <a href="{% url 'user-delete' user.id %}" class="btn btn-outline-danger  mt-2" type="Delete">{% trans 'Delete user' %}</a>
+                <button class="btn btn-outline-success mt-2" type="submit">{% trans 'Update' %}</button>
+                <a href="{% url 'core-tdb' %}" class="btn btn-outline-info mt-2" type="cancel">{% trans 'Cancel' %}</a>
+                <a href="{% url 'user-delete' user.id %}" class="btn btn-outline-danger mt-2" type="Delete">{% trans 'Delete user' %}</a>
             </div>
-
          </fieldset>
         </form>
-
-
-
     </div>
-
-
 <script>
     var lat = document.getElementById('id_lat').value;
     var lon = document.getElementById('id_long').value;
@@ -93,6 +131,19 @@
         document.getElementById('id_lat').value = marqueur.getLatLng().lat.toFixed(6);
         document.getElementById('id_long').value = marqueur.getLatLng().lng.toFixed(6);
     });
+    // show and hide weather values
+    var check1 = document.getElementById('id_weather');
 
+	function showhide(ch) {
+		var content = document.querySelector( '#wvalues' );
+        if( !content ) return;
+		if(ch.checked==true){
+			content.classList.remove( 'd-none' );
+		} else {
+			content.classList.add( 'd-none' );
+		}
+	}
+	showhide(check1);
+	check1.addEventListener('click', function(){showhide(check1)}, true);
 </script>
 {% endblock content%}

@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 def profile(request):
     if request.method == 'POST':
         uc_form = UserUpdateForm(request.POST, instance=request.user)
-        pc_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        pc_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
         if uc_form.is_valid() and pc_form.is_valid():
             uc_form.save()
             pc_form.save()
@@ -29,6 +29,7 @@ def profile(request):
         'pc_form': pc_form,
     }
     return render(request, 'users/profile.html', context)
+
 
 class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = User
