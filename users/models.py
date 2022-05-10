@@ -40,6 +40,8 @@ class Weather(models.Model):
                                      verbose_name=_('Min temperature'))
     wtemp_max0 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
+    wwind_speed0 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                       verbose_name=_('Wind speed'))
     wwind_gust0 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity0 = models.IntegerField(default=0, verbose_name=_('Humidity'))
@@ -55,6 +57,8 @@ class Weather(models.Model):
                                      verbose_name=_('Min temperature'))
     wtemp_max1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
+    wwind_speed1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                       verbose_name=_('Wind speed'))
     wwind_gust1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity1 = models.IntegerField(default=0, verbose_name=_('Humidity'))
@@ -70,6 +74,8 @@ class Weather(models.Model):
                                      verbose_name=_('Min temperature'))
     wtemp_max2 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
+    wwind_speed2 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                       verbose_name=_('Wind speed'))
     wwind_gust2 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity2 = models.IntegerField(default=0, verbose_name=_('Humidity'))
@@ -85,6 +91,8 @@ class Weather(models.Model):
                                      verbose_name=_('Min temperature'))
     wtemp_max3 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
+    wwind_speed3 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                       verbose_name=_('Wind speed'))
     wwind_gust3 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity3 = models.IntegerField(default=0, verbose_name=_('Humidity'))
@@ -100,10 +108,12 @@ class Weather(models.Model):
                                      verbose_name=_('Min temperature'))
     wtemp_max4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
+    wwind_speed4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                      verbose_name=_('Wind speed'))
     wwind_gust4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity4 = models.IntegerField(default=0, verbose_name=_('Humidity'))
     wicon4 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     def __str__(self):
-        return self.wmain0
+        return f'{ self.user.username } Weather'
