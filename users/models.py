@@ -45,6 +45,8 @@ class Weather(models.Model):
     wwind_gust0 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity0 = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain0 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                 verbose_name=_('Rain'))
     wicon0 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     wnday1 = models.IntegerField(default=0, verbose_name=_('Day number'))
@@ -62,6 +64,8 @@ class Weather(models.Model):
     wwind_gust1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity1 = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                      verbose_name=_('Rain'))
     wicon1 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     wnday2 = models.IntegerField(default=0, verbose_name=_('Day number'))
@@ -79,6 +83,8 @@ class Weather(models.Model):
     wwind_gust2 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity2 = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain2 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                 verbose_name=_('Rain'))
     wicon2 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     wnday3 = models.IntegerField(default=0, verbose_name=_('Day number'))
@@ -96,6 +102,8 @@ class Weather(models.Model):
     wwind_gust3 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity3 = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain3 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                 verbose_name=_('Rain'))
     wicon3 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     wnday4 = models.IntegerField(default=0, verbose_name=_('Day number'))
@@ -113,6 +121,8 @@ class Weather(models.Model):
     wwind_gust4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity4 = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                 verbose_name=_('Rain'))
     wicon4 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     def __str__(self):
