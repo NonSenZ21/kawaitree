@@ -426,10 +426,8 @@ msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
 #: core/views.py:208
-#, fuzzy
-#| msgid "Trying to see private tree?"
 msgid "Are you trying to list private pictures?"
-msgstr "Vous essayez de supprimer un arbre privé&nbsp;?"
+msgstr "Vous essayez de regarder des phtoos privées&nbsp;?"
 
 #: core/views.py:241
 msgid "Trying to add an image to unidentified tree?"
@@ -951,8 +949,6 @@ msgid "What is kawaïtree?"
 msgstr "Qu'est-ce que Kawaïtree&nbsp;?"
 
 #: start/templates/start/home.html:22
-#, fuzzy
-#| msgid "Kawaïtree is an app that help you manage your bonsaï collection."
 msgid "Kawaïtree is an app that helps you manage your bonsaï collection."
 msgstr ""
 "Kawaïtree est une application web qui vous permet de gérer votre collection "
@@ -1058,8 +1054,6 @@ msgstr "Météo principale"
 
 #: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
 #: users/models.py:113
-#, fuzzy
-#| msgid "Description"
 msgid "Weather description"
 msgstr "Description"
 
