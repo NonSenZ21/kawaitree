@@ -22,7 +22,7 @@ from datetime import timedelta
 @login_required
 def tdb(request):
     trees = Tree.objects.filter(ownerfk=request.user).order_by('tname')
-    tasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by('-real_date')
+    treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by('-real_date')
     nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                       real_date__isnull=True,
                                                                       plan_date__isnull=False,
@@ -39,7 +39,7 @@ def tdb(request):
     context = {
         'content': content,
         'trees': trees,
-        'tasks': tasks,
+        'tasks': treetasks,
         'nexttasks': nexttasks,
         'overduetasks': overduetasks,
     }
@@ -57,14 +57,14 @@ class TreeListView(ListView):
 @login_required
 def treedetail(request, pk):
     tree = Tree.objects.get(pk=pk)
-    tasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
+    treetasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
     photos = Photo.objects.filter(treefk=pk)
     if request.user != tree.ownerfk and not tree.ownerfk.profile.public_profile:
         mes = _("Trying to see private tree?")
         messages.warning(request, mes)
         return redirect('core-tdb')
 
-    context = {'tree': tree, 'photos': photos, 'tasks': tasks}
+    context = {'tree': tree, 'photos': photos, 'tasks': treetasks}
     return render(request, 'core/tree_detail.html', context)
 
 
@@ -192,10 +192,11 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
 @login_required
 def photolist(request, owner):
     ownerobj = get_object_or_404(User, pk=owner)
-    if ownerobj == request.user or ownerobj.profile.public_profile == True:
+    if ownerobj == request.user or ownerobj.profile.public_profile is True:
         photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('shot_date')
         paginator = Paginator(photos, 5)
         page_number = request.GET.get('page')
@@ -262,7 +263,7 @@ def photocreate(request, tree, task):
                 form.save()
             if task != 0:
                 return redirect('task-detail', pk=task)
-            elif tree !=0:
+            elif tree != 0:
                 return redirect('tree-detail', pk=tree)
             else:
                 return redirect('photo-create', tree=tree, task=task)
@@ -322,9 +323,9 @@ def tasks(request, action):
         return render(request, 'core/tasks.html', context)
     # All tasks
     elif action == 3:
-        tasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by(
+        treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by(
             '-real_date')
-        context = {'title': _('All tasks'), 'tasks': tasks, 'action': 3}
+        context = {'title': _('All tasks'), 'tasks': treetasks, 'action': 3}
         return render(request, 'core/tasks.html', context)
     # url hack
     else:

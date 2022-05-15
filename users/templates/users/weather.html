@@ -1,0 +1,129 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load socialaccount %}
+  <div class="container mt-3">
+    <h1 class="mt-3">{{ title }}</h1>
+    {% if not sync %}
+    <div class="alert alert-warning">
+      {% trans 'No information for now. Make sure you checked the "weather" checkbox in your profile and you will get your weather here tomorrow.' %}
+    </div>
+    {% else %}
+    <div class="card-group">
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ weathers.wdate0 }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ weathers.wmain0 }}</h4>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/meteo/' %}{{ weathers.wicon0 }}.png">
+          </div>
+          <div class="col">
+            <p class="small text-truncate">{{ weathers.wdescription0 }}<br>
+              {% trans 'Pressure:' %} {{ weathers.wpressure0 }} hPa<br>
+              {% trans 'Temp min:' %} {{ weathers.wtemp_min0.normalize }} {{ u1 }}<br>
+              {% trans 'Temp max:' %} {{ weathers.wtemp_max0.normalize }} {{ u1 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed0.normalize }} {{ u2 }}<br>
+              {% trans 'Gusts:' %} {{ weathers.wwind_gust0.normalize }} {{ u2 }}<br>
+              {% trans 'Humidity:' %} {{ weathers.whumidity0 }}%<br>
+              {% trans 'Rain:' %} {{ weathers.wrain0.normalize }} mm<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ weathers.wdate1 }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ weathers.wmain1 }}</h4>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/meteo/' %}{{ weathers.wicon1 }}.png">
+          </div>
+          <div class="col">
+            <p class="small text-truncate">{{ weathers.wdescription1 }}<br>
+              {% trans 'Pressure:' %} {{ weathers.wpressure1 }} hPa<br>
+              {% trans 'Temp min:' %} {{ weathers.wtemp_min1.normalize }} {{ u1 }}<br>
+              {% trans 'Temp max:' %} {{ weathers.wtemp_max1.normalize }} {{ u1 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed1.normalize }} {{ u2 }}<br>
+              {% trans 'Gusts:' %} {{ weathers.wwind_gust1.normalize }} {{ u2 }}<br>
+              {% trans 'Humidity:' %} {{ weathers.whumidity1 }} %<br>
+              {% trans 'Rain:' %} {{ weathers.wrain1.normalize }}mm<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ weathers.wdate2 }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ weathers.wmain2 }}</h4>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/meteo/' %}{{ weathers.wicon2 }}.png">
+          </div>
+          <div class="col">
+            <p class="small text-truncate">{{ weathers.wdescription2 }}<br>
+              {% trans 'Pressure:' %} {{ weathers.wpressure2 }} hPa<br>
+              {% trans 'Temp min:' %} {{ weathers.wtemp_min2.normalize }} {{ u1 }}<br>
+              {% trans 'Temp max:' %} {{ weathers.wtemp_max2.normalize }} {{ u1 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed2.normalize }} {{ u2 }}<br>
+              {% trans 'Gusts:' %} {{ weathers.wwind_gust2.normalize }} {{ u2 }}<br>
+              {% trans 'Humidity:' %} {{ weathers.whumidity2 }}%<br>
+              {% trans 'Rain:' %} {{ weathers.wrain2.normalize }} mm<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ weathers.wdate3 }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ weathers.wmain3 }}</h4>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/meteo/' %}{{ weathers.wicon3 }}.png">
+          </div>
+          <div class="col">
+            <p class="small text-truncate">{{ weathers.wdescription3 }}<br>
+              {% trans 'Pressure:' %} {{ weathers.wpressure3 }} hPa<br>
+              {% trans 'Temp min:' %} {{ weathers.wtemp_min3.normalize }} {{ u1 }}<br>
+              {% trans 'Temp max:' %} {{ weathers.wtemp_max3.normalize }} {{ u1 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed3.normalize }} {{ u2 }}<br>
+              {% trans 'Gusts:' %} {{ weathers.wwind_gust3.normalize }} {{ u2 }}<br>
+              {% trans 'Humidity:' %} {{ weathers.whumidity3 }}%<br>
+              {% trans 'Rain:' %} {{ weathers.wrain3.normalize }} mm<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ weathers.wdate4 }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ weathers.wmain4 }}</h4>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/meteo/' %}{{ weathers.wicon4 }}.png">
+          </div>
+          <div class="col">
+            <p class="small text-truncate">{{ weathers.wdescription4 }}<br>
+              {% trans 'Pressure:' %} {{ weathers.wpressure4 }} hPa<br>
+              {% trans 'Temp min:' %} {{ weathers.wtemp_min4.normalize }} {{ u1 }}<br>
+              {% trans 'Temp max:' %} {{ weathers.wtemp_max4.normalize }} {{ u1 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed4.normalize }} {{ u2 }}<br>
+              {% trans 'Gusts:' %} {{ weathers.wwind_gust4.normalize }} {{ u2 }}<br>
+              {% trans 'Humidity:' %} {{ weathers.whumidity4 }}%<br>
+              {% trans 'Rain:' %} {{ weathers.wrain4.normalize }} mm<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    {% endif %}
+  </div>
+{% endblock content%}

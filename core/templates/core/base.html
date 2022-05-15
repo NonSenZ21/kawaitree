@@ -46,7 +46,7 @@
         </li>
         {% if request.user.profile.weather is True %}
           <li class="nav-item">
-            <a class="nav-link" href="#">{% trans "Weather" %}</a>
+            <a class="nav-link" href="{% url 'weather' %}">{% trans "Weather" %}</a>
           </li>
         {% endif %}
         <li class="nav-item dropdown">

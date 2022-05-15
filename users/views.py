@@ -7,6 +7,8 @@ from .forms import UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
+from .models import Weather
+from datetime import date
 
 
 @login_required
@@ -41,3 +43,27 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user.id == user.id:
             return True
         return False
+
+
+@login_required
+def weather(request):
+    if not request.user.profile.weather:
+        mes = _('Weather is not enabled in your profile.')
+        messages.warning(request, mes)
+        return redirect('profile')
+
+    weathers = Weather.objects.get(user=request.user)
+    if weathers.wdate0 == date.today():
+        sync = True
+    else:
+        sync = False
+    unites = request.user.profile.unites
+    if unites == '1':
+        u1, u2 = '°C', 'm/s'
+    elif unites == '2':
+        u1, u2 = '°F', 'miles/hour'
+    elif unites == '3':
+        u1, u2 = '°K', 'm/s'
+
+    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2}
+    return render(request, 'users/weather.html', context)
