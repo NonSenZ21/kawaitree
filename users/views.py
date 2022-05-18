@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 from .models import Weather
-from datetime import date
+from datetime import date, datetime
 
 
 @login_required

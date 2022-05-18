@@ -19,13 +19,13 @@ class Profile(models.Model):
     fb = models.URLField(verbose_name='Facebook', blank=True, null=True)
     yt = models.URLField(verbose_name='Youtube', blank=True, null=True)
     insta = models.URLField(verbose_name='Instagram', blank=True, null=True)
-    last_year = datetime.today()-timedelta(days=365)
+    last_year = datetime.today() - timedelta(days=365)
     don_date = models.DateField(null=True, blank=True, default=last_year, verbose_name=_('Last donation date'))
     valid_user = models.BooleanField(default=False, verbose_name=_('Valid user'))
     expert = models.BooleanField(default=False, verbose_name=_('Expert (disable helpers)'))
 
     def __str__(self):
-        return f'{ self.user.username } Profile'
+        return f'{self.user.username} Profile'
 
 
 class Weather(models.Model):
@@ -65,7 +65,7 @@ class Weather(models.Model):
                                       verbose_name=_('Gusts speed'))
     whumidity1 = models.IntegerField(default=0, verbose_name=_('Humidity'))
     wrain1 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
-                                      verbose_name=_('Rain'))
+                                 verbose_name=_('Rain'))
     wicon1 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
 
     wnday2 = models.IntegerField(default=0, verbose_name=_('Day number'))
@@ -117,13 +117,18 @@ class Weather(models.Model):
     wtemp_max4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                      verbose_name=_('Max temperature'))
     wwind_speed4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
-                                      verbose_name=_('Wind speed'))
+                                       verbose_name=_('Wind speed'))
     wwind_gust4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                       verbose_name=_('Gusts speed'))
     whumidity4 = models.IntegerField(default=0, verbose_name=_('Humidity'))
     wrain4 = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
                                  verbose_name=_('Rain'))
     wicon4 = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
+    alert_sender = models.CharField(null=True, blank=True, max_length=100, verbose_name=_('Alert sender'))
+    alert_event = models.CharField(null=True, blank=True, max_length=250, verbose_name=_('Event'))
+    alert_start = models.DateTimeField(null=True, blank=True, verbose_name=_('Start'))
+    alert_end = models.DateTimeField(null=True, blank=True, verbose_name=_('End'))
+    alert_description = models.TextField(null=True, blank=True, verbose_name=_('Alert description'))
 
     def __str__(self):
-        return f'{ self.user.username } Weather'
+        return f'{self.user.username} Weather'
