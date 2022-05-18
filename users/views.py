@@ -8,7 +8,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 from .models import Weather
-from datetime import date, datetime
+from datetime import date
+from django.utils import timezone
 
 
 @login_required
@@ -57,6 +58,12 @@ def weather(request):
         sync = True
     else:
         sync = False
+        
+    if weathers.alert_end > timezone.now():
+        alert = True
+    else:
+        alert = False
+
     unites = request.user.profile.unites
     if unites == '1':
         u1, u2 = '°C', 'm/s'
@@ -65,5 +72,5 @@ def weather(request):
     elif unites == '3':
         u1, u2 = '°K', 'm/s'
 
-    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2}
+    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2, 'alert': alert}
     return render(request, 'users/weather.html', context)
