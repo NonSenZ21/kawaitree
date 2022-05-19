@@ -58,8 +58,9 @@ def weather(request):
         sync = True
     else:
         sync = False
-        
-    if weathers.alert_end > timezone.now():
+    print('timezone.now : ', timezone.now())
+    print('alert_end : ', weathers.alert_end)
+    if weathers.alert_end and weathers.alert_end > timezone.now():
         alert = True
     else:
         alert = False
