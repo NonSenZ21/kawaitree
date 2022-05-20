@@ -63,6 +63,7 @@
                                         {% if tree.url %}
                                           <a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a>
                                         {% endif %}
+                                      <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Detail' %}</a>
                                       </p>
                                   </div>
                                   <div class="col">
