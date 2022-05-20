@@ -4,7 +4,7 @@ from .views import TreeListView, TreeCreateView, TreeUpdateView, TreeDeleteView,
 from . import views
 urlpatterns = [
    path('', views.tdb, name='core-tdb'),
-   path('list/',TreeListView.as_view(), name='list'),
+   path('list/', TreeListView.as_view(), name='list'),
    path('tree/<int:pk>/', views.treedetail, name='tree-detail'),
    path('tree/new/', TreeCreateView.as_view(), name='tree-create'),
    path('tree/<int:pk>/update/', TreeUpdateView.as_view(), name='tree-update'),

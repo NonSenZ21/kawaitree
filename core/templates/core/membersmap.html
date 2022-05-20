@@ -45,7 +45,7 @@
     for(jsmember in jsmembers){
         var marqueur = L.marker([jsmembers[jsmember].lat, jsmembers[jsmember].lon],{icon: icone});
         console.log([jsmembers[jsmember].lat, jsmembers[jsmember].lon]);
-        marqueur.bindPopup("<p><strong><a href=''>"+jsmember+"</a></strong></p>");
+        marqueur.bindPopup("<p><strong><a href='/profile/public_profile/"+jsmembers[jsmember].id+"/'>"+jsmember+"</a></strong></p>");
         marqueurs.addLayer(marqueur);
 
         tableauMarqueurs.push(marqueur);

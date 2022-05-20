@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-15 15:25+0000\n"
+"POT-Creation-Date: 2022-05-20 14:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,7 +135,7 @@ msgid "All tasks"
 msgstr "Toutes les tâches"
 
 #: core/templates/core/base-leaflet.html:58 core/templates/core/base.html:49
-#: users/views.py:68
+#: users/views.py:79
 msgid "Weather"
 msgstr "Météo"
 
@@ -220,7 +220,7 @@ msgstr "Oui supprimer"
 #: core/templates/core/tree_confirm_delete.html:14
 #: core/templates/core/tree_form.html:58
 #: users/templates/users/User_confirm_delete.html:19
-#: users/templates/users/profile.html:100
+#: users/templates/users/profile.html:103
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -242,6 +242,7 @@ msgstr "Tâche&nbsp;:"
 #: core/templates/core/task_detail.html:13 core/templates/core/tdb.html:133
 #: core/templates/core/tree_detail.html:13
 #: core/templates/core/tree_list.html:23
+#: users/templates/users/public_profile.html:59
 msgid "Description:"
 msgstr "Description&nbsp;:"
 
@@ -285,18 +286,22 @@ msgid "No photo in your collection."
 msgstr "Pas de photo dans votre collection."
 
 #: core/templates/core/photo_list.html:19
+#: users/templates/users/public_profile.html:94
 msgid "first"
 msgstr "premier"
 
 #: core/templates/core/photo_list.html:20
+#: users/templates/users/public_profile.html:95
 msgid "previous"
 msgstr "précédent"
 
 #: core/templates/core/photo_list.html:30
+#: users/templates/users/public_profile.html:105
 msgid "next"
 msgstr "suivant"
 
 #: core/templates/core/photo_list.html:31
+#: users/templates/users/public_profile.html:106
 msgid "last"
 msgstr "dernier"
 
@@ -364,6 +369,7 @@ msgid "Next 3 months"
 msgstr "Trois prochains mois"
 
 #: core/templates/core/tdb.html:116
+#: users/templates/users/public_profile.html:41
 msgid "Trees"
 msgstr "Arbres"
 
@@ -373,21 +379,25 @@ msgstr "Pas d'arbre dans votre collection."
 
 #: core/templates/core/tdb.html:132 core/templates/core/tree_detail.html:12
 #: core/templates/core/tree_list.html:22
+#: users/templates/users/public_profile.html:58
 msgid "Species:"
-msgstr "Espèces&nbsp;:"
+msgstr "Espèce&nbsp;:"
 
 #: core/templates/core/tdb.html:134 core/templates/core/tree_detail.html:14
 #: core/templates/core/tree_list.html:24
+#: users/templates/users/public_profile.html:60
 msgid "Planting date:"
 msgstr "Date de plantation&nbsp;:"
 
 #: core/templates/core/tdb.html:135 core/templates/core/tree_detail.html:15
 #: core/templates/core/tree_list.html:25
+#: users/templates/users/public_profile.html:61
 msgid "Acquisition date:"
 msgstr "Date d'acquisition&nbsp;:"
 
 #: core/templates/core/tdb.html:136 core/templates/core/tree_detail.html:16
 #: core/templates/core/tree_list.html:26
+#: users/templates/users/public_profile.html:62
 msgid "Origin:"
 msgstr "Origine&nbsp;:"
 
@@ -425,7 +435,7 @@ msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:208
+#: core/views.py:208 users/views.py:98
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des phtoos privées&nbsp;?"
 
@@ -1006,13 +1016,13 @@ msgstr "Standard (°K, m/s)"
 msgid "Units"
 msgstr "Unités"
 
-#: users/models.py:16 users/models.py:42 users/models.py:61 users/models.py:80
-#: users/models.py:99 users/models.py:118
+#: users/models.py:16 users/models.py:43 users/models.py:62 users/models.py:81
+#: users/models.py:100 users/models.py:119
 msgid "Max temperature"
 msgstr "Température max"
 
-#: users/models.py:17 users/models.py:40 users/models.py:59 users/models.py:78
-#: users/models.py:97 users/models.py:116
+#: users/models.py:17 users/models.py:41 users/models.py:60 users/models.py:79
+#: users/models.py:98 users/models.py:117
 msgid "Min temperature"
 msgstr "Température min"
 
@@ -1020,72 +1030,96 @@ msgstr "Température min"
 msgid "Gust speed"
 msgstr "Rafales"
 
-#: users/models.py:23
+#: users/models.py:22
+msgid "Website"
+msgstr ""
+
+#: users/models.py:24
 msgid "Last donation date"
 msgstr "Date de don"
 
-#: users/models.py:24
+#: users/models.py:25
 msgid "Valid user"
 msgstr "Utilisateur valide"
 
-#: users/models.py:25
+#: users/models.py:26
 msgid "Expert (disable helpers)"
 msgstr "Mode expert (sans message d'aide)"
 
-#: users/models.py:33 users/models.py:52 users/models.py:71 users/models.py:90
-#: users/models.py:109
+#: users/models.py:34 users/models.py:53 users/models.py:72 users/models.py:91
+#: users/models.py:110
 msgid "Day number"
 msgstr "Numéro du jour"
 
-#: users/models.py:34 users/models.py:53 users/models.py:72 users/models.py:91
-#: users/models.py:110
+#: users/models.py:35 users/models.py:54 users/models.py:73 users/models.py:92
+#: users/models.py:111
 msgid "Date"
 msgstr "Date"
 
-#: users/models.py:35 users/models.py:54 users/models.py:73 users/models.py:92
-#: users/models.py:111
+#: users/models.py:36 users/models.py:55 users/models.py:74 users/models.py:93
+#: users/models.py:112
 msgid "Weather code"
 msgstr "Code météo"
 
-#: users/models.py:36 users/models.py:55 users/models.py:74 users/models.py:93
-#: users/models.py:112
+#: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
+#: users/models.py:113
 msgid "Weather main"
 msgstr "Météo principale"
 
-#: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
-#: users/models.py:113
+#: users/models.py:38 users/models.py:57 users/models.py:76 users/models.py:95
+#: users/models.py:114
 msgid "Weather description"
 msgstr "Description"
 
-#: users/models.py:38 users/models.py:57 users/models.py:76 users/models.py:95
-#: users/models.py:114
+#: users/models.py:39 users/models.py:58 users/models.py:77 users/models.py:96
+#: users/models.py:115
 msgid "Pressure"
 msgstr "Pression"
 
-#: users/models.py:44 users/models.py:63 users/models.py:82 users/models.py:101
-#: users/models.py:120
+#: users/models.py:45 users/models.py:64 users/models.py:83 users/models.py:102
+#: users/models.py:121
 msgid "Wind speed"
 msgstr "Vitesse du vent"
 
-#: users/models.py:46 users/models.py:65 users/models.py:84 users/models.py:103
-#: users/models.py:122
+#: users/models.py:47 users/models.py:66 users/models.py:85 users/models.py:104
+#: users/models.py:123
 msgid "Gusts speed"
 msgstr "Rafales"
 
-#: users/models.py:47 users/models.py:66 users/models.py:85 users/models.py:104
-#: users/models.py:123
+#: users/models.py:48 users/models.py:67 users/models.py:86 users/models.py:105
+#: users/models.py:124
 msgid "Humidity"
 msgstr "Humidité"
 
-#: users/models.py:49 users/models.py:68 users/models.py:87 users/models.py:106
-#: users/models.py:125
+#: users/models.py:50 users/models.py:69 users/models.py:88 users/models.py:107
+#: users/models.py:126
 msgid "Rain"
 msgstr "Pluie"
 
-#: users/models.py:50 users/models.py:69 users/models.py:88 users/models.py:107
-#: users/models.py:126
+#: users/models.py:51 users/models.py:70 users/models.py:89 users/models.py:108
+#: users/models.py:127
 msgid "Weather icon"
 msgstr "Icône météo"
+
+#: users/models.py:128
+msgid "Alert sender"
+msgstr "Emetteur de l'alerte"
+
+#: users/models.py:129
+msgid "Event"
+msgstr "Evènement"
+
+#: users/models.py:130
+msgid "Start"
+msgstr "Début"
+
+#: users/models.py:131
+msgid "End"
+msgstr "Fin"
+
+#: users/models.py:132
+msgid "Alert description"
+msgstr "Description"
 
 #: users/templates/users/User_confirm_delete.html:9
 msgid "Delete your account"
@@ -1153,7 +1187,7 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez renseigner les informations ci-dessous. "
 "Elles seront visibles dans votre profil si celui-ci est public."
 
-#: users/templates/users/profile.html:93
+#: users/templates/users/profile.html:96
 msgid ""
 "You can hide all help messages like this one by checking the Expert box "
 "below."
@@ -1161,69 +1195,81 @@ msgstr ""
 "Vous pouvez cacher tous les messages d'aide comme celui-ci en validant la "
 "case Expert ci-dessous."
 
-#: users/templates/users/profile.html:99
+#: users/templates/users/profile.html:102
 msgid "OK"
 msgstr "OK"
 
-#: users/templates/users/profile.html:101
+#: users/templates/users/profile.html:104
 msgid "Delete user"
 msgstr "Supprimer l'utilisateur"
 
-#: users/templates/users/weather.html:10
+#: users/templates/users/public_profile.html:35
+msgid "No tree in this collection."
+msgstr "Pas d'arbre dans cette collection."
+
+#: users/templates/users/public_profile.html:84
+msgid "No photo in this collection."
+msgstr "Pas de photo dans cette collection."
+
+#: users/templates/users/weather.html:12
 msgid ""
-"No information for now. Make sure you checked the \"weather\" checkbox in "
-"your profile and you will get your weather here tomorrow."
+"No information for now. Make sure you checked the \"Weather alerts\" "
+"checkbox in your profile and you will get your weather here tomorrow."
 msgstr ""
 "Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
-"\"Météo\" dans votre profil et vous aurez la météo demain ici."
-
-#: users/templates/users/weather.html:24 users/templates/users/weather.html:46
-#: users/templates/users/weather.html:68 users/templates/users/weather.html:90
-#: users/templates/users/weather.html:112
-msgid "Pressure:"
-msgstr "Pression :"
-
-#: users/templates/users/weather.html:25 users/templates/users/weather.html:47
-#: users/templates/users/weather.html:69 users/templates/users/weather.html:91
-#: users/templates/users/weather.html:113
-msgid "Temp min:"
-msgstr "Temp min :"
+"\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
 
 #: users/templates/users/weather.html:26 users/templates/users/weather.html:48
 #: users/templates/users/weather.html:70 users/templates/users/weather.html:92
 #: users/templates/users/weather.html:114
-msgid "Temp max:"
-msgstr "Temp max :"
+msgid "Pressure:"
+msgstr "Pression :"
 
 #: users/templates/users/weather.html:27 users/templates/users/weather.html:49
 #: users/templates/users/weather.html:71 users/templates/users/weather.html:93
 #: users/templates/users/weather.html:115
-msgid "Wind speed:"
-msgstr "Vitesse du vent :"
+msgid "Temp min:"
+msgstr "Temp min :"
 
 #: users/templates/users/weather.html:28 users/templates/users/weather.html:50
 #: users/templates/users/weather.html:72 users/templates/users/weather.html:94
 #: users/templates/users/weather.html:116
-msgid "Gusts:"
-msgstr "Rafales :"
+msgid "Temp max:"
+msgstr "Temp max :"
 
 #: users/templates/users/weather.html:29 users/templates/users/weather.html:51
 #: users/templates/users/weather.html:73 users/templates/users/weather.html:95
 #: users/templates/users/weather.html:117
-msgid "Humidity:"
-msgstr "Humidité :"
+msgid "Wind speed:"
+msgstr "Vitesse du vent :"
 
 #: users/templates/users/weather.html:30 users/templates/users/weather.html:52
 #: users/templates/users/weather.html:74 users/templates/users/weather.html:96
 #: users/templates/users/weather.html:118
+msgid "Gusts:"
+msgstr "Rafales :"
+
+#: users/templates/users/weather.html:31 users/templates/users/weather.html:53
+#: users/templates/users/weather.html:75 users/templates/users/weather.html:97
+#: users/templates/users/weather.html:119
+msgid "Humidity:"
+msgstr "Humidité :"
+
+#: users/templates/users/weather.html:32 users/templates/users/weather.html:54
+#: users/templates/users/weather.html:76 users/templates/users/weather.html:98
+#: users/templates/users/weather.html:120
 msgid "Rain:"
 msgstr "Pluie :"
 
-#: users/views.py:22
+#: users/templates/users/weather.html:130
+msgid "Weather alert"
+msgstr "Alerte météo"
+
+#: users/views.py:24
 msgid "Your account has been updated!"
 msgstr "Votre compte a été mis à jour&nbsp;!"
 
-#: users/views.py:51
+#: users/views.py:53
 msgid "Weather is not enabled in your profile."
 msgstr "La météo n'est pas activée sur votre profil."
 
@@ -1578,6 +1624,3 @@ msgstr "Rempoter"
 #: core.Tasklist/name:11
 msgid "Pinching"
 msgstr "Pincer"
-
-#~ msgid "Update"
-#~ msgstr "Modifier"

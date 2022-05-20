@@ -1,5 +1,5 @@
-# from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views.generic import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -7,9 +7,10 @@ from .forms import UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
-from .models import Weather
 from datetime import date
 from django.utils import timezone
+from .models import Weather
+from core.models import Photo, Tree
 
 
 @login_required
@@ -58,8 +59,10 @@ def weather(request):
         sync = True
     else:
         sync = False
-    print('timezone.now : ', timezone.now())
-    print('alert_end : ', weathers.alert_end)
+    # print('timezone.now : ', timezone.now())
+    # print('alert_end : ', weathers.alert_end)
+    # print(timezone.localtime(timezone.now()))
+
     if weathers.alert_end and weathers.alert_end > timezone.now():
         alert = True
     else:
@@ -73,5 +76,25 @@ def weather(request):
     elif unites == '3':
         u1, u2 = '°K', 'm/s'
 
-    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2, 'alert': alert}
+    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2, 'alert': alert,
+               'localti': "Europe/Paris"}  # TODO modify with user timezone
     return render(request, 'users/weather.html', context)
+
+
+@login_required
+def pubprofile(request, pk):
+    ownerobj = get_object_or_404(User, pk=pk)
+    if ownerobj == request.user or ownerobj.profile.public_profile is True:
+        trees = Tree.objects.filter(ownerfk=ownerobj)
+
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('shot_date')
+        paginator = Paginator(photos, 5)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context = {'owner': ownerobj, 'trees': trees, 'page_obj': page_obj}
+        print(context)
+        return render(request, 'users/public_profile.html', context)
+    else:
+        mes = _("Are you trying to list private pictures?")
+        messages.warning(request, mes)
+        return redirect('core-tdb')

@@ -1,0 +1,146 @@
+{% extends "core/base-leaflet.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% load socialaccount %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col col-xs-auto">
+                {% if owner.socialaccount_set.all.0.get_avatar_url %}
+                    <img class="mr-3 mb-3 rounded-circle" src="{{ owner.socialaccount_set.all.0.get_avatar_url }}">
+                {% endif %}
+            </div>
+            <div class="col">
+                <h1>{{ owner.username }}</h1>
+                {% if owner.profile.fb %}
+                    <a href="{{ owner.profile.fb }}"><img src="{% static 'img/fb.png' %}"></a>
+                {% endif %}
+                {% if owner.profile.yt %}
+                    <a href="{{ owner.profile.yt }}"><img src="{% static 'img/yt.png' %}"></a>
+                {% endif %}
+                {% if owner.profile.insta %}
+                    <a href="{{ owner.profile.insta }}"><img src="{% static 'img/insta.png' %}"></a>
+                {% endif %}
+                {% if owner.profile.web %}
+                    <a href="{{ owner.profile.web }}"><img src="{% static 'img/web.png' %}"></a>
+                {% endif %}
+            </div>
+            <div class="col-md">
+                <div id="public_profile_map" class="mb-2"></div>
+            </div>
+        </div>
+
+        {% if not trees %}
+            <p>{% trans 'No tree in this collection.' %}</p>
+        {% else %}
+        <div class="accordion" id="trees">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                {% trans 'Trees' %}
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#trees" style="">
+              <div class="accordion-body">
+                {% for tree in trees %}
+                  <div class="accordion" id="accordiontrees">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="Heading{{ tree.id }}">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ tree.id }}" aria-expanded="true" aria-controls="collapse{{ tree.id }}">
+                            {{ tree.tname }}
+                          </button>
+                        </h2>
+                        <div id="collapse{{ tree.id }}" class="accordion-collapse collapse" aria-labelledby="heading {{ tree.id }}" data-bs-parent="#accordiontrees">
+                          <div class="accordion-body">
+                              <div class="row">
+                                  <div class="col">
+                                      <p>{% trans 'Species:' %} {{ tree.speciesfk.name }} <br>
+                                        {% trans 'Description:' %} {{ tree.description }} <br>
+                                        <i><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></i><br>
+                                        <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
+                                        <small>{% trans 'Origin:' %} {{ tree.originfk }} </small><br>
+                                        {% if tree.url %}
+                                          <a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a>
+                                        {% endif %}
+                                      </p>
+                                  </div>
+                                  <div class="col">
+                                      <img src="{{ tree.treePic.url }}">
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {% endif %}
+        {% if not page_obj %}
+            <p>{% trans 'No photo in this collection.' %}</p>
+        {% else %}
+            <div class="mt-3">
+            {% for photo in page_obj %}
+            <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}" class="mb-2"></a>
+            {% endfor %}
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" class="btn btn-sm btn-outline-info mb-4">&laquo; {% trans 'first' %}</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'previous' %}</a>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <a href="?page={{ num }}" class="btn btn-sm btn-info mb-4">{{ num }}</a>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a href="?page={{ num }}" class="btn btn-sm btn-outline-info mb-4">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'next' %}</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'last' %} &raquo;</a>
+                {% endif %}
+                </span>
+            </div>
+        {% endif %}
+    </div>
+<script>
+    var juser = {
+            "id": {{ owner.id }},
+            "name": '{{ owner }}',
+            "lat": {{ owner.profile.lat|safe }},
+            "lon": {{ owner.profile.long|safe }}
+    };
+
+    var lat = 49.2;
+    var lon = -0.4;
+    var carte3 = L.map('public_profile_map').setView([lat, lon], 5);
+    // On charge les "tuiles"
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        minZoom: 1,
+        maxZoom: 15
+    }).addTo(carte3);
+    var icone = L.icon({
+        iconUrl: "/static/img/icone.png",
+        iconSize: [50,50],
+        iconAnchor: [25,50],
+        popupAnchor: [0,-35],
+        shadowUrl: "/static/img/ombre.png",
+        shadowSize: [35,35],
+        shadowAnchor: [0,35]
+    })
+
+
+    var marqueur = L.marker([juser.lat, juser.lon],{icon: icone}).addTo(carte3);
+    console.log([juser.lat, juser.lon]);
+    marqueur.bindPopup("<p><strong>"+juser.name+"</strong></p>");
+
+</script>
+{% endblock content%}

@@ -19,6 +19,7 @@ class Profile(models.Model):
     fb = models.URLField(verbose_name='Facebook', blank=True, null=True)
     yt = models.URLField(verbose_name='Youtube', blank=True, null=True)
     insta = models.URLField(verbose_name='Instagram', blank=True, null=True)
+    web = models.URLField(verbose_name=_('Website'), blank=True, null=True)
     last_year = datetime.today() - timedelta(days=365)
     don_date = models.DateField(null=True, blank=True, default=last_year, verbose_name=_('Last donation date'))
     valid_user = models.BooleanField(default=False, verbose_name=_('Valid user'))

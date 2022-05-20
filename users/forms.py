@@ -33,4 +33,4 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['public_profile', 'lat', 'long', 'weather', 'unites', 'max_temp', 'min_temp',
-                  'max_wind', 'fb', 'yt', 'insta', 'valid_user', 'expert']
+                  'max_wind', 'fb', 'yt', 'insta', 'web', 'valid_user', 'expert']
