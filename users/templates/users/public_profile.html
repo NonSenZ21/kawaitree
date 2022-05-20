@@ -117,8 +117,8 @@
             "lon": {{ owner.profile.long|safe }}
     };
 
-    var lat = 49.2;
-    var lon = -0.4;
+    var lat = juser.lat;
+    var lon = juser.lon;
     var carte3 = L.map('public_profile_map').setView([lat, lon], 5);
     // On charge les "tuiles"
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
