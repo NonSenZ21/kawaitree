@@ -340,6 +340,3 @@ def membersmap(request):
     context = {'title': _('Members map'), 'members': members}
     return render(request, 'core/membersmap.html', context)
 
-
-def er404(request, exception):
-    return render(request, 'core/404.html')

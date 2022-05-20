@@ -25,7 +25,7 @@ urlpatterns = [
     path('profile/', include("users.urls")),
     path('', include("start.urls")),
 ]
-handler404 = 'core.views.er404'
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
