@@ -37,7 +37,7 @@ SECRET_KEY = os.environ['MYSECRETKEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENV == 'dev':
     DEBUG = True
-    ALLOWED_HOSTS = ['127.0.0.1']
+    ALLOWED_HOSTS = []
 
 elif ENV == 'preprod':
     DEBUG = True
