@@ -68,13 +68,34 @@ def weather(request):
     else:
         alert = False
 
-    unites = request.user.profile.unites
-    if unites == '1':
-        u1, u2 = '°C', 'm/s'
-    elif unites == '2':
+    unites = request.user.weather.unites
+
+    if unites == '2':
         u1, u2 = '°F', 'miles/hour'
     elif unites == '3':
         u1, u2 = '°K', 'm/s'
+    else:
+        u1, u2 = '°C', 'm/s'
+        weathers.wwind_speed0kmh = float(weathers.wwind_speed0) * 3.6
+        weathers.wwind_speed0kmh = "{:.2f}".format(weathers.wwind_speed0kmh)
+        weathers.wwind_gust0kmh = float(weathers.wwind_gust0) * 3.6
+        weathers.wwind_gust0kmh = "{:.2f}".format(weathers.wwind_gust0kmh)
+        weathers.wwind_speed1kmh = float(weathers.wwind_speed1) * 3.6
+        weathers.wwind_speed1kmh = "{:.2f}".format(weathers.wwind_speed1kmh)
+        weathers.wwind_gust1kmh = float(weathers.wwind_gust1) * 3.6
+        weathers.wwind_gust1kmh = "{:.2f}".format(weathers.wwind_gust1kmh)
+        weathers.wwind_speed2kmh = float(weathers.wwind_speed2) * 3.6
+        weathers.wwind_speed2kmh = "{:.2f}".format(weathers.wwind_speed2kmh)
+        weathers.wwind_gust2kmh = float(weathers.wwind_gust2) * 3.6
+        weathers.wwind_gust2kmh = "{:.2f}".format(weathers.wwind_gust2kmh)
+        weathers.wwind_speed3kmh = float(weathers.wwind_speed3) * 3.6
+        weathers.wwind_speed3kmh = "{:.2f}".format(weathers.wwind_speed3kmh)
+        weathers.wwind_gust3kmh = float(weathers.wwind_gust3) * 3.6
+        weathers.wwind_gust3kmh = "{:.2f}".format(weathers.wwind_gust3kmh)
+        weathers.wwind_speed4kmh = float(weathers.wwind_speed4) * 3.6
+        weathers.wwind_speed4kmh = "{:.2f}".format(weathers.wwind_speed4kmh)
+        weathers.wwind_gust4kmh = float(weathers.wwind_gust4) * 3.6
+        weathers.wwind_gust4kmh = "{:.2f}".format(weathers.wwind_gust4kmh)
 
     context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2, 'alert': alert,
                'localti': "Europe/Paris"}  # TODO modify with user timezone

@@ -26,8 +26,14 @@
               {% trans 'Pressure:' %} {{ weathers.wpressure0 }} hPa<br>
               {% trans 'Temp min:' %} {{ weathers.wtemp_min0.normalize }} {{ u1 }}<br>
               {% trans 'Temp max:' %} {{ weathers.wtemp_max0.normalize }} {{ u1 }}<br>
-              {% trans 'Wind speed:' %} {{ weathers.wwind_speed0.normalize }} {{ u2 }}<br>
+              {% trans 'Wind speed:' %} {{ weathers.wwind_speed0.normalize }} {{ u2 }}}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_speed0kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Gusts:' %} {{ weathers.wwind_gust0.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_gust0kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Humidity:' %} {{ weathers.whumidity0 }}%<br>
               {% trans 'Rain:' %} {{ weathers.wrain0.normalize }} mm<br>
             </p>
@@ -49,7 +55,13 @@
               {% trans 'Temp min:' %} {{ weathers.wtemp_min1.normalize }} {{ u1 }}<br>
               {% trans 'Temp max:' %} {{ weathers.wtemp_max1.normalize }} {{ u1 }}<br>
               {% trans 'Wind speed:' %} {{ weathers.wwind_speed1.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_speed1kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Gusts:' %} {{ weathers.wwind_gust1.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_gust1kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Humidity:' %} {{ weathers.whumidity1 }} %<br>
               {% trans 'Rain:' %} {{ weathers.wrain1.normalize }}mm<br>
             </p>
@@ -71,7 +83,13 @@
               {% trans 'Temp min:' %} {{ weathers.wtemp_min2.normalize }} {{ u1 }}<br>
               {% trans 'Temp max:' %} {{ weathers.wtemp_max2.normalize }} {{ u1 }}<br>
               {% trans 'Wind speed:' %} {{ weathers.wwind_speed2.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_speed2kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Gusts:' %} {{ weathers.wwind_gust2.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_gust2kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Humidity:' %} {{ weathers.whumidity2 }}%<br>
               {% trans 'Rain:' %} {{ weathers.wrain2.normalize }} mm<br>
             </p>
@@ -93,7 +111,13 @@
               {% trans 'Temp min:' %} {{ weathers.wtemp_min3.normalize }} {{ u1 }}<br>
               {% trans 'Temp max:' %} {{ weathers.wtemp_max3.normalize }} {{ u1 }}<br>
               {% trans 'Wind speed:' %} {{ weathers.wwind_speed3.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_speed3kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Gusts:' %} {{ weathers.wwind_gust3.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_gust3kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Humidity:' %} {{ weathers.whumidity3 }}%<br>
               {% trans 'Rain:' %} {{ weathers.wrain3.normalize }} mm<br>
             </p>
@@ -115,7 +139,13 @@
               {% trans 'Temp min:' %} {{ weathers.wtemp_min4.normalize }} {{ u1 }}<br>
               {% trans 'Temp max:' %} {{ weathers.wtemp_max4.normalize }} {{ u1 }}<br>
               {% trans 'Wind speed:' %} {{ weathers.wwind_speed4.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_speed4kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Gusts:' %} {{ weathers.wwind_gust4.normalize }} {{ u2 }}<br>
+              {% if weathers.unites == '1' %}
+                ({{ weathers.wwind_gust4kmh }}) km/h<br>
+              {% endif %}
               {% trans 'Humidity:' %} {{ weathers.whumidity4 }}%<br>
               {% trans 'Rain:' %} {{ weathers.wrain4.normalize }} mm<br>
             </p>
