@@ -31,6 +31,7 @@ class Profile(models.Model):
 
 class Weather(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    unites = models.CharField(max_length=1, default='1', verbose_name=_('Units'))
     wnday0 = models.IntegerField(default=0, verbose_name=_('Day number'))
     wdate0 = models.DateField(default=timezone.now, verbose_name=_('Date'))
     wid0 = models.IntegerField(default=0, verbose_name=_('Weather code'))

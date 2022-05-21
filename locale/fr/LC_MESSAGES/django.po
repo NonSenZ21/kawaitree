@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-20 14:29+0000\n"
+"POT-Creation-Date: 2022-05-21 14:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,20 +65,20 @@ msgstr "Arbre"
 #: core/models.py:88 core/templates/core/task_form.html:29
 #: core/templates/core/tasks.html:12 core/templates/core/tdb.html:22
 #: core/templates/core/tdb.html:78 core/templates/core/tdb.html:153
-#: core/templates/core/tree_detail.html:50
+#: core/templates/core/tree_detail.html:51
 msgid "Planned date"
 msgstr "Date prévue"
 
 #: core/models.py:89 core/templates/core/task_form.html:35
 #: core/templates/core/tasks.html:14 core/templates/core/tdb.html:154
-#: core/templates/core/tree_detail.html:51
+#: core/templates/core/tree_detail.html:52
 msgid "Realisation date"
 msgstr "Date de réalisation"
 
 #: core/models.py:106 core/templates/core/task_form.html:12
 #: core/templates/core/tasks.html:17 core/templates/core/tdb.html:24
 #: core/templates/core/tdb.html:80 core/templates/core/tdb.html:152
-#: core/templates/core/tree_detail.html:49
+#: core/templates/core/tree_detail.html:50
 msgid "Task"
 msgstr "Tâche"
 
@@ -220,7 +220,7 @@ msgstr "Oui supprimer"
 #: core/templates/core/tree_confirm_delete.html:14
 #: core/templates/core/tree_form.html:58
 #: users/templates/users/User_confirm_delete.html:19
-#: users/templates/users/profile.html:103
+#: users/templates/users/profile.html:112
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -229,8 +229,9 @@ msgstr "Annuler"
 #: core/templates/core/tdb.html:43 core/templates/core/tdb.html:99
 #: core/templates/core/tdb.html:141 core/templates/core/tdb.html:174
 #: core/templates/core/tree_detail.html:6
-#: core/templates/core/tree_detail.html:71
+#: core/templates/core/tree_detail.html:72
 #: core/templates/core/tree_list.html:33
+#: users/templates/users/public_profile.html:66
 msgid "Detail"
 msgstr "Détail"
 
@@ -263,7 +264,7 @@ msgstr "Photo prise après l'exécution."
 #: core/templates/core/tdb.html:49 core/templates/core/tdb.html:105
 #: core/templates/core/tdb.html:143 core/templates/core/tdb.html:180
 #: core/templates/core/tree_detail.html:24
-#: core/templates/core/tree_detail.html:77
+#: core/templates/core/tree_detail.html:78
 #: core/templates/core/tree_list.html:35
 msgid "Delete"
 msgstr "Supprimer"
@@ -286,22 +287,22 @@ msgid "No photo in your collection."
 msgstr "Pas de photo dans votre collection."
 
 #: core/templates/core/photo_list.html:19
-#: users/templates/users/public_profile.html:94
+#: users/templates/users/public_profile.html:95
 msgid "first"
 msgstr "premier"
 
 #: core/templates/core/photo_list.html:20
-#: users/templates/users/public_profile.html:95
+#: users/templates/users/public_profile.html:96
 msgid "previous"
 msgstr "précédent"
 
 #: core/templates/core/photo_list.html:30
-#: users/templates/users/public_profile.html:105
+#: users/templates/users/public_profile.html:106
 msgid "next"
 msgstr "suivant"
 
 #: core/templates/core/photo_list.html:31
-#: users/templates/users/public_profile.html:106
+#: users/templates/users/public_profile.html:107
 msgid "last"
 msgstr "dernier"
 
@@ -333,10 +334,22 @@ msgstr "Date de réalisation&nbsp;:"
 #: core/templates/core/tdb.html:46 core/templates/core/tdb.html:102
 #: core/templates/core/tdb.html:142 core/templates/core/tdb.html:177
 #: core/templates/core/tree_detail.html:23
-#: core/templates/core/tree_detail.html:74
+#: core/templates/core/tree_detail.html:75
 #: core/templates/core/tree_list.html:34
 msgid "Edit"
 msgstr "Modifier"
+
+#: core/templates/core/task_detail.html:28
+msgid "Before"
+msgstr "Avant"
+
+#: core/templates/core/task_detail.html:38
+msgid "During"
+msgstr "Pendant"
+
+#: core/templates/core/task_detail.html:48
+msgid "After"
+msgstr "Après"
 
 #: core/templates/core/task_detail.html:59
 #: core/templates/core/tree_detail.html:41
@@ -401,7 +414,7 @@ msgstr "Date d'acquisition&nbsp;:"
 msgid "Origin:"
 msgstr "Origine&nbsp;:"
 
-#: core/templates/core/tdb.html:187 core/templates/core/tree_detail.html:85
+#: core/templates/core/tdb.html:187 core/templates/core/tree_detail.html:87
 msgid "Add task"
 msgstr "Ajouter une tâche"
 
@@ -1145,7 +1158,7 @@ msgstr ""
 msgid "Profile Info"
 msgstr "Profil"
 
-#: users/templates/users/profile.html:25
+#: users/templates/users/profile.html:26
 msgid ""
 "Your profile is public. Other members can find your localisation, send you a "
 "message and see your collection."
@@ -1153,7 +1166,7 @@ msgstr ""
 "Votre profil est public. Les autres membres peuvent voir votre "
 "géolocalisation, vous envoyer un message et voir votre collection"
 
-#: users/templates/users/profile.html:27
+#: users/templates/users/profile.html:28
 msgid ""
 "Your profile is <strong>NOT</strong> public. Other members can't find your "
 "localisation, send you a message or see your collection."
@@ -1162,7 +1175,7 @@ msgstr ""
 "peuvent pas voir votre géolocalisation, vous envoyer un message ou voir "
 "votre collection."
 
-#: users/templates/users/profile.html:42
+#: users/templates/users/profile.html:45
 msgid ""
 "This map will allow weather alerts and will help other members to contact "
 "you if your profile is public. We suggest you do not give your home address, "
@@ -1173,13 +1186,13 @@ msgstr ""
 "pas marquer votre adresse exacte mais uniquement votre ville pour des "
 "raisons de sécurité et de respect de la vie privée."
 
-#: users/templates/users/profile.html:54
+#: users/templates/users/profile.html:59
 msgid "Check \"Weather alert\" if you want to receive weather alerts by email."
 msgstr ""
 "Cochez \"Alertes Météo\" si vous souhaitez recevoir des alertes météo par "
 "mail."
 
-#: users/templates/users/profile.html:79
+#: users/templates/users/profile.html:85
 msgid ""
 "If you wish, you can fill in the information below. It will be visible in "
 "your profile (only if it is public)."
@@ -1187,7 +1200,7 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez renseigner les informations ci-dessous. "
 "Elles seront visibles dans votre profil si celui-ci est public."
 
-#: users/templates/users/profile.html:96
+#: users/templates/users/profile.html:104
 msgid ""
 "You can hide all help messages like this one by checking the Expert box "
 "below."
@@ -1195,11 +1208,11 @@ msgstr ""
 "Vous pouvez cacher tous les messages d'aide comme celui-ci en validant la "
 "case Expert ci-dessous."
 
-#: users/templates/users/profile.html:102
+#: users/templates/users/profile.html:111
 msgid "OK"
 msgstr "OK"
 
-#: users/templates/users/profile.html:104
+#: users/templates/users/profile.html:113
 msgid "Delete user"
 msgstr "Supprimer l'utilisateur"
 
@@ -1207,7 +1220,7 @@ msgstr "Supprimer l'utilisateur"
 msgid "No tree in this collection."
 msgstr "Pas d'arbre dans cette collection."
 
-#: users/templates/users/public_profile.html:84
+#: users/templates/users/public_profile.html:85
 msgid "No photo in this collection."
 msgstr "Pas de photo dans cette collection."
 

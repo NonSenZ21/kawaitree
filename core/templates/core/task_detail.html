@@ -25,7 +25,7 @@
         </div>
         {% if photos_before %}
         <div class="row mt-2 mb-2">
-          <h5>Before</h5>
+          <h5>{% trans 'Before' %}</h5>
         {% for photo in photos_before %}
           <div class="col mt-2 mb-2">
               <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
@@ -35,7 +35,7 @@
         {% endif %}
         {% if photos_during %}
         <div class="row mt-2 mb-2">
-          <h5>During</h5>
+          <h5>{% trans 'During' %}</h5>
         {% for photo in photos_during %}
           <div class="col mt-2 mb-2">
               <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
@@ -45,7 +45,7 @@
         {% endif %}
         {% if photos_after %}
         <div class="row mt-2 mb-2">
-          <h5>After</h5>
+          <h5>{% trans 'After' %}</h5>
         {% for photo in photos_after %}
           <div class="col mt-2 mb-2">
               <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}"></a>
