@@ -339,4 +339,3 @@ def membersmap(request):
     members = User.objects.filter(profile__public_profile=True)
     context = {'title': _('Members map'), 'members': members}
     return render(request, 'core/membersmap.html', context)
-

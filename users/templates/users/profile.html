@@ -19,14 +19,16 @@
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
-            <div class="alert alert-dismissible alert-info">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            {% if user.profile.public_profile %}
-                <p>{% trans 'Your profile is public. Other members can find your localisation, send you a message and see your collection.' %}</p>
-            {% else %}
-                <p>{% trans "Your profile is <strong>NOT</strong> public. Other members can't find your localisation, send you a message or see your collection." %}</p>
+            {% if not request.user.profile.expert %}
+                <div class="alert alert-dismissible alert-info">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {% if user.profile.public_profile %}
+                    <p>{% trans 'Your profile is public. Other members can find your localisation, send you a message and see your collection.' %}</p>
+                {% else %}
+                    <p>{% trans "Your profile is <strong>NOT</strong> public. Other members can't find your localisation, send you a message or see your collection." %}</p>
+                {% endif %}
+                </div>
             {% endif %}
-            </div>
             <div class="row">
                 <div class="col-xl">
                   {{ pc_form.public_profile|as_crispy_field }}
@@ -38,9 +40,11 @@
                   {{ uc_form.email|as_crispy_field }}
                 </div>
             </div>
+            {% if not request.user.profile.expert %}
             <div class="alert alert-warning">
                 <p>{% trans 'This map will allow weather alerts and will help other members to contact you if your profile is public. We suggest you do not give your home address, but specify only your town, for privacy and security reasons.' %}</p>
             </div>
+            {% endif %}
             <div id="profile_map" class="mb-2"></div>
             <div class="row">
                 <div class="col-xl">
@@ -50,10 +54,11 @@
                   {{ pc_form.long|as_crispy_field }}
                 </div>
             </div>
+            {% if not request.user.profile.expert %}
             <div class="alert alert-info">
                 {% trans 'Check "Weather alert" if you want to receive weather alerts by email.' %}
             </div>
-
+            {% endif %}
             <div>
             </div>
             <div class="row">
@@ -75,9 +80,11 @@
                     {{ pc_form.max_wind|as_crispy_field }}
                 </div>
             </div>
+            {% if not request.user.profile.expert %}
             <div class="alert alert-info">
                 {% trans 'If you wish, you can fill in the information below. It will be visible in your profile (only if it is public).' %}
             </div>
+            {% endif %}
             <div class="row">
                 <div class="col-xl">
                   {{ pc_form.fb|as_crispy_field }}
@@ -92,9 +99,11 @@
                   {{ pc_form.web|as_crispy_field }}
                 </div>
             </div>
+            {% if not request.user.profile.expert %}
             <div class="alert alert-info">
                 {% trans 'You can hide all help messages like this one by checking the Expert box below.' %}
             </div>
+            {% endif %}
             <div class="row">
                 {{ pc_form.expert|as_crispy_field }}
             </div>
