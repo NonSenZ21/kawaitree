@@ -12,7 +12,7 @@ https://kawaitree.com is a webapp to help you manage your Bonsaï collection.
 
 ### Socialize
 - Find other bonsaïka around you (on a map)
-- Loot at public profiles, photos of other members collection
+- Look at public profiles, photos of other members collection
 - Contact members (with public profiles)
 - Create your profile (private or public if you want to socialize)
 
