@@ -67,18 +67,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.sites',
-    # 'django.contrib.flatpages',
     'core',
     'start',
     'users',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'vinaigrette',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'vinaigrette',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +89,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'vinaigrette.middleware.VinaigretteAdminLanguageMiddleware',
 ]

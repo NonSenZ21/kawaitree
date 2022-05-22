@@ -55,10 +55,14 @@ def weather(request):
         return redirect('profile')
 
     weathers = Weather.objects.get(user=request.user)
-    if weathers.wdate0 == date.today():
-        sync = True
-    else:
+    if weathers.wdate0 != date.today():
         sync = False
+        mes = _('No information for now. Make sure you checked the "Weather alerts" checkbox in your profile and you '
+                'will get your weather here tomorrow.')
+        messages.warning(request, mes)
+        return redirect('profile')
+    else:
+        sync = True
     # print('timezone.now : ', timezone.now())
     # print('alert_end : ', weathers.alert_end)
     # print(timezone.localtime(timezone.now()))

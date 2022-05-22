@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime, timedelta
 from django.utils import timezone
+from datetime import date
 from django.utils.translation import gettext_lazy as _
 
 
@@ -20,8 +20,7 @@ class Profile(models.Model):
     yt = models.URLField(verbose_name='Youtube', blank=True, null=True)
     insta = models.URLField(verbose_name='Instagram', blank=True, null=True)
     web = models.URLField(verbose_name=_('Website'), blank=True, null=True)
-    last_year = datetime.today() - timedelta(days=365)
-    don_date = models.DateField(null=True, blank=True, default=last_year, verbose_name=_('Last donation date'))
+    don_date = models.DateField(null=True, blank=True, default=date(2021, 1, 1), verbose_name=_('Last donation date'))
     valid_user = models.BooleanField(default=False, verbose_name=_('Valid user'))
     expert = models.BooleanField(default=False, verbose_name=_('Expert (disable helpers)'))
 
@@ -33,7 +32,7 @@ class Weather(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     unites = models.CharField(max_length=1, default='1', verbose_name=_('Units'))
     wnday0 = models.IntegerField(default=0, verbose_name=_('Day number'))
-    wdate0 = models.DateField(default=timezone.now, verbose_name=_('Date'))
+    wdate0 = models.DateField(default=date(2021, 1, 1), verbose_name=_('Date'))
     wid0 = models.IntegerField(default=0, verbose_name=_('Weather code'))
     wmain0 = models.CharField(null=True, blank=True, max_length=100, verbose_name=_('Weather main'))
     wdescription0 = models.CharField(null=True, blank=True, max_length=150, verbose_name=_('Weather description'))

@@ -7,11 +7,6 @@
 {% load socialaccount %}
   <div class="container mt-3">
     <h1 class="mt-3">{{ title }}</h1>
-    {% if not sync %}
-    <div class="alert alert-warning">
-      {% trans 'No information for now. Make sure you checked the "Weather alerts" checkbox in your profile and you will get your weather here tomorrow.' %}
-    </div>
-    {% else %}
     <div class="card-group">
     <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
       <div class="card-header">{{ weathers.wdate0 }}</div>
@@ -167,9 +162,6 @@
           Description : {{ weathers.alert_description }}<br>
         </p>
       </div>
-
-
-    {% endif%}
     {% endif %}
   </div>
 {% endblock content%}

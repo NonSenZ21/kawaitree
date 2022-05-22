@@ -9,7 +9,6 @@ admin.site.register(Task)
 admin.site.register(Photo)
 
 
-
 # class PhotoAdmin(admin.ModelAdmin):
 #     def thumb(self, object):
 #         try:
