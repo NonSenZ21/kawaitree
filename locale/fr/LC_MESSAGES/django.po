@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 14:07+0000\n"
+"POT-Creation-Date: 2022-05-22 12:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,7 +135,7 @@ msgid "All tasks"
 msgstr "Toutes les tâches"
 
 #: core/templates/core/base-leaflet.html:58 core/templates/core/base.html:49
-#: users/views.py:79
+#: users/views.py:100
 msgid "Weather"
 msgstr "Météo"
 
@@ -448,7 +448,7 @@ msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:208 users/views.py:98
+#: core/views.py:208 users/views.py:119
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des phtoos privées&nbsp;?"
 
@@ -963,35 +963,125 @@ msgstr "Votre adresse e-mail est&nbsp;: "
 msgid "Logout With Google"
 msgstr "Se déconnecter avec Google"
 
-#: start/templates/start/home.html:19
+#: start/templates/start/home.html:17
 msgid "What?"
 msgstr "Quoi&nbsp;?"
 
-#: start/templates/start/home.html:21
+#: start/templates/start/home.html:19
 msgid "What is kawaïtree?"
 msgstr "Qu'est-ce que Kawaïtree&nbsp;?"
 
-#: start/templates/start/home.html:22
+#: start/templates/start/home.html:20
 msgid "Kawaïtree is an app that helps you manage your bonsaï collection."
 msgstr ""
 "Kawaïtree est une application web qui vous permet de gérer votre collection "
 "de bonsaï."
 
-#: start/templates/start/home.html:28
+#: start/templates/start/home.html:26
 msgid "How?"
 msgstr "Comment&nbsp;?"
 
-#: start/templates/start/home.html:30
+#: start/templates/start/home.html:28
 msgid "How can I create/use an account?"
 msgstr "Comment créer/utiliser un compte&nbsp;?"
 
-#: start/templates/start/home.html:31
+#: start/templates/start/home.html:29
 msgid "To create or use an account, just log in with Google."
 msgstr "Pour créer ou utiliser un compte, connectez-vous avec Google."
 
-#: start/templates/start/home.html:34
+#: start/templates/start/home.html:32
 msgid "Login With Google"
 msgstr "Se connecter avec Google"
+
+#: start/templates/start/home.html:39
+msgid "Features"
+msgstr "Fonctionnalités"
+
+#: start/templates/start/home.html:41
+msgid "Bonsaï collection management"
+msgstr "Gestion de collection de bonsaï"
+
+#: start/templates/start/home.html:43
+msgid "Add/modify/delete information about your trees"
+msgstr "Ajoutez/modifiez/supprimez des informations sur vos arbres"
+
+#: start/templates/start/home.html:44
+msgid "Add/modify/delete photos of your trees"
+msgstr "Ajoutez/modifiez/supprimez des photos de vos arbres"
+
+#: start/templates/start/home.html:45
+msgid "Plan/do your tasks (care, maintenance, etc.)"
+msgstr "Planifiez/réalisez des tâches (soins, entretien, etc.)"
+
+#: start/templates/start/home.html:46
+msgid ""
+"Add/modify/delete photos of your trees before, during and after you do your "
+"tasks"
+msgstr "Ajoutez/modifiez/supprimez des photos de vos arbres avant, pendant et après vos tâches"
+
+#: start/templates/start/home.html:48
+msgid "Social network for Bonsaï enthousiasts"
+msgstr "Réseau social pour passionnés de Bonsaï"
+
+#: start/templates/start/home.html:50
+msgid "Find other bonsaïka around you (on a map)"
+msgstr "Trouvez des bonsaïka à proximité (sur une carte)"
+
+#: start/templates/start/home.html:51
+msgid "Look at public profiles, photos of other members collection"
+msgstr "Visualisez les profils publics et les photos de collections des autres membres"
+
+#: start/templates/start/home.html:52
+msgid "Contact other members (with public profiles)"
+msgstr "Contactez d'autres membres (au profil public)"
+
+#: start/templates/start/home.html:53
+msgid "Create your profile (private or public if you want to socialize)"
+msgstr "Créez votre profil (privé ou public si vous souhaitez socialiser"
+
+#: start/templates/start/home.html:55 users/models.py:13
+msgid "Weather alerts"
+msgstr "Alertes météo"
+
+#: start/templates/start/home.html:57
+msgid ""
+"Set up values (temp min and max, wind) in your profile to get weather alerts"
+msgstr "Configurez les valeurs (température min et max, vitesse du vent) "
+"dans votre profil pour bénéficier des alertes météo"
+
+#: start/templates/start/home.html:58
+msgid "Check the weather in your city"
+msgstr "Visualisez les prévisions météo de votre ville"
+
+#: start/templates/start/home.html:59
+msgid "Receive emails for weather alerts"
+msgstr "Recevez des alertes par mail"
+
+#: start/templates/start/home.html:61
+msgid "Other features to come"
+msgstr "Autres fonctionnalités à venir"
+
+#: start/templates/start/home.html:63
+msgid "Documentation"
+msgstr "Documentation"
+
+#: start/templates/start/home.html:64
+msgid "Tutorials"
+msgstr "Tutoriaux"
+
+#: start/templates/start/home.html:65
+msgid ""
+"Links (websites to buy pots, bonsaï, tools, youtube casts, documentation "
+"about bonsaÏ care and maintenance, etc.)"
+msgstr "Liens (sites web pour acheter vos pots, bonsaï, outils, chaînes Youtube, documentation)"
+
+#: start/templates/start/home.html:66
+msgid "Discussion groups..."
+msgstr "Groupes de discussion..."
+
+#: start/templates/start/home.html:67
+msgid "and more!"
+msgstr "et bien d'autres !"
 
 #: start/views.py:10
 msgid "what?"
@@ -1009,10 +1099,6 @@ msgstr "Latitude"
 msgid "Longitude"
 msgstr "Longitude"
 
-#: users/models.py:13
-msgid "Weather alerts"
-msgstr "Alertes météo"
-
 #: users/models.py:14
 msgid "Metric (°C, m/s)"
 msgstr "Métrique (°C, m/s)"
@@ -1025,17 +1111,17 @@ msgstr "Impérial (°F, miles/hour)"
 msgid "Standard (°K, m/s)"
 msgstr "Standard (°K, m/s)"
 
-#: users/models.py:15
+#: users/models.py:15 users/models.py:34
 msgid "Units"
 msgstr "Unités"
 
-#: users/models.py:16 users/models.py:43 users/models.py:62 users/models.py:81
-#: users/models.py:100 users/models.py:119
+#: users/models.py:16 users/models.py:44 users/models.py:63 users/models.py:82
+#: users/models.py:101 users/models.py:120
 msgid "Max temperature"
 msgstr "Température max"
 
-#: users/models.py:17 users/models.py:41 users/models.py:60 users/models.py:79
-#: users/models.py:98 users/models.py:117
+#: users/models.py:17 users/models.py:42 users/models.py:61 users/models.py:80
+#: users/models.py:99 users/models.py:118
 msgid "Min temperature"
 msgstr "Température min"
 
@@ -1059,78 +1145,78 @@ msgstr "Utilisateur valide"
 msgid "Expert (disable helpers)"
 msgstr "Mode expert (sans message d'aide)"
 
-#: users/models.py:34 users/models.py:53 users/models.py:72 users/models.py:91
-#: users/models.py:110
+#: users/models.py:35 users/models.py:54 users/models.py:73 users/models.py:92
+#: users/models.py:111
 msgid "Day number"
 msgstr "Numéro du jour"
 
-#: users/models.py:35 users/models.py:54 users/models.py:73 users/models.py:92
-#: users/models.py:111
+#: users/models.py:36 users/models.py:55 users/models.py:74 users/models.py:93
+#: users/models.py:112
 msgid "Date"
 msgstr "Date"
 
-#: users/models.py:36 users/models.py:55 users/models.py:74 users/models.py:93
-#: users/models.py:112
+#: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
+#: users/models.py:113
 msgid "Weather code"
 msgstr "Code météo"
 
-#: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
-#: users/models.py:113
+#: users/models.py:38 users/models.py:57 users/models.py:76 users/models.py:95
+#: users/models.py:114
 msgid "Weather main"
 msgstr "Météo principale"
 
-#: users/models.py:38 users/models.py:57 users/models.py:76 users/models.py:95
-#: users/models.py:114
+#: users/models.py:39 users/models.py:58 users/models.py:77 users/models.py:96
+#: users/models.py:115
 msgid "Weather description"
 msgstr "Description"
 
-#: users/models.py:39 users/models.py:58 users/models.py:77 users/models.py:96
-#: users/models.py:115
+#: users/models.py:40 users/models.py:59 users/models.py:78 users/models.py:97
+#: users/models.py:116
 msgid "Pressure"
 msgstr "Pression"
 
-#: users/models.py:45 users/models.py:64 users/models.py:83 users/models.py:102
-#: users/models.py:121
+#: users/models.py:46 users/models.py:65 users/models.py:84 users/models.py:103
+#: users/models.py:122
 msgid "Wind speed"
 msgstr "Vitesse du vent"
 
-#: users/models.py:47 users/models.py:66 users/models.py:85 users/models.py:104
-#: users/models.py:123
+#: users/models.py:48 users/models.py:67 users/models.py:86 users/models.py:105
+#: users/models.py:124
 msgid "Gusts speed"
 msgstr "Rafales"
 
-#: users/models.py:48 users/models.py:67 users/models.py:86 users/models.py:105
-#: users/models.py:124
+#: users/models.py:49 users/models.py:68 users/models.py:87 users/models.py:106
+#: users/models.py:125
 msgid "Humidity"
 msgstr "Humidité"
 
-#: users/models.py:50 users/models.py:69 users/models.py:88 users/models.py:107
-#: users/models.py:126
+#: users/models.py:51 users/models.py:70 users/models.py:89 users/models.py:108
+#: users/models.py:127
 msgid "Rain"
 msgstr "Pluie"
 
-#: users/models.py:51 users/models.py:70 users/models.py:89 users/models.py:108
-#: users/models.py:127
+#: users/models.py:52 users/models.py:71 users/models.py:90 users/models.py:109
+#: users/models.py:128
 msgid "Weather icon"
 msgstr "Icône météo"
 
-#: users/models.py:128
+#: users/models.py:129
 msgid "Alert sender"
 msgstr "Emetteur de l'alerte"
 
-#: users/models.py:129
+#: users/models.py:130
 msgid "Event"
 msgstr "Evènement"
 
-#: users/models.py:130
+#: users/models.py:131
 msgid "Start"
 msgstr "Début"
 
-#: users/models.py:131
+#: users/models.py:132
 msgid "End"
 msgstr "Fin"
 
-#: users/models.py:132
+#: users/models.py:133
 msgid "Alert description"
 msgstr "Description"
 
@@ -1232,49 +1318,49 @@ msgstr ""
 "Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
 "\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
 
-#: users/templates/users/weather.html:26 users/templates/users/weather.html:48
-#: users/templates/users/weather.html:70 users/templates/users/weather.html:92
-#: users/templates/users/weather.html:114
+#: users/templates/users/weather.html:26 users/templates/users/weather.html:54
+#: users/templates/users/weather.html:82 users/templates/users/weather.html:110
+#: users/templates/users/weather.html:138
 msgid "Pressure:"
 msgstr "Pression :"
 
-#: users/templates/users/weather.html:27 users/templates/users/weather.html:49
-#: users/templates/users/weather.html:71 users/templates/users/weather.html:93
-#: users/templates/users/weather.html:115
+#: users/templates/users/weather.html:27 users/templates/users/weather.html:55
+#: users/templates/users/weather.html:83 users/templates/users/weather.html:111
+#: users/templates/users/weather.html:139
 msgid "Temp min:"
 msgstr "Temp min :"
 
-#: users/templates/users/weather.html:28 users/templates/users/weather.html:50
-#: users/templates/users/weather.html:72 users/templates/users/weather.html:94
-#: users/templates/users/weather.html:116
+#: users/templates/users/weather.html:28 users/templates/users/weather.html:56
+#: users/templates/users/weather.html:84 users/templates/users/weather.html:112
+#: users/templates/users/weather.html:140
 msgid "Temp max:"
 msgstr "Temp max :"
 
-#: users/templates/users/weather.html:29 users/templates/users/weather.html:51
-#: users/templates/users/weather.html:73 users/templates/users/weather.html:95
-#: users/templates/users/weather.html:117
+#: users/templates/users/weather.html:29 users/templates/users/weather.html:57
+#: users/templates/users/weather.html:85 users/templates/users/weather.html:113
+#: users/templates/users/weather.html:141
 msgid "Wind speed:"
 msgstr "Vitesse du vent :"
 
-#: users/templates/users/weather.html:30 users/templates/users/weather.html:52
-#: users/templates/users/weather.html:74 users/templates/users/weather.html:96
-#: users/templates/users/weather.html:118
+#: users/templates/users/weather.html:33 users/templates/users/weather.html:61
+#: users/templates/users/weather.html:89 users/templates/users/weather.html:117
+#: users/templates/users/weather.html:145
 msgid "Gusts:"
 msgstr "Rafales :"
 
-#: users/templates/users/weather.html:31 users/templates/users/weather.html:53
-#: users/templates/users/weather.html:75 users/templates/users/weather.html:97
-#: users/templates/users/weather.html:119
+#: users/templates/users/weather.html:37 users/templates/users/weather.html:65
+#: users/templates/users/weather.html:93 users/templates/users/weather.html:121
+#: users/templates/users/weather.html:149
 msgid "Humidity:"
 msgstr "Humidité :"
 
-#: users/templates/users/weather.html:32 users/templates/users/weather.html:54
-#: users/templates/users/weather.html:76 users/templates/users/weather.html:98
-#: users/templates/users/weather.html:120
+#: users/templates/users/weather.html:38 users/templates/users/weather.html:66
+#: users/templates/users/weather.html:94 users/templates/users/weather.html:122
+#: users/templates/users/weather.html:150
 msgid "Rain:"
 msgstr "Pluie :"
 
-#: users/templates/users/weather.html:130
+#: users/templates/users/weather.html:160
 msgid "Weather alert"
 msgstr "Alerte météo"
 

@@ -16,7 +16,7 @@
             <small>{% trans 'Origin:' %} {{ tree.originfk }} </small><br>
             {{ tree.ownerfk }}</p>
             {% if tree.url %}
-              <a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a><br>
+              <a href="{{ tree.url }}" target="_blank" rel="noopener noreferrer">{{ tree.url }}</a><br>
             {% endif %}
             <br>
             {% if request.user == tree.ownerfk %}

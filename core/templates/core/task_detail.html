@@ -14,7 +14,7 @@
             <span class="font-italic"><small>{% trans 'Planned date:' %} {{ task.plan_date }} </small></span><br>
             <small>{% trans 'Realisation date:' %} {{ task.real_date }} </small><br>
             {% if task.url %}
-              <a href="{{ task.url }}" target="_blank">{{ task.url }}</a><br>
+              <a href="{{ task.url }}" target="_blank" rel="noopener noreferrer">{{ task.url }}</a><br>
             {% endif %}
             </p>
             {% if request.user == task.treefk.ownerfk %}

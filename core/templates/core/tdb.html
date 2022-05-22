@@ -135,7 +135,7 @@
               <small>{% trans 'Acquisition date:' %} <i>{{ tree.adate }}</i></small><br>
               <small>{% trans 'Origin:' %} <i>{{ tree.originfk }}</i></small>
               {% if tree.url %}
-                <br><a href="{{ tree.url }}" target="_blank">{{ tree.url }}</a>
+                <br><a href="{{ tree.url }}" target="_blank" rel="noopener noreferrer">{{ tree.url }}</a>
               {% endif %}
               </p>
               <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm mb-2" role="button" >{% trans 'Detail' %}</a>
