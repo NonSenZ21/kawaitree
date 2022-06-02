@@ -133,3 +133,24 @@ class Weather(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Weather'
+
+class Weatherday(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    wnday = models.IntegerField(default=0, verbose_name=_('Day number'))
+    wdate = models.DateField(default=date(2021, 1, 1), verbose_name=_('Date'))
+    wid = models.IntegerField(default=0, verbose_name=_('Weather code'))
+    wmain = models.CharField(null=True, blank=True, max_length=100, verbose_name=_('Weather main'))
+    wdescription = models.CharField(null=True, blank=True, max_length=150, verbose_name=_('Weather description'))
+    wpressure = models.IntegerField(default=0, verbose_name=_('Pressure'))
+    wtemp_min = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                     verbose_name=_('Min temperature'))
+    wtemp_max = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                     verbose_name=_('Max temperature'))
+    wwind_speed = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                       verbose_name=_('Wind speed'))
+    wwind_gust = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                      verbose_name=_('Gusts speed'))
+    whumidity = models.IntegerField(default=0, verbose_name=_('Humidity'))
+    wrain = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5,
+                                 verbose_name=_('Rain'))
+    wicon = models.CharField(null=True, blank=True, max_length=10, verbose_name=_('Weather icon'))
