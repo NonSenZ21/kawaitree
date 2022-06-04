@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 from datetime import date
 from django.utils import timezone
-from .models import Weather
+from .models import Weather, Weatherday
 from core.models import Photo, Tree
 
 
@@ -55,14 +55,19 @@ def weather(request):
         return redirect('profile')
 
     weathers = Weather.objects.get(user=request.user)
-    if weathers.wdate0 != date.today():
-        sync = False
+    weatherdays = Weatherday.objects.filter(user=request.user)
+    print("weatherdays: ", weatherdays)
+    if not weatherdays:
         mes = _('No information for now. Make sure you checked the "Weather alerts" checkbox in your profile and you '
                 'will get your weather here tomorrow.')
         messages.warning(request, mes)
         return redirect('profile')
-    else:
-        sync = True
+    elif weatherdays[0].wdate != date.today():
+        mes = _('No information for now. Make sure you checked the "Weather alerts" checkbox in your profile and you '
+                'will get your weather here tomorrow.')
+        messages.warning(request, mes)
+        return redirect('profile')
+
     # print('timezone.now : ', timezone.now())
     # print('alert_end : ', weathers.alert_end)
     # print(timezone.localtime(timezone.now()))
@@ -80,29 +85,14 @@ def weather(request):
         u1, u2 = '°K', 'm/s'
     else:
         u1, u2 = '°C', 'm/s'
-        weathers.wwind_speed0kmh = float(weathers.wwind_speed0) * 3.6
-        weathers.wwind_speed0kmh = "{:.2f}".format(weathers.wwind_speed0kmh)
-        weathers.wwind_gust0kmh = float(weathers.wwind_gust0) * 3.6
-        weathers.wwind_gust0kmh = "{:.2f}".format(weathers.wwind_gust0kmh)
-        weathers.wwind_speed1kmh = float(weathers.wwind_speed1) * 3.6
-        weathers.wwind_speed1kmh = "{:.2f}".format(weathers.wwind_speed1kmh)
-        weathers.wwind_gust1kmh = float(weathers.wwind_gust1) * 3.6
-        weathers.wwind_gust1kmh = "{:.2f}".format(weathers.wwind_gust1kmh)
-        weathers.wwind_speed2kmh = float(weathers.wwind_speed2) * 3.6
-        weathers.wwind_speed2kmh = "{:.2f}".format(weathers.wwind_speed2kmh)
-        weathers.wwind_gust2kmh = float(weathers.wwind_gust2) * 3.6
-        weathers.wwind_gust2kmh = "{:.2f}".format(weathers.wwind_gust2kmh)
-        weathers.wwind_speed3kmh = float(weathers.wwind_speed3) * 3.6
-        weathers.wwind_speed3kmh = "{:.2f}".format(weathers.wwind_speed3kmh)
-        weathers.wwind_gust3kmh = float(weathers.wwind_gust3) * 3.6
-        weathers.wwind_gust3kmh = "{:.2f}".format(weathers.wwind_gust3kmh)
-        weathers.wwind_speed4kmh = float(weathers.wwind_speed4) * 3.6
-        weathers.wwind_speed4kmh = "{:.2f}".format(weathers.wwind_speed4kmh)
-        weathers.wwind_gust4kmh = float(weathers.wwind_gust4) * 3.6
-        weathers.wwind_gust4kmh = "{:.2f}".format(weathers.wwind_gust4kmh)
+        for weatherday in weatherdays:
+            i = weatherday.wnday
+            weatherdays[i].wwind_speedkmh = "{:.2f}".format(float(weatherday.wwind_speed) * 3.6)
+            weatherdays[i].wwind_gustkmh = "{:.2f}".format(float(weatherday.wwind_gust) * 3.6)
 
-    context = {'title': _('Weather'), 'weathers': weathers, 'sync': sync, 'u1': u1, 'u2': u2, 'alert': alert,
-               'localti': "Europe/Paris"}  # TODO modify with user timezone
+    context = {'title': _('Weather'), 'weathers': weathers, 'weatherdays': weatherdays, 'u1': u1, 'u2': u2,
+               'alert': alert, 'localti': "Europe/Paris"}   # TODO modify with user timezone
+
     return render(request, 'users/weather.html', context)
 
 
