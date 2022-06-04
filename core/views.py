@@ -58,7 +58,7 @@ class TreeListView(ListView):
 def treedetail(request, pk):
     tree = Tree.objects.get(pk=pk)
     treetasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
-    photos = Photo.objects.filter(treefk=pk)
+    photos = Photo.objects.filter(treefk=pk).order_by('-shot_date')
     if request.user != tree.ownerfk and not tree.ownerfk.profile.public_profile:
         mes = _("Trying to see private tree?")
         messages.warning(request, mes)
@@ -197,7 +197,7 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def photolist(request, owner):
     ownerobj = get_object_or_404(User, pk=owner)
     if ownerobj == request.user or ownerobj.profile.public_profile is True:
-        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('shot_date')
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('-shot_date')
         paginator = Paginator(photos, 5)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -208,22 +208,6 @@ def photolist(request, owner):
         mes = _("Are you trying to list private pictures?")
         messages.warning(request, mes)
         return redirect('core-tdb')
-
-
-# class PhotoListView(LoginRequiredMixin, ListView):
-#     model = Photo
-#     template_name = 'core/photo_list.html'
-#     context_object_name = 'photos'
-#     paginate_by = 10
-#
-#     def get_owner(self):
-#         return self.kwargs.get('owner')
-#
-#     def get_queryset(self):
-#         photoset = Photo.objects.filter(treefk__ownerfk=self.get_owner())
-#         print('photoset:', photoset)
-#         return photoset
-
 
 class PhotoDetailView(UserPassesTestMixin, DetailView):
     model = Photo

@@ -11,7 +11,11 @@
           <div class="col">
             <p class="card-text">
               {% if object.taskfk %}
-                {% trans 'Task:' %} <i>{{ object.taskfk }} </i><br>
+                {% if request.user == object.treefk.ownerfk %}
+                  {% trans 'Task:' %} <i><a href="{% url 'task-detail' object.taskfk.id %}">{{ object.taskfk }}</a></i><br>
+                {% else %}
+                  {% trans 'Task:' %} <i>{{ object.taskfk }} </i><br>
+                {% endif %}
               {% endif %}
               {% trans 'Description:' %} <i>{{ object.description }} </i><br>
             <small>{% trans 'Shot date:' %} {{ object.shot_date }} </small><br>
