@@ -279,15 +279,6 @@ class PhotoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 @login_required
-def about(request):
-    content = {
-        'titre': _("About"),
-    }
-    context = {'content': content}
-    return render(request, 'core/about.html', context)
-
-
-@login_required
 def tasks(request, action):
     # Next tasks
     if action == 1:
