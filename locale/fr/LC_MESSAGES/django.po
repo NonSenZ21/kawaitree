@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-22 12:16+0000\n"
+"POT-Creation-Date: 2022-06-06 10:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,94 +103,112 @@ msgid "Thumbnail"
 msgstr "Miniature"
 
 #: core/templates/core/base-leaflet.html:41 core/templates/core/base.html:32
+#: start/templates/flatpages/default.html:32
 msgid "Collection"
 msgstr "Collection"
 
-#: core/templates/core/base-leaflet.html:44 core/templates/core/base.html:35
-#: core/views.py:37
+#: core/templates/core/base-leaflet.html:43 core/templates/core/base.html:34
+#: core/views.py:37 start/templates/flatpages/default.html:34
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: core/templates/core/base-leaflet.html:45 core/templates/core/base.html:36
+#: core/templates/core/base-leaflet.html:44 core/templates/core/base.html:35
+#: start/templates/flatpages/default.html:35
 msgid "All photos"
 msgstr "Toutes les photos"
 
-#: core/templates/core/base-leaflet.html:49 core/templates/core/base.html:40
+#: core/templates/core/base-leaflet.html:48 core/templates/core/base.html:39
+#: start/templates/flatpages/default.html:39
 msgid "Maintenance"
 msgstr "Entretien"
 
-#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:42
-#: core/views.py:314
+#: core/templates/core/base-leaflet.html:50 core/templates/core/base.html:41
+#: core/views.py:289 start/templates/flatpages/default.html:41
 msgid "Next tasks"
 msgstr "Prochaines tâches"
 
-#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:43
-#: core/templates/core/tdb.html:9 core/views.py:322
+#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:42
+#: core/templates/core/tdb.html:9 core/views.py:297
+#: start/templates/flatpages/default.html:42
 msgid "Overdue tasks"
 msgstr "Tâches en retard"
 
-#: core/templates/core/base-leaflet.html:53 core/templates/core/base.html:44
-#: core/views.py:328
+#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:43
+#: core/views.py:303 start/templates/flatpages/default.html:43
 msgid "All tasks"
 msgstr "Toutes les tâches"
 
-#: core/templates/core/base-leaflet.html:58 core/templates/core/base.html:49
-#: users/views.py:100
+#: core/templates/core/base-leaflet.html:57 core/templates/core/base.html:48
+#: start/templates/flatpages/default.html:48 users/views.py:93
 msgid "Weather"
 msgstr "Météo"
 
-#: core/templates/core/base-leaflet.html:62 core/templates/core/base.html:53
+#: core/templates/core/base-leaflet.html:61 core/templates/core/base.html:52
+#: start/templates/flatpages/default.html:52
 msgid "Members"
 msgstr "Membres"
 
-#: core/templates/core/base-leaflet.html:64 core/templates/core/base.html:55
+#: core/templates/core/base-leaflet.html:63 core/templates/core/base.html:54
+#: start/templates/flatpages/default.html:54
 msgid "Map"
 msgstr "Carte"
 
-#: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:56
+#: core/templates/core/base-leaflet.html:64 core/templates/core/base.html:55
+#: start/templates/flatpages/default.html:55
 msgid "Gallery"
 msgstr "Galerie"
 
-#: core/templates/core/base-leaflet.html:66 core/templates/core/base.html:57
+#: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:56
+#: start/templates/flatpages/default.html:56
 msgid "Links"
 msgstr "Liens"
 
-#: core/templates/core/base-leaflet.html:67 core/templates/core/base.html:58
+#: core/templates/core/base-leaflet.html:66 core/templates/core/base.html:57
+#: start/templates/flatpages/default.html:57
 msgid "Library"
 msgstr "Bibliothèque"
 
-#: core/templates/core/base-leaflet.html:71 core/templates/core/base.html:62
-#: core/views.py:300
+#: core/templates/core/base-leaflet.html:70 core/templates/core/base.html:61
+#: start/templates/flatpages/default.html:61
 msgid "About"
 msgstr "A propos"
 
-#: core/templates/core/base-leaflet.html:73 core/templates/core/base.html:64
+#: core/templates/core/base-leaflet.html:74
+#: core/templates/core/base-leaflet.html:76 core/templates/core/base.html:65
+#: core/templates/core/base.html:67 start/templates/flatpages/default.html:65
+#: start/templates/flatpages/default.html:67
 msgid "General info"
 msgstr "Infos générales"
 
-#: core/templates/core/base-leaflet.html:74 core/templates/core/base.html:65
+#: core/templates/core/base-leaflet.html:78 core/templates/core/base.html:69
+#: start/templates/flatpages/default.html:69
 msgid "FAQ"
 msgstr "FAQ"
 
-#: core/templates/core/base-leaflet.html:75 core/templates/core/base.html:66
+#: core/templates/core/base-leaflet.html:79 core/templates/core/base.html:70
+#: start/templates/flatpages/default.html:70
 msgid "GDPR"
 msgstr "RGPD"
 
-#: core/templates/core/base-leaflet.html:76 core/templates/core/base.html:67
+#: core/templates/core/base-leaflet.html:80 core/templates/core/base.html:71
+#: start/templates/flatpages/default.html:71
 msgid "Legal policies"
 msgstr "Mentions légales"
 
-#: core/templates/core/base-leaflet.html:78 core/templates/core/base.html:69
+#: core/templates/core/base-leaflet.html:82 core/templates/core/base.html:73
+#: start/templates/flatpages/default.html:73
 msgid "Contact the author"
 msgstr "Contacter l'auteur"
 
-#: core/templates/core/base-leaflet.html:86
-#: core/templates/core/base-leaflet.html:88 core/templates/core/base.html:77
-#: core/templates/core/base.html:79
+#: core/templates/core/base-leaflet.html:90
+#: core/templates/core/base-leaflet.html:92 core/templates/core/base.html:81
+#: core/templates/core/base.html:83 start/templates/flatpages/default.html:81
+#: start/templates/flatpages/default.html:83
 msgid "Profile"
 msgstr "Profil"
 
-#: core/templates/core/base-leaflet.html:89 core/templates/core/base.html:80
+#: core/templates/core/base-leaflet.html:93 core/templates/core/base.html:84
+#: start/templates/flatpages/default.html:84
 msgid "Logout"
 msgstr "Se déconnecter"
 
@@ -235,11 +253,12 @@ msgstr "Annuler"
 msgid "Detail"
 msgstr "Détail"
 
-#: core/templates/core/photo_detail.html:14
+#: core/templates/core/photo_detail.html:15
+#: core/templates/core/photo_detail.html:17
 msgid "Task:"
 msgstr "Tâche&nbsp;:"
 
-#: core/templates/core/photo_detail.html:16
+#: core/templates/core/photo_detail.html:20
 #: core/templates/core/task_detail.html:13 core/templates/core/tdb.html:133
 #: core/templates/core/tree_detail.html:13
 #: core/templates/core/tree_list.html:23
@@ -247,19 +266,19 @@ msgstr "Tâche&nbsp;:"
 msgid "Description:"
 msgstr "Description&nbsp;:"
 
-#: core/templates/core/photo_detail.html:17
+#: core/templates/core/photo_detail.html:21
 msgid "Shot date:"
 msgstr "Date du cliché&nbsp;:"
 
-#: core/templates/core/photo_detail.html:19
+#: core/templates/core/photo_detail.html:23
 msgid "Picture taken before executing the task."
 msgstr "Photo prise avant l'exécution."
 
-#: core/templates/core/photo_detail.html:22
+#: core/templates/core/photo_detail.html:26
 msgid "Picture taken after executing the task."
 msgstr "Photo prise après l'exécution."
 
-#: core/templates/core/photo_detail.html:33
+#: core/templates/core/photo_detail.html:37
 #: core/templates/core/task_detail.html:22 core/templates/core/tasks.html:47
 #: core/templates/core/tdb.html:49 core/templates/core/tdb.html:105
 #: core/templates/core/tdb.html:143 core/templates/core/tdb.html:180
@@ -448,39 +467,39 @@ msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:208 users/views.py:119
+#: core/views.py:208 users/views.py:113
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des phtoos privées&nbsp;?"
 
-#: core/views.py:241
+#: core/views.py:225
 msgid "Trying to add an image to unidentified tree?"
 msgstr "Vous essayez d'ajouter une image à un arbre non identifié&nbsp;?"
 
-#: core/views.py:247
+#: core/views.py:231
 msgid "Trying to add an image to someone else's tree?"
 msgstr "Vous essayez d'ajouter une photo à l'arbre de quelqu'un d'autre&nbsp;?"
 
-#: core/views.py:259
+#: core/views.py:243
 msgid "Only JPG images are allowed, sorry!"
 msgstr "Seules les images JPG sont autorisées, désolé."
 
-#: core/views.py:272
+#: core/views.py:256
 msgid "Your form is not valid and I don't know why!"
 msgstr "Votre formulaire n'est pas valide et je ne sais pas pourquoi."
 
-#: core/views.py:332
+#: core/views.py:307
 msgid "Unknown action... WTF are you doing?"
 msgstr "Action inconnue... WTF ?"
 
-#: core/views.py:340
+#: core/views.py:315
 msgid "Members map"
 msgstr "Carte des membres"
 
-#: kawaitree/settings.py:188
+#: kawaitree/settings.py:191
 msgid "English"
 msgstr "Anglais"
 
-#: kawaitree/settings.py:189
+#: kawaitree/settings.py:192
 msgid "French"
 msgstr "Français"
 
@@ -972,7 +991,7 @@ msgid "What is kawaïtree?"
 msgstr "Qu'est-ce que Kawaïtree&nbsp;?"
 
 #: start/templates/start/home.html:20
-msgid "Kawaïtree is an app that helps you manage your bonsaï collection."
+msgid "Kawaïtree is an app to handle your bonsaï collection."
 msgstr ""
 "Kawaïtree est une application web qui vous permet de gérer votre collection "
 "de bonsaï."
@@ -1017,7 +1036,9 @@ msgstr "Planifiez/réalisez des tâches (soins, entretien, etc.)"
 msgid ""
 "Add/modify/delete photos of your trees before, during and after you do your "
 "tasks"
-msgstr "Ajoutez/modifiez/supprimez des photos de vos arbres avant, pendant et après vos tâches"
+msgstr ""
+"Ajoutez/modifiez/supprimez des photos de vos arbres avant, pendant et après "
+"vos tâches"
 
 #: start/templates/start/home.html:48
 msgid "Social network for Bonsaï enthousiasts"
@@ -1029,7 +1050,9 @@ msgstr "Trouvez des bonsaïka à proximité (sur une carte)"
 
 #: start/templates/start/home.html:51
 msgid "Look at public profiles, photos of other members collection"
-msgstr "Visualisez les profils publics et les photos de collections des autres membres"
+msgstr ""
+"Visualisez les profils publics et les photos de collections des autres "
+"membres"
 
 #: start/templates/start/home.html:52
 msgid "Contact other members (with public profiles)"
@@ -1046,8 +1069,9 @@ msgstr "Alertes météo"
 #: start/templates/start/home.html:57
 msgid ""
 "Set up values (temp min and max, wind) in your profile to get weather alerts"
-msgstr "Configurez les valeurs (température min et max, vitesse du vent) "
-"dans votre profil pour bénéficier des alertes météo"
+msgstr ""
+"Configurez les valeurs (température min et max, vitesse du vent) dans votre "
+"profil pour bénéficier des alertes météo"
 
 #: start/templates/start/home.html:58
 msgid "Check the weather in your city"
@@ -1073,7 +1097,9 @@ msgstr "Tutoriaux"
 msgid ""
 "Links (websites to buy pots, bonsaï, tools, youtube casts, documentation "
 "about bonsaÏ care and maintenance, etc.)"
-msgstr "Liens (sites web pour acheter vos pots, bonsaï, outils, chaînes Youtube, documentation)"
+msgstr ""
+"Liens (sites web pour acheter vos pots, bonsaï, outils, chaînes Youtube, "
+"documentation)"
 
 #: start/templates/start/home.html:66
 msgid "Discussion groups..."
@@ -1111,17 +1137,15 @@ msgstr "Impérial (°F, miles/hour)"
 msgid "Standard (°K, m/s)"
 msgstr "Standard (°K, m/s)"
 
-#: users/models.py:15 users/models.py:34
+#: users/models.py:15 users/models.py:33
 msgid "Units"
 msgstr "Unités"
 
-#: users/models.py:16 users/models.py:44 users/models.py:63 users/models.py:82
-#: users/models.py:101 users/models.py:120
+#: users/models.py:16 users/models.py:54
 msgid "Max temperature"
 msgstr "Température max"
 
-#: users/models.py:17 users/models.py:42 users/models.py:61 users/models.py:80
-#: users/models.py:99 users/models.py:118
+#: users/models.py:17 users/models.py:52
 msgid "Min temperature"
 msgstr "Température min"
 
@@ -1133,92 +1157,81 @@ msgstr "Rafales"
 msgid "Website"
 msgstr ""
 
-#: users/models.py:24
+#: users/models.py:23
 msgid "Last donation date"
 msgstr "Date de don"
 
-#: users/models.py:25
+#: users/models.py:24
 msgid "Valid user"
 msgstr "Utilisateur valide"
 
-#: users/models.py:26
+#: users/models.py:25
 msgid "Expert (disable helpers)"
 msgstr "Mode expert (sans message d'aide)"
 
-#: users/models.py:35 users/models.py:54 users/models.py:73 users/models.py:92
-#: users/models.py:111
-msgid "Day number"
-msgstr "Numéro du jour"
-
-#: users/models.py:36 users/models.py:55 users/models.py:74 users/models.py:93
-#: users/models.py:112
-msgid "Date"
-msgstr "Date"
-
-#: users/models.py:37 users/models.py:56 users/models.py:75 users/models.py:94
-#: users/models.py:113
-msgid "Weather code"
-msgstr "Code météo"
-
-#: users/models.py:38 users/models.py:57 users/models.py:76 users/models.py:95
-#: users/models.py:114
-msgid "Weather main"
-msgstr "Météo principale"
-
-#: users/models.py:39 users/models.py:58 users/models.py:77 users/models.py:96
-#: users/models.py:115
-msgid "Weather description"
-msgstr "Description"
-
-#: users/models.py:40 users/models.py:59 users/models.py:78 users/models.py:97
-#: users/models.py:116
-msgid "Pressure"
-msgstr "Pression"
-
-#: users/models.py:46 users/models.py:65 users/models.py:84 users/models.py:103
-#: users/models.py:122
-msgid "Wind speed"
-msgstr "Vitesse du vent"
-
-#: users/models.py:48 users/models.py:67 users/models.py:86 users/models.py:105
-#: users/models.py:124
-msgid "Gusts speed"
-msgstr "Rafales"
-
-#: users/models.py:49 users/models.py:68 users/models.py:87 users/models.py:106
-#: users/models.py:125
-msgid "Humidity"
-msgstr "Humidité"
-
-#: users/models.py:51 users/models.py:70 users/models.py:89 users/models.py:108
-#: users/models.py:127
-msgid "Rain"
-msgstr "Pluie"
-
-#: users/models.py:52 users/models.py:71 users/models.py:90 users/models.py:109
-#: users/models.py:128
-msgid "Weather icon"
-msgstr "Icône météo"
-
-#: users/models.py:129
+#: users/models.py:34
 msgid "Alert sender"
 msgstr "Emetteur de l'alerte"
 
-#: users/models.py:130
+#: users/models.py:35
 msgid "Event"
 msgstr "Evènement"
 
-#: users/models.py:131
+#: users/models.py:36
 msgid "Start"
 msgstr "Début"
 
-#: users/models.py:132
+#: users/models.py:37
 msgid "End"
 msgstr "Fin"
 
-#: users/models.py:133
+#: users/models.py:38
 msgid "Alert description"
 msgstr "Description"
+
+#: users/models.py:45
+msgid "Day number"
+msgstr "Numéro du jour"
+
+#: users/models.py:46
+msgid "Date"
+msgstr "Date"
+
+#: users/models.py:47
+msgid "Weather code"
+msgstr "Code météo"
+
+#: users/models.py:48
+msgid "Weather main"
+msgstr "Météo principale"
+
+#: users/models.py:49
+msgid "Weather description"
+msgstr "Description"
+
+#: users/models.py:50
+msgid "Pressure"
+msgstr "Pression"
+
+#: users/models.py:56
+msgid "Wind speed"
+msgstr "Vitesse du vent"
+
+#: users/models.py:58
+msgid "Gusts speed"
+msgstr "Rafales"
+
+#: users/models.py:59
+msgid "Humidity"
+msgstr "Humidité"
+
+#: users/models.py:61
+msgid "Rain"
+msgstr "Pluie"
+
+#: users/models.py:62
+msgid "Weather icon"
+msgstr "Icône météo"
 
 #: users/templates/users/User_confirm_delete.html:9
 msgid "Delete your account"
@@ -1310,57 +1323,35 @@ msgstr "Pas d'arbre dans cette collection."
 msgid "No photo in this collection."
 msgstr "Pas de photo dans cette collection."
 
-#: users/templates/users/weather.html:12
-msgid ""
-"No information for now. Make sure you checked the \"Weather alerts\" "
-"checkbox in your profile and you will get your weather here tomorrow."
-msgstr ""
-"Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
-"\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
-
-#: users/templates/users/weather.html:26 users/templates/users/weather.html:54
-#: users/templates/users/weather.html:82 users/templates/users/weather.html:110
-#: users/templates/users/weather.html:138
+#: users/templates/users/weather.html:23
 msgid "Pressure:"
 msgstr "Pression :"
 
-#: users/templates/users/weather.html:27 users/templates/users/weather.html:55
-#: users/templates/users/weather.html:83 users/templates/users/weather.html:111
-#: users/templates/users/weather.html:139
+#: users/templates/users/weather.html:24
 msgid "Temp min:"
 msgstr "Temp min :"
 
-#: users/templates/users/weather.html:28 users/templates/users/weather.html:56
-#: users/templates/users/weather.html:84 users/templates/users/weather.html:112
-#: users/templates/users/weather.html:140
+#: users/templates/users/weather.html:25
 msgid "Temp max:"
 msgstr "Temp max :"
 
-#: users/templates/users/weather.html:29 users/templates/users/weather.html:57
-#: users/templates/users/weather.html:85 users/templates/users/weather.html:113
-#: users/templates/users/weather.html:141
+#: users/templates/users/weather.html:26
 msgid "Wind speed:"
 msgstr "Vitesse du vent :"
 
-#: users/templates/users/weather.html:33 users/templates/users/weather.html:61
-#: users/templates/users/weather.html:89 users/templates/users/weather.html:117
-#: users/templates/users/weather.html:145
+#: users/templates/users/weather.html:30
 msgid "Gusts:"
 msgstr "Rafales :"
 
-#: users/templates/users/weather.html:37 users/templates/users/weather.html:65
-#: users/templates/users/weather.html:93 users/templates/users/weather.html:121
-#: users/templates/users/weather.html:149
+#: users/templates/users/weather.html:34
 msgid "Humidity:"
 msgstr "Humidité :"
 
-#: users/templates/users/weather.html:38 users/templates/users/weather.html:66
-#: users/templates/users/weather.html:94 users/templates/users/weather.html:122
-#: users/templates/users/weather.html:150
+#: users/templates/users/weather.html:35
 msgid "Rain:"
 msgstr "Pluie :"
 
-#: users/templates/users/weather.html:160
+#: users/templates/users/weather.html:46
 msgid "Weather alert"
 msgstr "Alerte météo"
 
@@ -1371,6 +1362,14 @@ msgstr "Votre compte a été mis à jour&nbsp;!"
 #: users/views.py:53
 msgid "Weather is not enabled in your profile."
 msgstr "La météo n'est pas activée sur votre profil."
+
+#: users/views.py:61 users/views.py:66
+msgid ""
+"No information for now. Make sure you checked the \"Weather alerts\" "
+"checkbox in your profile and you will get your weather here tomorrow."
+msgstr ""
+"Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
+"\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
 
 #: core.Origin/name:1
 msgid "Seed"
@@ -1397,296 +1396,16 @@ msgid "Air layering"
 msgstr "Marcote"
 
 #: core.Species/name:1
-msgid "Ficus (Ficus retusa or ginseng)"
-msgstr "Ficus (Ficus retusa ou ginseng)"
-
-#: core.Species/name:2
-msgid "Dwarf Jade (Crassula or portulacaria)"
-msgstr "Crassula (Crassula ou portulacaria)"
-
-#: core.Species/name:3
-msgid "Fukien tea (Carmona)"
-msgstr "Carmona (Carmona)"
-
-#: core.Species/name:4
-msgid "Azalea (Rhododendron)"
-msgstr "Azalée (Rhododendron)"
-
-#: core.Species/name:5
-msgid "Bougainvillea (Bougainvillea)"
-msgstr "Bougainvillier (Bougainvillea)"
-
-#: core.Species/name:6
-msgid "Snow rose (Serissa)"
-msgstr "Neige de juin (Serissa)"
-
-#: core.Species/name:7
-msgid "Box or boxwood (Buxus)"
-msgstr "Buis (Buxus)"
-
-#: core.Species/name:8
-msgid "Sweet plum (Sageretia theezans)"
-msgstr "Sageretia theezans (Sageretia theezans)"
-
-#: core.Species/name:9
-msgid "Olive (Olea europaea)"
-msgstr "Olivier (Olea europaea)"
-
-#: core.Species/name:10
-msgid "Money tree (Pachira aquatica)"
-msgstr "Arbre à monnaie (Pachira aquatica)"
-
-#: core.Species/name:11
-msgid "Privet (Ligustrum)"
-msgstr "Troène (Ligustrum)"
-
-#: core.Species/name:12
-msgid "Cotoneaster (Cotoneaster)"
-msgstr "Cotonéaster (Cotoneaster)"
-
-#: core.Species/name:13
-msgid "Hawaiian umbrella (Schefflera arboricola)"
-msgstr "Schefflera (Schefflera arboricola)"
-
-#: core.Species/name:14
-msgid "Citrus or Lemon (Citrus limon and sinensis)"
-msgstr "Citronier (Citrus limon et sinensis)"
-
-#: core.Species/name:15
-msgid "Fuchsia (Fuchsia)"
-msgstr "Fuchsia (Fuchsia)"
-
-#: core.Species/name:16
-msgid "Brush cherry (Eugenia myrtifolia and syzygium)"
-msgstr "Cerisier du Japon (Eugenia myrtifolia et syzygium)"
-
-#: core.Species/name:17
-msgid "Brazilian rain tree (Pithecellobium tortum)"
-msgstr "Acacia vincentis (Pithecellobium tortum)"
-
-#: core.Species/name:18
-msgid "Japanese holly (Ilex crenata)"
-msgstr "Houx japonais (Ilex crenata)"
-
-#: core.Species/name:19
-msgid "Premna (Premna)"
-msgstr "Premna (Premna)"
-
-#: core.Species/name:20
-msgid "Jasmine (Gardenia)"
-msgstr "Jasmin (Gardénia)"
-
-#: core.Species/name:21
-msgid "Crepe myrtle (Lagerstroemia indica)"
-msgstr "Myrte de crêpe (Lagerstroemia indica)"
-
-#: core.Species/name:22
-msgid "Myrtle (Myrtus communis)"
-msgstr "Myrte (Myrtus communis)"
-
-#: core.Species/name:23
-msgid "Firethorn (Pyracantha)"
-msgstr "Pyracantha (Pyracantha)"
-
-#: core.Species/name:24
-msgid "Water jasmine (Wrightia religiosa)"
-msgstr "Etoile de Marie (Wrightia religiosa)"
-
-#: core.Species/name:25
-msgid "Wattle (Acacia)"
-msgstr "Acacia (Acacia)"
-
-#: core.Species/name:26
-msgid "Camellia (Camellia)"
-msgstr "Camélia (Camélia)"
-
-#: core.Species/name:27
-msgid "Eucalypt (Eucalyptus)"
-msgstr "Eucalyptus (Eucalyptus)"
-
-#: core.Species/name:28
-msgid "Bamboo (Bambusoideae)"
-msgstr "Bambou (Bambusoideae)"
-
-#: core.Species/name:29
-msgid "Hibiscus (Hibiscus)"
-msgstr "Hibiscus (Hibiscus)"
+msgid "A"
+msgstr ""
 
 #: core.Species/name:30
-msgid "Japanese maple (Acer palmatum)"
-msgstr "Érable du Japon (Acer palmatum)"
-
-#: core.Species/name:31
-msgid "Chinese elm (Ulmus parviflora)"
-msgstr "Orme de Chine (Ulmus parviflora)"
-
-#: core.Species/name:32
-msgid "Cherry (Prunus Sakura)"
-msgstr "Cerisier (Prunus Sakura)"
-
-#: core.Species/name:33
-msgid "Oak (Quercus)"
-msgstr "Chêne (Quercus)"
-
-#: core.Species/name:34
-msgid "Wisteria (Wisteria)"
-msgstr "Glycine (Glycine)"
-
-#: core.Species/name:35
-msgid "Japanese elm (Zelkova)"
-msgstr "Orme du Japon (Zelkova)"
-
-#: core.Species/name:36
-msgid "Pomegranate (Punica granatum)"
-msgstr "Grenade (Punica granatum)"
-
-#: core.Species/name:37
-msgid "Jacaranda (Jacaranda mimosifolia)"
-msgstr "Jacaranda (Jacaranda mimosifolia)"
-
-#: core.Species/name:38
-msgid "Trident maple (Acer buergerianum)"
-msgstr "Érable de Buerger (Acer buergerianum)"
-
-#: core.Species/name:39
-msgid "Apple and crabapple (Malus)"
-msgstr "Pommier d'ornement (Malus)"
-
-#: core.Species/name:40
-msgid "Desert rose (Adenium obesum)"
-msgstr "Rose du désert (Adenium obesum)"
-
-#: core.Species/name:41
-msgid "Hornbeam and beech (Carpinus and fagus)"
-msgstr "Charme et hêtre (Carpinus et fagus)"
-
-#: core.Species/name:42
-msgid "Star magnolia (Magnolia stellata)"
-msgstr "Magnolia étoilé (Magnolia stellata)"
-
-#: core.Species/name:43
-msgid "Chinese pepper (Xanthoxylum piperitum)"
-msgstr "Poivre du Sichuan (Xanthoxylum piperitum)"
-
-#: core.Species/name:44
-msgid "Hackberry (Celtis)"
-msgstr "Micocoulier (Celtis)"
-
-#: core.Species/name:45
-msgid "Ginkgo (Ginkgo biloba)"
-msgstr "Ginkgo (Ginkgo biloba)"
-
-#: core.Species/name:46
-msgid "Flame tree (Delonix regia or Royal poinciana)"
-msgstr "Flamboyant (Delonix regia ou Royal poinciana)"
-
-#: core.Species/name:47
-msgid "Weeping willow (Salix)"
-msgstr "Saule pleureur (Salix)"
-
-#: core.Species/name:48
-msgid "Japanese winterberry (Ilex serrata)"
-msgstr "L'hiver du Japon (Ilex serrata)"
-
-#: core.Species/name:49
-msgid "Baobab (Baobab)"
-msgstr "Baobab (baobab)"
-
-#: core.Species/name:50
-msgid "Birch (Betula)"
-msgstr "Bouleau (Betula)"
-
-#: core.Species/name:51
-msgid "Chinese quince (Pseudocydonia)"
-msgstr "Cognassier de Chine (Pseudocydonia)"
-
-#: core.Species/name:52
-msgid "Judas tree (Cercis)"
-msgstr "Arbre de Judée (Cercis)"
-
-#: core.Species/name:53
-msgid "Hawthorn (Crataegus)"
-msgstr "Aubépine (Crataegus)"
-
-#: core.Species/name:54
-msgid "Silk tree (Albizia or mimosa)"
-msgstr "Arbre à soie (Albizia ou mimosa)"
-
-#: core.Species/name:55
-msgid "Rose (Rosa)"
-msgstr "Arbre à soie (Albizia ou mimosa)"
-
-#: core.Species/name:56
-msgid "Jabuticaba (Plinia cauliflora)"
-msgstr "Jaboticaba (Plinia cauliflora)"
-
-#: core.Species/name:57
-msgid "Ash (Fraxinus)"
-msgstr "Frêne (Fraxinus)"
-
-#: core.Species/name:58
-msgid "Dogwood (Cornus)"
-msgstr "Cornouiller (Cornus)"
-
-#: core.Species/name:59
-msgid "Liquidambar (Sweetgum)"
-msgstr "Liquidambar (Sweetgum)"
+msgid "B"
+msgstr ""
 
 #: core.Species/name:60
-msgid "Juniper (Juniperus)"
-msgstr "Genévrier (Juniperus)"
-
-#: core.Species/name:61
-msgid "Pines (Pinus)"
-msgstr "Pins (Pinus)"
-
-#: core.Species/name:62
-msgid "Spruce (Picea)"
-msgstr "Epicéa (Picea)"
-
-#: core.Species/name:63
-msgid "Bald cypress (Taxodium distichum)"
-msgstr "Cyprès chauve (Taxodium distichum)"
-
-#: core.Species/name:64
-msgid "Larch and Golden Larch (Larix)"
-msgstr "Mélèze et mélèze doré (Larix)"
-
-#: core.Species/name:65
-msgid "Redwoods (Metasequoia and sequoia)"
-msgstr "Séquoias (métasequoia et séquoia)"
-
-#: core.Species/name:66
-msgid "Cedar (Cedrus)"
-msgstr "Cèdre (Cedrus)"
-
-#: core.Species/name:67
-msgid "Buddhist pine (Podocarpus)"
-msgstr "Pin des bouddhistes (Podocarpus)"
-
-#: core.Species/name:68
-msgid "Yew (Taxus or taxaceae)"
-msgstr "If (Taxus ou taxacées)"
-
-#: core.Species/name:69
-msgid "Hinoki cypress (Chamaecyparis)"
-msgstr "Cyprès d'Hinoki (Chamaecyparis)"
-
-#: core.Species/name:70
-msgid "Japanese cedar (Cryptomeria)"
-msgstr "Cèdre du Japon (Cryptomeria)"
-
-#: core.Species/name:71
-msgid "Hemlock (Tsuga)"
-msgstr "Pruche (Tsuga)"
-
-#: core.Species/name:72
-msgid "Thuja (Northern white cedar)"
-msgstr "Thuya (Cèdre du Canada)"
-
-#: core.Species/name:73
-msgid "Fir (Abies)"
-msgstr "Sapin (Abies)"
+msgid "C"
+msgstr ""
 
 #: core.Tasklist/name:2
 msgid "Seeding"
@@ -1720,6 +1439,224 @@ msgstr "Haubaner"
 msgid "Repotting"
 msgstr "Rempoter"
 
-#: core.Tasklist/name:11
-msgid "Pinching"
-msgstr "Pincer"
+#~ msgid "Ficus (Ficus retusa or ginseng)"
+#~ msgstr "Ficus (Ficus retusa ou ginseng)"
+
+#~ msgid "Dwarf Jade (Crassula or portulacaria)"
+#~ msgstr "Crassula (Crassula ou portulacaria)"
+
+#~ msgid "Fukien tea (Carmona)"
+#~ msgstr "Carmona (Carmona)"
+
+#~ msgid "Azalea (Rhododendron)"
+#~ msgstr "Azalée (Rhododendron)"
+
+#~ msgid "Bougainvillea (Bougainvillea)"
+#~ msgstr "Bougainvillier (Bougainvillea)"
+
+#~ msgid "Snow rose (Serissa)"
+#~ msgstr "Neige de juin (Serissa)"
+
+#~ msgid "Box or boxwood (Buxus)"
+#~ msgstr "Buis (Buxus)"
+
+#~ msgid "Sweet plum (Sageretia theezans)"
+#~ msgstr "Sageretia theezans (Sageretia theezans)"
+
+#~ msgid "Olive (Olea europaea)"
+#~ msgstr "Olivier (Olea europaea)"
+
+#~ msgid "Money tree (Pachira aquatica)"
+#~ msgstr "Arbre à monnaie (Pachira aquatica)"
+
+#~ msgid "Privet (Ligustrum)"
+#~ msgstr "Troène (Ligustrum)"
+
+#~ msgid "Cotoneaster (Cotoneaster)"
+#~ msgstr "Cotonéaster (Cotoneaster)"
+
+#~ msgid "Hawaiian umbrella (Schefflera arboricola)"
+#~ msgstr "Schefflera (Schefflera arboricola)"
+
+#~ msgid "Citrus or Lemon (Citrus limon and sinensis)"
+#~ msgstr "Citronier (Citrus limon et sinensis)"
+
+#~ msgid "Fuchsia (Fuchsia)"
+#~ msgstr "Fuchsia (Fuchsia)"
+
+#~ msgid "Brush cherry (Eugenia myrtifolia and syzygium)"
+#~ msgstr "Cerisier du Japon (Eugenia myrtifolia et syzygium)"
+
+#~ msgid "Brazilian rain tree (Pithecellobium tortum)"
+#~ msgstr "Acacia vincentis (Pithecellobium tortum)"
+
+#~ msgid "Japanese holly (Ilex crenata)"
+#~ msgstr "Houx japonais (Ilex crenata)"
+
+#~ msgid "Premna (Premna)"
+#~ msgstr "Premna (Premna)"
+
+#~ msgid "Jasmine (Gardenia)"
+#~ msgstr "Jasmin (Gardénia)"
+
+#~ msgid "Crepe myrtle (Lagerstroemia indica)"
+#~ msgstr "Myrte de crêpe (Lagerstroemia indica)"
+
+#~ msgid "Myrtle (Myrtus communis)"
+#~ msgstr "Myrte (Myrtus communis)"
+
+#~ msgid "Firethorn (Pyracantha)"
+#~ msgstr "Pyracantha (Pyracantha)"
+
+#~ msgid "Water jasmine (Wrightia religiosa)"
+#~ msgstr "Etoile de Marie (Wrightia religiosa)"
+
+#~ msgid "Wattle (Acacia)"
+#~ msgstr "Acacia (Acacia)"
+
+#~ msgid "Camellia (Camellia)"
+#~ msgstr "Camélia (Camélia)"
+
+#~ msgid "Eucalypt (Eucalyptus)"
+#~ msgstr "Eucalyptus (Eucalyptus)"
+
+#~ msgid "Bamboo (Bambusoideae)"
+#~ msgstr "Bambou (Bambusoideae)"
+
+#~ msgid "Hibiscus (Hibiscus)"
+#~ msgstr "Hibiscus (Hibiscus)"
+
+#~ msgid "Japanese maple (Acer palmatum)"
+#~ msgstr "Érable du Japon (Acer palmatum)"
+
+#~ msgid "Chinese elm (Ulmus parviflora)"
+#~ msgstr "Orme de Chine (Ulmus parviflora)"
+
+#~ msgid "Cherry (Prunus Sakura)"
+#~ msgstr "Cerisier (Prunus Sakura)"
+
+#~ msgid "Oak (Quercus)"
+#~ msgstr "Chêne (Quercus)"
+
+#~ msgid "Wisteria (Wisteria)"
+#~ msgstr "Glycine (Glycine)"
+
+#~ msgid "Japanese elm (Zelkova)"
+#~ msgstr "Orme du Japon (Zelkova)"
+
+#~ msgid "Pomegranate (Punica granatum)"
+#~ msgstr "Grenade (Punica granatum)"
+
+#~ msgid "Jacaranda (Jacaranda mimosifolia)"
+#~ msgstr "Jacaranda (Jacaranda mimosifolia)"
+
+#~ msgid "Trident maple (Acer buergerianum)"
+#~ msgstr "Érable de Buerger (Acer buergerianum)"
+
+#~ msgid "Apple and crabapple (Malus)"
+#~ msgstr "Pommier d'ornement (Malus)"
+
+#~ msgid "Desert rose (Adenium obesum)"
+#~ msgstr "Rose du désert (Adenium obesum)"
+
+#~ msgid "Hornbeam and beech (Carpinus and fagus)"
+#~ msgstr "Charme et hêtre (Carpinus et fagus)"
+
+#~ msgid "Star magnolia (Magnolia stellata)"
+#~ msgstr "Magnolia étoilé (Magnolia stellata)"
+
+#~ msgid "Chinese pepper (Xanthoxylum piperitum)"
+#~ msgstr "Poivre du Sichuan (Xanthoxylum piperitum)"
+
+#~ msgid "Hackberry (Celtis)"
+#~ msgstr "Micocoulier (Celtis)"
+
+#~ msgid "Ginkgo (Ginkgo biloba)"
+#~ msgstr "Ginkgo (Ginkgo biloba)"
+
+#~ msgid "Flame tree (Delonix regia or Royal poinciana)"
+#~ msgstr "Flamboyant (Delonix regia ou Royal poinciana)"
+
+#~ msgid "Weeping willow (Salix)"
+#~ msgstr "Saule pleureur (Salix)"
+
+#~ msgid "Japanese winterberry (Ilex serrata)"
+#~ msgstr "L'hiver du Japon (Ilex serrata)"
+
+#~ msgid "Baobab (Baobab)"
+#~ msgstr "Baobab (baobab)"
+
+#~ msgid "Birch (Betula)"
+#~ msgstr "Bouleau (Betula)"
+
+#~ msgid "Chinese quince (Pseudocydonia)"
+#~ msgstr "Cognassier de Chine (Pseudocydonia)"
+
+#~ msgid "Judas tree (Cercis)"
+#~ msgstr "Arbre de Judée (Cercis)"
+
+#~ msgid "Hawthorn (Crataegus)"
+#~ msgstr "Aubépine (Crataegus)"
+
+#~ msgid "Silk tree (Albizia or mimosa)"
+#~ msgstr "Arbre à soie (Albizia ou mimosa)"
+
+#~ msgid "Rose (Rosa)"
+#~ msgstr "Arbre à soie (Albizia ou mimosa)"
+
+#~ msgid "Jabuticaba (Plinia cauliflora)"
+#~ msgstr "Jaboticaba (Plinia cauliflora)"
+
+#~ msgid "Ash (Fraxinus)"
+#~ msgstr "Frêne (Fraxinus)"
+
+#~ msgid "Dogwood (Cornus)"
+#~ msgstr "Cornouiller (Cornus)"
+
+#~ msgid "Liquidambar (Sweetgum)"
+#~ msgstr "Liquidambar (Sweetgum)"
+
+#~ msgid "Juniper (Juniperus)"
+#~ msgstr "Genévrier (Juniperus)"
+
+#~ msgid "Pines (Pinus)"
+#~ msgstr "Pins (Pinus)"
+
+#~ msgid "Spruce (Picea)"
+#~ msgstr "Epicéa (Picea)"
+
+#~ msgid "Bald cypress (Taxodium distichum)"
+#~ msgstr "Cyprès chauve (Taxodium distichum)"
+
+#~ msgid "Larch and Golden Larch (Larix)"
+#~ msgstr "Mélèze et mélèze doré (Larix)"
+
+#~ msgid "Redwoods (Metasequoia and sequoia)"
+#~ msgstr "Séquoias (métasequoia et séquoia)"
+
+#~ msgid "Cedar (Cedrus)"
+#~ msgstr "Cèdre (Cedrus)"
+
+#~ msgid "Buddhist pine (Podocarpus)"
+#~ msgstr "Pin des bouddhistes (Podocarpus)"
+
+#~ msgid "Yew (Taxus or taxaceae)"
+#~ msgstr "If (Taxus ou taxacées)"
+
+#~ msgid "Hinoki cypress (Chamaecyparis)"
+#~ msgstr "Cyprès d'Hinoki (Chamaecyparis)"
+
+#~ msgid "Japanese cedar (Cryptomeria)"
+#~ msgstr "Cèdre du Japon (Cryptomeria)"
+
+#~ msgid "Hemlock (Tsuga)"
+#~ msgstr "Pruche (Tsuga)"
+
+#~ msgid "Thuja (Northern white cedar)"
+#~ msgstr "Thuya (Cèdre du Canada)"
+
+#~ msgid "Fir (Abies)"
+#~ msgstr "Sapin (Abies)"
+
+#~ msgid "Pinching"
+#~ msgstr "Pincer"

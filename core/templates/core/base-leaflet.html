@@ -69,7 +69,12 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About" %}</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/generalinfo/">{% trans "General info" %}</a>
+            {% get_current_language as LANGUAGE_CODE %}
+              {% if LANGUAGE_CODE == 'fr' %}
+                <a class="dropdown-item" href="/generalinfo/fr/">{% trans "General info" %}</a>
+              {% else %}
+                <a class="dropdown-item" href="/generalinfo/">{% trans "General info" %}</a>
+              {% endif %}
             <a class="dropdown-item" href="#">{% trans "FAQ" %}</a>
             <a class="dropdown-item" href="#">{% trans "GDPR" %}</a>
             <a class="dropdown-item" href="#">{% trans "Legal policies" %}</a>

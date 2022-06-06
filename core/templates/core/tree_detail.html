@@ -14,7 +14,7 @@
             <span class="font-italic"><small>{% trans 'Planting date:' %} {{ tree.bdate }} </small></span><br>
             <small>{% trans 'Acquisition date:' %} {{ tree.adate }} </small><br>
             <small>{% trans 'Origin:' %} {{ tree.originfk }} </small><br>
-            {{ tree.ownerfk }}</p>
+            <small>{% trans 'Owner:' %} <a href="{% url 'public_profile' tree.ownerfk.id %}">{{ tree.ownerfk }}</a></small></p>
             {% if tree.url %}
               <a href="{{ tree.url }}" target="_blank" rel="noopener noreferrer">{{ tree.url }}</a><br>
             {% endif %}

@@ -19,6 +19,7 @@
               {% endif %}
               {% trans 'Description:' %} <i>{{ object.description }} </i><br>
             <small>{% trans 'Shot date:' %} {{ object.shot_date }} </small><br>
+             <small>{% trans 'Owner:' %} <a href="{% url 'public_profile' object.treefk.ownerfk.id %}">{{ object.treefk.ownerfk }}</a></small><br>
             {% if object.before_pic %}
               <i>{% trans 'Picture taken before executing the task.' %}</i><br>
             {% endif %}

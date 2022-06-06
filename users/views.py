@@ -101,8 +101,7 @@ def pubprofile(request, pk):
     ownerobj = get_object_or_404(User, pk=pk)
     if ownerobj == request.user or ownerobj.profile.public_profile is True:
         trees = Tree.objects.filter(ownerfk=ownerobj)
-
-        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('shot_date')
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('-shot_date')
         paginator = Paginator(photos, 5)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)

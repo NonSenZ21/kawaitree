@@ -6,8 +6,6 @@ def image_autorotate(infile):
     image = Image.open(infile)
     exif = image._getexif()
 
-    print("exif :", exif[274])
-
     # if image has exif data about orientation, let's rotate it
     orientation_key = 274  # cf ExifTags
     if exif and orientation_key in exif:
