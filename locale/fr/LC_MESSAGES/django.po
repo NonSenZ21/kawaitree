@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-06 10:43+0000\n"
+"POT-Creation-Date: 2022-06-06 19:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,15 +270,20 @@ msgstr "Description&nbsp;:"
 msgid "Shot date:"
 msgstr "Date du cliché&nbsp;:"
 
-#: core/templates/core/photo_detail.html:23
+#: core/templates/core/photo_detail.html:22
+#: core/templates/core/tree_detail.html:17
+msgid "Owner:"
+msgstr "Propriétaire :"
+
+#: core/templates/core/photo_detail.html:24
 msgid "Picture taken before executing the task."
 msgstr "Photo prise avant l'exécution."
 
-#: core/templates/core/photo_detail.html:26
+#: core/templates/core/photo_detail.html:27
 msgid "Picture taken after executing the task."
 msgstr "Photo prise après l'exécution."
 
-#: core/templates/core/photo_detail.html:37
+#: core/templates/core/photo_detail.html:38
 #: core/templates/core/task_detail.html:22 core/templates/core/tasks.html:47
 #: core/templates/core/tdb.html:49 core/templates/core/tdb.html:105
 #: core/templates/core/tdb.html:143 core/templates/core/tdb.html:180
@@ -467,7 +472,7 @@ msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:208 users/views.py:113
+#: core/views.py:208 users/views.py:112
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des phtoos privées&nbsp;?"
 
