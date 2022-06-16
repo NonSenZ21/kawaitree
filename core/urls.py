@@ -17,6 +17,7 @@ urlpatterns = [
    path('photo/new/<int:tree>/<int:task>/', views.photocreate, name='photo-create'),
    # path('photo/<int:pk>/update/', PhotoUpdateView.as_view(), name='photo-update'),
    path('photo/list/<int:owner>/', views.photolist, name='photo-list'),
+   path('photo/listall/<int:owner>/<int:species>/', views.photolistall, name='photo-listall'),
    path('photo/<int:pk>/delete/', PhotoDeleteView.as_view(), name='photo-delete'),
    path('tasks/<int:action>/', views.tasks, name='core-tasks'),
    path('members_map/', views.membersmap, name='members_map'),

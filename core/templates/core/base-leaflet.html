@@ -61,7 +61,7 @@
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Members" %}</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{% url 'members_map' %}">{% trans "Map" %}</a>
-            <a class="dropdown-item" href="#">{% trans "Gallery" %}</a>
+            <a class="dropdown-item" href="{% url 'photo-listall' '0' '0' %}">{% trans "Gallery" %}</a>
             <a class="dropdown-item" href="#">{% trans "Links" %}</a>
             <a class="dropdown-item" href="#">{% trans "Library" %}</a>
           </div>

@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Task, Photo
+from django.contrib.auth.models import User
+from .models import Task, Photo, Species, Tree
 
 
 class TaskCreateForm(ModelForm):
@@ -33,3 +34,14 @@ class PhotoCreateForm(ModelForm):
     class Meta:
         model = Photo
         fields = ['treefk', 'taskfk', 'description', 'shot_date', 'before_pic', 'after_pic', 'picture', 'thumb']
+
+
+class PhotoListallFormTree(ModelForm):
+    class Meta:
+        model = Tree
+        fields = ['ownerfk', 'speciesfk']
+
+    def __init__(self, *args, **kwargs):
+        super(PhotoListallFormTree, self).__init__(*args, **kwargs)
+        self.fields['ownerfk'].required = False
+        self.fields['ownerfk'].queryset = User.objects.filter(profile__public_profile=True).order_by('username')

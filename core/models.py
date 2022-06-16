@@ -17,7 +17,7 @@ class Species(models.Model):
         ordering = ('cat', 'name')
 
     def __str__(self):
-        specstr = self.cat + ' - ' + self.name
+        specstr = str(self.cat) + ' - ' + str(self.name)
         return specstr
 
 

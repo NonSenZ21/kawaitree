@@ -7,8 +7,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Tree, Task, Photo, User
-from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm
+from .models import Tree, Task, Photo, User, Species
+from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm, PhotoListallFormTree
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.translation import gettext_lazy as _
@@ -208,6 +208,53 @@ def photolist(request, owner):
         mes = _("Are you trying to list private pictures?")
         messages.warning(request, mes)
         return redirect('core-tdb')
+
+
+@login_required
+def photolistall(request, owner, species):
+    # Methode POST
+    if request.method == 'POST':
+        owner = request.POST.get('ownerfk')
+        if owner != "":
+            owner = int(owner)
+        else:
+            owner = 0
+
+        species = request.POST.get('speciesfk')
+        if species != "":
+            species = int(species)
+        else:
+            species = 0
+        return redirect('photo-listall', owner, species)
+
+    # Methode GET
+    if owner != 0:
+        ownerobj = get_object_or_404(User, pk=owner)
+        if ownerobj != request.user and ownerobj.profile.public_profile is False:
+            mes = _("Are you trying to list private pictures?")
+            messages.warning(request, mes)
+            return redirect('core-tdb')
+    if species != 0:
+        speciesobj = get_object_or_404(Species, pk=species)
+
+    if owner != 0 and species != 0:
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj, treefk__speciesfk=speciesobj).order_by('-shot_date')[:100]
+    elif owner != 0:
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('-shot_date')[:100]
+    elif species != 0:
+        photos = Photo.objects.filter(treefk__ownerfk__profile__public_profile=True).filter(treefk__speciesfk=speciesobj).order_by('-shot_date')[:100]
+    else:
+        photos = Photo.objects.filter(treefk__ownerfk__profile__public_profile=True).order_by('-shot_date')[:100]
+
+    paginator = Paginator(photos, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    form = PhotoListallFormTree(initial={'ownerfk': owner, 'speciesfk': species})
+    context = {'form': form, 'owner': owner, 'species': species, 'page_obj': page_obj}
+    print(context)
+    return render(request, 'core/photo_listall.html', context)
+
 
 class PhotoDetailView(UserPassesTestMixin, DetailView):
     model = Photo
