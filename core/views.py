@@ -7,7 +7,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Tree, Task, Photo, User, Species
+from .models import Tree, Task, Photo, User, Species, Link
 from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm, PhotoListallFormTree
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -361,3 +361,10 @@ def membersmap(request):
     members = User.objects.filter(profile__public_profile=True)
     context = {'title': _('Members map'), 'members': members}
     return render(request, 'core/membersmap.html', context)
+
+
+class LinksView(LoginRequiredMixin, ListView):
+    model = Link
+    # template_name = 'core/link_list.html'
+    context_object_name = 'links'
+    ordering = ['linkcatfk', 'order']

@@ -101,6 +101,7 @@ class Task(models.Model):
             task_string = self.treefk.__str__() + " - " + self.tasklistfk.__str__() + " - " + str(plan_date)
         return task_string
 
+
 class Photo(models.Model):
     treefk = models.ForeignKey(Tree, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Tree'))
     taskfk = models.ForeignKey(Task, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Task'))
@@ -140,7 +141,6 @@ class Photo(models.Model):
 
         img.save(self.picture.path, 'JPEG', quality=85)
 
-
         # resize thumbnail @ 150 px height max size
         # thumb = Image.open(self.thumb)
         thumb = img
@@ -153,3 +153,21 @@ class Photo(models.Model):
         thumb.close()
         img.close()
 
+
+class Linkcat(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
+
+    def __str__(self):
+        return self.name
+
+
+class Link(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
+    order = models.IntegerField(default=10, verbose_name=_('order'))
+    linkcatfk = models.ForeignKey(Linkcat, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Category'))
+    description = models.TextField(blank=True, verbose_name=_('Description'))
+    image = models.ImageField(upload_to='links_pics', verbose_name=_('Logo'))
+    url = models.URLField(blank=True, null=True, verbose_name=_('URL'))
+
+    def __str__(self):
+        return self.name

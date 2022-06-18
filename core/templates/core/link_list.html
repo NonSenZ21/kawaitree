@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1 class="mt-3">{% trans 'Links' %}</h1>
+    {% if not links %}
+        <p>{% trans 'No link yet.' %}</p>
+    {% endif %}
+
+    <div class="accordion" id="accordionLinks">
+    {% regroup links by linkcatfk as categories %}
+    {% for category in categories %}
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="Heading {{ category.grouper }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse{{ category.grouper }}" aria-expanded="false"
+                aria-controls="collapse{{ category.grouper }}">
+          {{ category.grouper }}
+        </button>
+        </h2>
+        <div id="collapse{{ category.grouper }}" class="accordion-collapse collapse"
+             aria-labelledby="heading {{ category.grouper }}" data-bs-parent="#accordionLinks">
+        <div class="accordion-body">
+            {% for link in category.list %}
+                <div class="row border border-light mb-2">
+                    <div class="col md-inline-block mt-1 mb-1">
+                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer"><img src="{{ link.image.url }}" class="autoresizeimg" alt="{{ link.name }} logo"></a>
+                    </div>
+                    <div class="col md-inline-block d-md-flex align-items-center">
+                        <p><strong></strong><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a><br>
+                        <small>{{ link.description }}</small></p>
+                    </div>
+                </div>
+
+            {% endfor %}
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+  <a href="{% url 'tree-create'%}" class="btn btn-outline-success btn-sm mt-1" role="button" >{% trans 'Add a tree' %}</a>
+</div>
+
+
+</div>
+{% endblock content%}
