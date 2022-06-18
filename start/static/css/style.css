@@ -53,9 +53,10 @@
     text-decoration: none;
 }
 .autoresizeimg {
-    width: auto ;
-    max-width: 100% ;
-    height: auto ;
+    width: auto;
+    max-width: 100%;
+    min-width: 250px;
+    height: auto;
 }
 
 #profile_map { height: 400px; }
