@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 13:32+0000\n"
+"POT-Creation-Date: 2022-06-20 17:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,58 +18,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: core/models.py:33 core/models.py:79
+#: core/models.py:32 core/models.py:78 core/models.py:158 core/models.py:165
 msgid "Name"
 msgstr "Nom"
 
-#: core/models.py:34
+#: core/models.py:33
 msgid "Origin"
 msgstr "Origine"
 
-#: core/models.py:35 core/models.py:88 core/models.py:108
+#: core/models.py:34 core/models.py:87 core/models.py:108 core/models.py:168
 msgid "Description"
 msgstr "Description"
 
-#: core/models.py:36
+#: core/models.py:35
 msgid "Species"
 msgstr "Espèce"
 
-#: core/models.py:37 core/templates/core/tree_form.html:34
+#: core/models.py:36 core/templates/core/tree_form.html:34
 msgid "Planting date"
 msgstr "Date de plantation"
 
-#: core/models.py:38 core/templates/core/tree_form.html:40
+#: core/models.py:37 core/templates/core/tree_form.html:40
 msgid "Acquisition date"
 msgstr "Date d'acquisition"
 
-#: core/models.py:39
+#: core/models.py:38
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: core/models.py:40
+#: core/models.py:39
 msgid "Main picture"
 msgstr "Photo principale"
 
-#: core/models.py:41 core/models.py:91
+#: core/models.py:40 core/models.py:90
 msgid "URL (YouTube video...)"
 msgstr "URL (vidéo Youtube...)"
 
-#: core/models.py:86
+#: core/models.py:85
 msgid "Type"
 msgstr "Type"
 
-#: core/models.py:87 core/models.py:106 core/templates/core/tree_form.html:11
+#: core/models.py:86 core/models.py:106 core/templates/core/tree_form.html:11
 msgid "Tree"
 msgstr "Arbre"
 
-#: core/models.py:89 core/templates/core/task_form.html:29
+#: core/models.py:88 core/templates/core/task_form.html:29
 #: core/templates/core/tasks.html:12 core/templates/core/tdb.html:22
 #: core/templates/core/tdb.html:78 core/templates/core/tdb.html:153
 #: core/templates/core/tree_detail.html:51
 msgid "Planned date"
 msgstr "Date prévue"
 
-#: core/models.py:90 core/templates/core/task_form.html:35
+#: core/models.py:89 core/templates/core/task_form.html:35
 #: core/templates/core/tasks.html:14 core/templates/core/tdb.html:154
 #: core/templates/core/tree_detail.html:52
 msgid "Realisation date"
@@ -102,6 +102,22 @@ msgstr "Photo"
 msgid "Thumbnail"
 msgstr "Miniature"
 
+#: core/models.py:166
+msgid "Order"
+msgstr "Ordre"
+
+#: core/models.py:167
+msgid "Category"
+msgstr "Catégorie"
+
+#: core/models.py:169
+msgid "Logo"
+msgstr "Logo"
+
+#: core/models.py:170
+msgid "URL"
+msgstr "URL"
+
 #: core/templates/core/base-leaflet.html:41 core/templates/core/base.html:32
 msgid "Collection"
 msgstr "Collection"
@@ -120,17 +136,17 @@ msgid "Maintenance"
 msgstr "Entretien"
 
 #: core/templates/core/base-leaflet.html:50 core/templates/core/base.html:41
-#: core/views.py:334
+#: core/views.py:336
 msgid "Next tasks"
 msgstr "Prochaines tâches"
 
 #: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:42
-#: core/templates/core/tdb.html:9 core/views.py:342
+#: core/templates/core/tdb.html:9 core/views.py:344
 msgid "Overdue tasks"
 msgstr "Tâches en retard"
 
 #: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:43
-#: core/views.py:348
+#: core/views.py:350
 msgid "All tasks"
 msgstr "Toutes les tâches"
 
@@ -152,48 +168,53 @@ msgid "Gallery"
 msgstr "Galerie"
 
 #: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:56
+#: core/templates/core/link_list.html:5
 msgid "Links"
 msgstr "Liens"
 
-#: core/templates/core/base-leaflet.html:66 core/templates/core/base.html:57
-msgid "Library"
-msgstr "Bibliothèque"
-
-#: core/templates/core/base-leaflet.html:70 core/templates/core/base.html:61
+#: core/templates/core/base-leaflet.html:69 core/templates/core/base.html:60
 msgid "About"
 msgstr "A propos"
 
-#: core/templates/core/base-leaflet.html:74
-#: core/templates/core/base-leaflet.html:76 core/templates/core/base.html:65
-#: core/templates/core/base.html:67
+#: core/templates/core/base-leaflet.html:73
+#: core/templates/core/base-leaflet.html:75 core/templates/core/base.html:64
+#: core/templates/core/base.html:66
 msgid "General info"
 msgstr "Infos générales"
 
+#: core/templates/core/base-leaflet.html:77
+msgid "FAQ/help"
+msgstr "FAQ/aide"
+
 #: core/templates/core/base-leaflet.html:78 core/templates/core/base.html:69
-msgid "FAQ"
-msgstr "FAQ"
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
 
 #: core/templates/core/base-leaflet.html:79 core/templates/core/base.html:70
-msgid "GDPR"
-msgstr "RGPD"
-
-#: core/templates/core/base-leaflet.html:80 core/templates/core/base.html:71
 msgid "Legal policies"
 msgstr "Mentions légales"
 
-#: core/templates/core/base-leaflet.html:82 core/templates/core/base.html:73
+#: core/templates/core/base-leaflet.html:81 core/templates/core/base.html:72
 msgid "Contact the author"
 msgstr "Contacter l'auteur"
 
-#: core/templates/core/base-leaflet.html:90
-#: core/templates/core/base-leaflet.html:92 core/templates/core/base.html:81
-#: core/templates/core/base.html:83
+#: core/templates/core/base-leaflet.html:89
+#: core/templates/core/base-leaflet.html:91 core/templates/core/base.html:80
+#: core/templates/core/base.html:82
 msgid "Profile"
 msgstr "Profil"
 
-#: core/templates/core/base-leaflet.html:93 core/templates/core/base.html:84
+#: core/templates/core/base-leaflet.html:92 core/templates/core/base.html:83
 msgid "Logout"
 msgstr "Se déconnecter"
+
+#: core/templates/core/base.html:68
+msgid "FAQ"
+msgstr "FAQ"
+
+#: core/templates/core/link_list.html:7
+msgid "No link yet."
+msgstr "Pas encore de lien."
 
 #: core/templates/core/membersmap.html:11
 msgid "Click on the markers to get more info..."
@@ -221,7 +242,7 @@ msgstr "Oui supprimer"
 #: core/templates/core/tree_confirm_delete.html:14
 #: core/templates/core/tree_form.html:58
 #: users/templates/users/User_confirm_delete.html:19
-#: users/templates/users/profile.html:112
+#: users/templates/users/profile.html:111
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -281,7 +302,7 @@ msgid "Photo"
 msgstr "Photo"
 
 #: core/templates/core/photo_form.html:49
-#: core/templates/core/photo_listall.html:26
+#: core/templates/core/photo_listall.html:50
 #: core/templates/core/task_form.html:47 core/templates/core/tree_form.html:57
 msgid "Ok"
 msgstr "Ok"
@@ -295,25 +316,25 @@ msgid "No photo in your collection."
 msgstr "Pas de photo dans votre collection."
 
 #: core/templates/core/photo_list.html:19
-#: core/templates/core/photo_listall.html:40
+#: core/templates/core/photo_listall.html:21
 #: users/templates/users/public_profile.html:95
 msgid "first"
 msgstr "premier"
 
 #: core/templates/core/photo_list.html:20
-#: core/templates/core/photo_listall.html:41
+#: core/templates/core/photo_listall.html:22
 #: users/templates/users/public_profile.html:96
 msgid "previous"
 msgstr "précédent"
 
 #: core/templates/core/photo_list.html:30
-#: core/templates/core/photo_listall.html:51
+#: core/templates/core/photo_listall.html:32
 #: users/templates/users/public_profile.html:106
 msgid "next"
 msgstr "suivant"
 
 #: core/templates/core/photo_list.html:31
-#: core/templates/core/photo_listall.html:52
+#: core/templates/core/photo_listall.html:33
 #: users/templates/users/public_profile.html:107
 msgid "last"
 msgstr "dernier"
@@ -326,7 +347,7 @@ msgstr "Photos des membres "
 msgid "No photo matching your parameters."
 msgstr "Pas de photo correspondant à ces paramètres."
 
-#: core/templates/core/photo_listall.html:18
+#: core/templates/core/photo_listall.html:42
 msgid "Filter"
 msgstr "Filtre"
 
@@ -472,31 +493,31 @@ msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:208 core/views.py:232 users/views.py:112
+#: core/views.py:208 core/views.py:234 users/views.py:112
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des photos privées&nbsp;?"
 
-#: core/views.py:270
+#: core/views.py:272
 msgid "Trying to add an image to unidentified tree?"
 msgstr "Vous essayez d'ajouter une image à un arbre non identifié&nbsp;?"
 
-#: core/views.py:276
+#: core/views.py:278
 msgid "Trying to add an image to someone else's tree?"
 msgstr "Vous essayez d'ajouter une photo à l'arbre de quelqu'un d'autre&nbsp;?"
 
-#: core/views.py:288
+#: core/views.py:290
 msgid "Only JPG images are allowed, sorry!"
 msgstr "Seules les images JPG sont autorisées, désolé."
 
-#: core/views.py:301
+#: core/views.py:303
 msgid "Your form is not valid and I don't know why!"
 msgstr "Votre formulaire n'est pas valide et je ne sais pas pourquoi."
 
-#: core/views.py:352
+#: core/views.py:354
 msgid "Unknown action... WTF are you doing?"
 msgstr "Action inconnue... WTF ?"
 
-#: core/views.py:360
+#: core/views.py:362
 msgid "Members map"
 msgstr "Carte des membres"
 
@@ -1258,11 +1279,11 @@ msgstr ""
 "Prenez le temps de la réflexion. Toutes vos données seront perdues&nbsp;! "
 "pas la fin du monde mais quand même..."
 
-#: users/templates/users/profile.html:21
+#: users/templates/users/profile.html:23
 msgid "Profile Info"
 msgstr "Profil"
 
-#: users/templates/users/profile.html:26
+#: users/templates/users/profile.html:28
 msgid ""
 "Your profile is public. Other members can find your localisation, send you a "
 "message and see your collection."
@@ -1270,7 +1291,7 @@ msgstr ""
 "Votre profil est public. Les autres membres peuvent voir votre "
 "géolocalisation, vous envoyer un message et voir votre collection"
 
-#: users/templates/users/profile.html:28
+#: users/templates/users/profile.html:30
 msgid ""
 "Your profile is <strong>NOT</strong> public. Other members can't find your "
 "localisation, send you a message or see your collection."
@@ -1279,7 +1300,7 @@ msgstr ""
 "peuvent pas voir votre géolocalisation, vous envoyer un message ou voir "
 "votre collection."
 
-#: users/templates/users/profile.html:45
+#: users/templates/users/profile.html:44
 msgid ""
 "This map will allow weather alerts and will help other members to contact "
 "you if your profile is public. We suggest you do not give your home address, "
@@ -1290,13 +1311,13 @@ msgstr ""
 "pas marquer votre adresse exacte mais uniquement votre ville pour des "
 "raisons de sécurité et de respect de la vie privée."
 
-#: users/templates/users/profile.html:59
+#: users/templates/users/profile.html:58
 msgid "Check \"Weather alert\" if you want to receive weather alerts by email."
 msgstr ""
 "Cochez \"Alertes Météo\" si vous souhaitez recevoir des alertes météo par "
 "mail."
 
-#: users/templates/users/profile.html:85
+#: users/templates/users/profile.html:84
 msgid ""
 "If you wish, you can fill in the information below. It will be visible in "
 "your profile (only if it is public)."
@@ -1304,7 +1325,7 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez renseigner les informations ci-dessous. "
 "Elles seront visibles dans votre profil si celui-ci est public."
 
-#: users/templates/users/profile.html:104
+#: users/templates/users/profile.html:103
 msgid ""
 "You can hide all help messages like this one by checking the Expert box "
 "below."
@@ -1312,11 +1333,11 @@ msgstr ""
 "Vous pouvez cacher tous les messages d'aide comme celui-ci en validant la "
 "case Expert ci-dessous."
 
-#: users/templates/users/profile.html:111
+#: users/templates/users/profile.html:110
 msgid "OK"
 msgstr "OK"
 
-#: users/templates/users/profile.html:113
+#: users/templates/users/profile.html:112
 msgid "Delete user"
 msgstr "Supprimer l'utilisateur"
 
@@ -1375,6 +1396,18 @@ msgid ""
 msgstr ""
 "Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
 "\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
+
+#: core.Linkcat/name:1
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core.Linkcat/name:2
+msgid "Shops"
+msgstr "Boutiques"
+
+#: core.Linkcat/name:3
+msgid "Websites"
+msgstr "Sites web"
 
 #: core.Origin/name:1
 msgid "Seed"
@@ -1723,6 +1756,12 @@ msgstr "Haubaner"
 #: core.Tasklist/name:10
 msgid "Repotting"
 msgstr "Rempoter"
+
+#~ msgid "GDPR"
+#~ msgstr "RGPD"
+
+#~ msgid "Library"
+#~ msgstr "Bibliothèque"
 
 #~ msgid "Pinching"
 #~ msgstr "Pincer"

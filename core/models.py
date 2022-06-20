@@ -163,7 +163,7 @@ class Linkcat(models.Model):
 
 class Link(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
-    order = models.IntegerField(default=10, verbose_name=_('order'))
+    order = models.IntegerField(default=10, verbose_name=_('Order'))
     linkcatfk = models.ForeignKey(Linkcat, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Category'))
     description = models.TextField(blank=True, verbose_name=_('Description'))
     image = models.ImageField(upload_to='links_pics', verbose_name=_('Logo'))

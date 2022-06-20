@@ -74,9 +74,17 @@
               {% else %}
                 <a class="dropdown-item" href="/generalinfo/">{% trans "General info" %}</a>
               {% endif %}
-            <a class="dropdown-item" href="#">{% trans "FAQ" %}</a>
-            <a class="dropdown-item" href="#">{% trans "GDPR" %}</a>
-            <a class="dropdown-item" href="#">{% trans "Legal policies" %}</a>
+            <a class="dropdown-item" href="#">{% trans "FAQ/help" %}</a>
+              {% if LANGUAGE_CODE == 'fr' %}
+                  <a class="dropdown-item" href="/privacypolicy/fr/">{% trans "Privacy policy" %}</a>
+              {% else %}
+                  <a class="dropdown-item" href="/privacypolicy/">{% trans "Privacy policy" %}</a>
+              {% endif %}
+              {% if LANGUAGE_CODE == 'fr' %}
+                  <a class="dropdown-item" href="/legalpolicies/fr/">{% trans "Legal policies" %}</a>
+              {% else %}
+                  <a class="dropdown-item" href="/legalpolicies/">{% trans "Legal policies" %}</a>
+              {% endif %}
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">{% trans "Contact the author" %}</a>
           </div>
