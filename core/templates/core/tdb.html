@@ -150,7 +150,6 @@
             <thead>
               <tr>
                 <th>{% trans 'Task' %}</th>
-                <th>{% trans 'Planned date' %}</th>
                 <th>{% trans 'Realisation date' %}</th>
                 <th></th>
                 <th class="d-none d-md-table-cell"></th>
@@ -163,9 +162,6 @@
                 {% if task.treefk == tree %}
                   <td>
                     {{ task.tasklistfk }}
-                  </td>
-                  <td>
-                    {{ task.plan_date }}
                   </td>
                   <td>
                     {{ task.real_date }}

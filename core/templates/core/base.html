@@ -65,7 +65,7 @@
               {% else %}
                 <a class="dropdown-item" href="/generalinfo/">{% trans "General info" %}</a>
               {% endif %}
-            <a class="dropdown-item" href="#">{% trans "FAQ/help" %}</a>
+            <a class="dropdown-item" href="{% url 'faq' %}">{% trans "FAQ/help" %}</a>
               {% if LANGUAGE_CODE == 'fr' %}
                   <a class="dropdown-item" href="/privacypolicy/fr/">{% trans "Privacy policy" %}</a>
               {% else %}

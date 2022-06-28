@@ -54,11 +54,15 @@
 }
 .autoresizeimg {
     width: auto;
-    max-width: 100%;
     min-width: 250px;
+    max-width: 100%;
     height: auto;
 }
-
+.autoresizeimg2 {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
 #profile_map { height: 400px; }
 #public_profile_map { height: 200px;}
 #members_map { height: 600px; }

@@ -1,0 +1,47 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1 class="mt-3">{% trans 'FAQ/help' %}</h1>
+    {% if not faqs %}
+        <p>{% trans 'No FAQ yet.' %}</p>
+    {% endif %}
+    <div class="accordion" id="accordionFaq">
+    {% regroup faqs by faqcatfk as categories %}
+    {% for category in categories %}
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ category.grouper.id|cut:' ' }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ category.grouper.id|cut:' ' }}" aria-expanded="false" aria-controls="collapse{{ category.grouper.id|cut:' ' }}">
+          {{ category.grouper }}
+        </button>
+        </h2>
+        <div id="collapse{{ category.grouper.id|cut:' ' }}" class="accordion-collapse collapse" aria-labelledby="heading{{ category.grouper.id|cut:' ' }}" data-bs-parent="#accordionFaq">
+        <div class="accordion-body">
+            {% for faq in category.list %}
+                <div class="border border-light mb-2 p-1">
+                    <p><strong>{{ faq.question }}</strong><br>
+                    <small>{{ faq.answer }}</small></p>
+                    {% if faq.image %}
+                        <img src="{{ faq.image.url }}" class="autoresizeimg" alt="image"><br>
+                    {% endif %}
+                    {% if faq.url %}
+                        <a href="{{ faq.url }}" target="_blank" rel="noopener noreferrer">{{ faq.url }}</a><br>
+                    {% endif %}
+                    {%  if faq.video %}
+                        {% if not 'youtube' in faq.video and not 'youtu.be' in faq.video %}
+                            {% trans 'Video:' %} <a href="{{ faq.video }}" target="_blank" rel="noopener noreferrer">{{ faq.video }}</a><br>
+                        {% else %}
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ faq.video }}" title="YouTube video"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock content%}

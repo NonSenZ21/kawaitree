@@ -163,6 +163,7 @@ class Linkcat(models.Model):
 
 class Link(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
+    lang = models.CharField(max_length=4, default='EN', verbose_name=_('Language'))
     order = models.IntegerField(default=10, verbose_name=_('Order'))
     linkcatfk = models.ForeignKey(Linkcat, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Category'))
     description = models.TextField(blank=True, verbose_name=_('Description'))
@@ -171,3 +172,24 @@ class Link(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Faqcat(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
+    lang = models.CharField(max_length=4, default='EN', verbose_name=_('Language'))
+    def __str__(self):
+        faqstr = "[" + self.lang + "] " + self.name
+        return faqstr
+
+
+class Faq(models.Model):
+    question = models.CharField(max_length=500, verbose_name=_('Question'))
+    order = models.IntegerField(default=10, verbose_name=_('Order'))
+    faqcatfk = models.ForeignKey(Faqcat, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_('Category'))
+    answer = models.TextField(blank=True, verbose_name=_('Answer'))
+    image = models.ImageField(blank=True, null=True, upload_to='links_pics', verbose_name=_('Logo'))
+    video = models.URLField(blank=True, null=True, verbose_name='YouTube')
+    url = models.URLField(blank=True, null=True, verbose_name=_('URL'))
+
+    def __str__(self):
+        return self.question

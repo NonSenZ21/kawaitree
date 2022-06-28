@@ -7,7 +7,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Tree, Task, Photo, User, Species, Link
+from .models import Tree, Task, Photo, User, Species, Link, Faq
 from .forms import TaskCreateForm, TaskUpdateForm, PhotoCreateForm, PhotoListallFormTree
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -22,7 +22,8 @@ from datetime import timedelta
 @login_required
 def tdb(request):
     trees = Tree.objects.filter(ownerfk=request.user).order_by('tname')
-    treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by('-real_date')
+    treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
+                                                                      real_date__isnull=False,).order_by('-real_date')
     nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                       real_date__isnull=True,
                                                                       plan_date__isnull=False,
@@ -368,3 +369,11 @@ class LinksView(LoginRequiredMixin, ListView):
     # template_name = 'core/link_list.html'
     context_object_name = 'links'
     ordering = ['linkcatfk', 'order']
+
+
+class FaqView(LoginRequiredMixin, ListView):
+    model = Faq
+    # template_name = 'core/link_list.html'
+    context_object_name = 'faqs'
+    ordering = ['faqcatfk', 'order']
+
