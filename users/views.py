@@ -16,14 +16,20 @@ from core.models import Photo, Tree
 @login_required
 def profile(request):
     if request.method == 'POST':
+        print("post")
         uc_form = UserUpdateForm(request.POST, instance=request.user)
         pc_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
         if uc_form.is_valid() and pc_form.is_valid():
+            print("valid")
             uc_form.save()
             pc_form.save()
             mes_suc = _('Your account has been updated!')
             messages.success(request, mes_suc)
             return redirect('profile')
+        else:
+            print("request.POST", request.POST)
+            mes_warn = _('Something went wrong!')
+            messages.warning(request, mes_warn)
     else:
         uc_form = UserUpdateForm(instance=request.user)
         pc_form = ProfileUpdateForm(instance=request.user.profile)
@@ -47,6 +53,22 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+def complete(request, wd):
+    if wd.wtemp_min <= request.user.profile.min_temp:
+        wd.wtemp_min_warn = True
+    else:
+        wd.wtemp_min_warn = False
+    if wd.wtemp_max >= request.user.profile.max_temp:
+        wd.wtemp_max_warn = True
+    else:
+        wd.wtemp_max_warn = False
+    if wd.wwind_gust >= request.user.profile.max_wind:
+        wd.wwind_gust_warn = True
+    else:
+        wd.wwind_gust_warn = False
+    return wd
+
+
 @login_required
 def weather(request):
     if not request.user.profile.weather:
@@ -56,7 +78,7 @@ def weather(request):
 
     weathers = Weather.objects.get(user=request.user)
     weatherdays = Weatherday.objects.filter(user=request.user)
-    print("weatherdays: ", weatherdays)
+    # print("weatherdays: ", weatherdays)
     if not weatherdays:
         mes = _('No information for now. Make sure you checked the "Weather alerts" checkbox in your profile and you '
                 'will get your weather here tomorrow.')
@@ -78,19 +100,30 @@ def weather(request):
         alert = False
 
     unites = request.user.weather.unites
-
+    wdtab = []
     if unites == '2':
         u1, u2 = '°F', 'miles/hour'
+        for weatherday in weatherdays:
+            wdalert = complete(request, weatherday)
+            wdtab.append(wdalert)
+
     elif unites == '3':
         u1, u2 = '°K', 'm/s'
+        for weatherday in weatherdays:
+            wdalert = complete(request, weatherday)
+            wdtab.append(wdalert)
+
     else:
         u1, u2 = '°C', 'm/s'
         for weatherday in weatherdays:
-            i = weatherday.wnday
-            weatherdays[i].wwind_speedkmh = "{:.2f}".format(float(weatherday.wwind_speed) * 3.6)
-            weatherdays[i].wwind_gustkmh = "{:.2f}".format(float(weatherday.wwind_gust) * 3.6)
+            wdalert = weatherday
+            wdalert.wwind_speedkmh = "{:.2f}".format(float(weatherday.wwind_speed) * 3.6)
+            wdalert.wwind_gustkmh = "{:.2f}".format(float(weatherday.wwind_gust) * 3.6)
+            wdalert = complete(request, weatherday)
+            wdtab.append(wdalert)
 
-    context = {'title': _('Weather'), 'weathers': weathers, 'weatherdays': weatherdays, 'u1': u1, 'u2': u2,
+    context = {'title': _('Weather'), 'weathers': weathers, 'weatherdays': wdtab,
+               'u1': u1, 'u2': u2,
                'alert': alert, 'localti': "Europe/Paris"}   # TODO modify with user timezone
 
     return render(request, 'users/weather.html', context)

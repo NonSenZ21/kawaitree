@@ -21,15 +21,30 @@
           <div class="col">
             <p class="small text-truncate">
               {% trans 'Pressure:' %} {{ weatherday.wpressure }} hPa<br>
-              {% trans 'Temp min:' %} {{ weatherday.wtemp_min.normalize }} {{ u1 }}<br>
-              {% trans 'Temp max:' %} {{ weatherday.wtemp_max.normalize }} {{ u1 }}<br>
+              {% if weatherday.wtemp_min_warn %}
+                {% trans 'Temp min:' %} <mark>{{ weatherday.wtemp_min.normalize }} {{ u1 }}</mark><br>
+              {% else %}
+                {% trans 'Temp min:' %} {{ weatherday.wtemp_min.normalize }} {{ u1 }}<br>
+              {% endif %}
+              {% if weatherday.wtemp_max_warn %}
+                {% trans 'Temp max:' %} <mark>{{ weatherday.wtemp_max.normalize }} {{ u1 }}</mark><br>
+              {% else %}
+                {% trans 'Temp max:' %} {{ weatherday.wtemp_max.normalize }} {{ u1 }}<br>
+              {% endif %}
               {% trans 'Wind speed:' %} {{ weatherday.wwind_speed.normalize }} {{ u2 }}<br>
               {% if weathers.unites == '1' %}
                 ({{ weatherday.wwind_speedkmh }}) km/h<br>
               {% endif %}
-              {% trans 'Gusts:' %} {{ weatherday.wwind_gust.normalize }} {{ u2 }}<br>
-              {% if weathers.unites == '1' %}
-                ({{ weatherday.wwind_gustkmh }}) km/h<br>
+              {% if weatherday.wwind_gust_warn %}
+                  {% trans 'Gusts:' %} <mark>{{ weatherday.wwind_gust.normalize }} {{ u2 }}</mark><br>
+                  {% if weathers.unites == '1' %}
+                    <mark>({{ weatherday.wwind_gustkmh }}) km/h</mark><br>
+                  {% endif %}
+              {% else %}
+                  {% trans 'Gusts:' %} {{ weatherday.wwind_gust.normalize }} {{ u2 }}<br>
+                  {% if weathers.unites == '1' %}
+                    ({{ weatherday.wwind_gustkmh }}) km/h<br>
+                  {% endif %}
               {% endif %}
               {% trans 'Humidity:' %} {{ weatherday.whumidity }}%<br>
               {% trans 'Rain:' %} {{ weatherday.wrain.normalize }} mm<br>
