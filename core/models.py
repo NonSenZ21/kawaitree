@@ -177,6 +177,7 @@ class Link(models.Model):
 class Faqcat(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
     lang = models.CharField(max_length=4, default='EN', verbose_name=_('Language'))
+
     def __str__(self):
         faqstr = "[" + self.lang + "] " + self.name
         return faqstr
