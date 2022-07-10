@@ -5,7 +5,6 @@
 {% block content %}
 {% load socialaccount %}
     <div class="container mt-3">
-    <p>socialaccount : {{ user.socialaccount_set.all.0 }}</p>
         <div class="row">
             <div class="col col-xs-auto">
                 {% if user.socialaccount_set.all.0.get_avatar_url %}
