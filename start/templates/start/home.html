@@ -35,6 +35,19 @@
         </div>
       </div>
     </div>
+    {% get_current_language as LANGUAGE_CODE %}
+      <div class="list-group mb-2">
+      {% if LANGUAGE_CODE == 'fr' %}
+          <a class="list-group-item list-group-item-action" href="/generalinfo/fr/">{% trans "General info" %}</a>
+          <a class="list-group-item list-group-item-action" href="/privacypolicy/fr/">{% trans "Privacy policy" %}</a>
+          <a class="list-group-item list-group-item-action" href="/legalpolicies/fr/">{% trans "Legal policies" %}</a>
+      {% else %}
+          <a class="list-group-item list-group-item-action" href="/generalinfo/">{% trans "General info" %}</a>
+          <a class="list-group-item list-group-item-action" href="/privacypolicy/">{% trans "Privacy policy" %}</a>
+          <a class="list-group-item list-group-item-action" href="/legalpolicies/">{% trans "Legal policies" %}</a>
+      {% endif %}
+      </div>
+
     <div class="card text-white border-info mb-3">
       <div class="card-header">{% trans 'Features' %}</div>
       <div class="card-body">

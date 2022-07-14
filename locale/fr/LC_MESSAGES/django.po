@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-10 16:29+0000\n"
+"POT-Creation-Date: 2022-07-14 17:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,100 +130,109 @@ msgstr "Question"
 msgid "Answer"
 msgstr "Réponse"
 
-#: core/templates/core/base-leaflet.html:41 core/templates/core/base.html:32
+#: core/templates/core/base-leaflet.html:41 core/templates/core/base.html:33
 msgid "Collection"
 msgstr "Collection"
 
-#: core/templates/core/base-leaflet.html:43 core/templates/core/base.html:34
+#: core/templates/core/base-leaflet.html:43 core/templates/core/base.html:35
 #: core/views.py:38
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: core/templates/core/base-leaflet.html:44 core/templates/core/base.html:35
+#: core/templates/core/base-leaflet.html:44 core/templates/core/base.html:36
 msgid "All photos"
 msgstr "Toutes les photos"
 
-#: core/templates/core/base-leaflet.html:48 core/templates/core/base.html:39
+#: core/templates/core/base-leaflet.html:48 core/templates/core/base.html:40
 msgid "Maintenance"
 msgstr "Entretien"
 
-#: core/templates/core/base-leaflet.html:50 core/templates/core/base.html:41
+#: core/templates/core/base-leaflet.html:50 core/templates/core/base.html:42
 #: core/views.py:337
 msgid "Next tasks"
 msgstr "Prochaines tâches"
 
-#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:42
+#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:43
 #: core/templates/core/tdb.html:9 core/views.py:345
 msgid "Overdue tasks"
 msgstr "Tâches en retard"
 
-#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:43
+#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:44
 #: core/views.py:351
 msgid "All tasks"
 msgstr "Toutes les tâches"
 
-#: core/templates/core/base-leaflet.html:57 core/templates/core/base.html:48
+#: core/templates/core/base-leaflet.html:57 core/templates/core/base.html:49
 #: users/views.py:125
 msgid "Weather"
 msgstr "Météo"
 
-#: core/templates/core/base-leaflet.html:61 core/templates/core/base.html:52
+#: core/templates/core/base-leaflet.html:61 core/templates/core/base.html:53
 msgid "Members"
 msgstr "Membres"
 
-#: core/templates/core/base-leaflet.html:63 core/templates/core/base.html:54
+#: core/templates/core/base-leaflet.html:63 core/templates/core/base.html:55
 msgid "Map"
 msgstr "Carte"
 
-#: core/templates/core/base-leaflet.html:64 core/templates/core/base.html:55
+#: core/templates/core/base-leaflet.html:64 core/templates/core/base.html:56
 msgid "Gallery"
 msgstr "Galerie"
 
-#: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:56
+#: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:57
 #: core/templates/core/link_list.html:5
 msgid "Links"
 msgstr "Liens"
 
-#: core/templates/core/base-leaflet.html:69 core/templates/core/base.html:60
+#: core/templates/core/base-leaflet.html:69 core/templates/core/base.html:62
 msgid "About"
 msgstr "A propos"
 
-#: core/templates/core/base-leaflet.html:73
-#: core/templates/core/base-leaflet.html:75 core/templates/core/base.html:64
-#: core/templates/core/base.html:66
-msgid "General info"
-msgstr "Infos générales"
-
-#: core/templates/core/base-leaflet.html:77 core/templates/core/base.html:68
+#: core/templates/core/base-leaflet.html:71 core/templates/core/base.html:65
 #: core/templates/core/faq_list.html:5
 msgid "FAQ/help"
 msgstr "FAQ/aide"
 
-#: core/templates/core/base-leaflet.html:79
-#: core/templates/core/base-leaflet.html:81 core/templates/core/base.html:70
-#: core/templates/core/base.html:72
+#: core/templates/core/base-leaflet.html:74
+#: core/templates/core/base-leaflet.html:78 core/templates/core/base.html:69
+#: core/templates/core/base.html:73 start/templates/start/home.html:41
+#: start/templates/start/home.html:45
+msgid "General info"
+msgstr "Infos générales"
+
+#: core/templates/core/base-leaflet.html:75
+#: core/templates/core/base-leaflet.html:79 core/templates/core/base.html:70
+#: core/templates/core/base.html:74 start/templates/socialaccount/login.html:18
+#: start/templates/socialaccount/login.html:20
+#: start/templates/start/home.html:42 start/templates/start/home.html:46
 msgid "Privacy policy"
 msgstr "Politique de confidentialité"
 
-#: core/templates/core/base-leaflet.html:84
-#: core/templates/core/base-leaflet.html:86 core/templates/core/base.html:75
-#: core/templates/core/base.html:77
+#: core/templates/core/base-leaflet.html:76
+#: core/templates/core/base-leaflet.html:80 core/templates/core/base.html:71
+#: core/templates/core/base.html:75 start/templates/socialaccount/login.html:27
+#: start/templates/socialaccount/login.html:29
+#: start/templates/start/home.html:43 start/templates/start/home.html:47
 msgid "Legal policies"
 msgstr "Mentions légales"
 
-#: core/templates/core/base-leaflet.html:89 core/templates/core/base.html:80
+#: core/templates/core/base-leaflet.html:83 core/templates/core/base.html:79
 msgid "Contact the author"
 msgstr "Contacter l'auteur"
 
-#: core/templates/core/base-leaflet.html:97
-#: core/templates/core/base-leaflet.html:99 core/templates/core/base.html:88
-#: core/templates/core/base.html:90
+#: core/templates/core/base-leaflet.html:91
+#: core/templates/core/base-leaflet.html:93 core/templates/core/base.html:91
+#: core/templates/core/base.html:93
 msgid "Profile"
 msgstr "Profil"
 
-#: core/templates/core/base-leaflet.html:100 core/templates/core/base.html:91
+#: core/templates/core/base-leaflet.html:94 core/templates/core/base.html:94
 msgid "Logout"
 msgstr "Se déconnecter"
+
+#: core/templates/core/base.html:81
+msgid "Home"
+msgstr "Accueil"
 
 #: core/templates/core/faq_list.html:7
 msgid "No FAQ yet."
@@ -966,22 +975,26 @@ msgstr ""
 msgid "Connect %(provider)s"
 msgstr ""
 
-#: start/templates/socialaccount/login.html:8
+#: start/templates/socialaccount/login.html:7
 #, python-format
 msgid "You are about to connect a new third party account from %(provider)s."
 msgstr ""
 
-#: start/templates/socialaccount/login.html:10
+#: start/templates/socialaccount/login.html:9
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr "Se connecter via %(provider)s"
 
-#: start/templates/socialaccount/login.html:12
+#: start/templates/socialaccount/login.html:10
 #, python-format
 msgid "You are about to sign in using a third party account from %(provider)s."
 msgstr "Vous allez vous connecter en utilisant votre compte %(provider)s."
 
-#: start/templates/socialaccount/login.html:17
+#: start/templates/socialaccount/login.html:14
+msgid "Acceptance of Terms of Use"
+msgstr "Acceptation des conditions d'utilisation"
+
+#: start/templates/socialaccount/login.html:36
 msgid "Continue"
 msgstr "Continuer"
 
@@ -1059,27 +1072,27 @@ msgstr "Pour créer ou utiliser un compte, connectez-vous avec Google."
 msgid "Login With Google"
 msgstr "Se connecter avec Google"
 
-#: start/templates/start/home.html:39
+#: start/templates/start/home.html:52
 msgid "Features"
 msgstr "Fonctionnalités"
 
-#: start/templates/start/home.html:41
+#: start/templates/start/home.html:54
 msgid "Bonsaï collection management"
 msgstr "Gestion de collection de bonsaï"
 
-#: start/templates/start/home.html:43
+#: start/templates/start/home.html:56
 msgid "Add/modify/delete information about your trees"
 msgstr "Ajoutez/modifiez/supprimez des informations sur vos arbres"
 
-#: start/templates/start/home.html:44
+#: start/templates/start/home.html:57
 msgid "Add/modify/delete photos of your trees"
 msgstr "Ajoutez/modifiez/supprimez des photos de vos arbres"
 
-#: start/templates/start/home.html:45
+#: start/templates/start/home.html:58
 msgid "Plan/do your tasks (care, maintenance, etc.)"
 msgstr "Planifiez/réalisez des tâches (soins, entretien, etc.)"
 
-#: start/templates/start/home.html:46
+#: start/templates/start/home.html:59
 msgid ""
 "Add/modify/delete photos of your trees before, during and after you do your "
 "tasks"
@@ -1087,60 +1100,60 @@ msgstr ""
 "Ajoutez/modifiez/supprimez des photos de vos arbres avant, pendant et après "
 "vos tâches"
 
-#: start/templates/start/home.html:48
+#: start/templates/start/home.html:61
 msgid "Social network for Bonsaï enthousiasts"
 msgstr "Réseau social pour passionnés de Bonsaï"
 
-#: start/templates/start/home.html:50
+#: start/templates/start/home.html:63
 msgid "Find other bonsaïka around you (on a map)"
 msgstr "Trouvez des bonsaïka à proximité (sur une carte)"
 
-#: start/templates/start/home.html:51
+#: start/templates/start/home.html:64
 msgid "Look at public profiles, photos of other members collection"
 msgstr ""
 "Visualisez les profils publics et les photos de collections des autres "
 "membres"
 
-#: start/templates/start/home.html:52
+#: start/templates/start/home.html:65
 msgid "Contact other members (with public profiles)"
 msgstr "Contactez d'autres membres (au profil public)"
 
-#: start/templates/start/home.html:53
+#: start/templates/start/home.html:66
 msgid "Create your profile (private or public if you want to socialize)"
 msgstr "Créez votre profil (privé ou public si vous souhaitez socialiser"
 
-#: start/templates/start/home.html:55 users/models.py:13
+#: start/templates/start/home.html:68 users/models.py:13
 msgid "Weather alerts"
 msgstr "Alertes météo"
 
-#: start/templates/start/home.html:57
+#: start/templates/start/home.html:70
 msgid ""
 "Set up values (temp min and max, wind) in your profile to get weather alerts"
 msgstr ""
 "Configurez les valeurs (température min et max, vitesse du vent) dans votre "
 "profil pour bénéficier des alertes météo"
 
-#: start/templates/start/home.html:58
+#: start/templates/start/home.html:71
 msgid "Check the weather in your city"
 msgstr "Visualisez les prévisions météo de votre ville"
 
-#: start/templates/start/home.html:59
+#: start/templates/start/home.html:72
 msgid "Receive emails for weather alerts"
 msgstr "Recevez des alertes par mail"
 
-#: start/templates/start/home.html:61
+#: start/templates/start/home.html:74
 msgid "Other features to come"
 msgstr "Autres fonctionnalités à venir"
 
-#: start/templates/start/home.html:63
+#: start/templates/start/home.html:76
 msgid "Documentation"
 msgstr "Documentation"
 
-#: start/templates/start/home.html:64
+#: start/templates/start/home.html:77
 msgid "Tutorials"
 msgstr "Tutoriaux"
 
-#: start/templates/start/home.html:65
+#: start/templates/start/home.html:78
 msgid ""
 "Links (websites to buy pots, bonsaï, tools, youtube casts, documentation "
 "about bonsaÏ care and maintenance, etc.)"
@@ -1148,11 +1161,11 @@ msgstr ""
 "Liens (sites web pour acheter vos pots, bonsaï, outils, chaînes Youtube, "
 "documentation)"
 
-#: start/templates/start/home.html:66
+#: start/templates/start/home.html:79
 msgid "Discussion groups..."
 msgstr "Groupes de discussion..."
 
-#: start/templates/start/home.html:67
+#: start/templates/start/home.html:80
 msgid "and more!"
 msgstr "et bien d'autres !"
 
