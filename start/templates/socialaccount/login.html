@@ -15,10 +15,10 @@
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="c1">
         {% if LANGUAGE_CODE == 'fr' %}
-    <label class="form-check-label" for="flexCheckDefault">J'ai lu et j'accepte la <a href="/privacypolicy/fr/">
+    <label class="form-check-label" for="c1">J'ai lu et j'accepte la <a href="/privacypolicy/fr/">
             {% trans "Privacy policy" %}</a> et les <a href="/legalpolicies/fr/">{% trans "Legal policies" %}</a>.
         {% else %}
-    <label class="form-check-label" for="flexCheckDefault">I have read and accept the <a href="/privacypolicy/">
+    <label class="form-check-label" for="c1">I have read and accept the <a href="/privacypolicy/">
             {% trans "Privacy policy" %}</a> and the <a href="/legalpolicies/">{% trans "Legal policies" %}</a>.
         {% endif %}
     </label>

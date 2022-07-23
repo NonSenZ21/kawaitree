@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    public_profile = models.BooleanField(default=False, verbose_name=_('Public profile'))
+    public_profile = models.BooleanField(default=True, verbose_name=_('Public profile'))
     lat = models.DecimalField(_('Latitude'), default='48.856643', max_digits=10, decimal_places=6)
     long = models.DecimalField(_('Longitude'), default='2.352566', max_digits=10, decimal_places=6)
     weather = models.BooleanField(default=False, verbose_name=_('Weather alerts'))
