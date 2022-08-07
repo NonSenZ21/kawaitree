@@ -25,7 +25,9 @@
                         <img src="{{ faq.image.url }}" class="autoresizeimg" alt="image"><br>
                     {% endif %}
                     {% if faq.url %}
-                        <a href="{{ faq.url }}" target="_blank" rel="noopener noreferrer">{{ faq.url }}</a><br>
+                        <p class="text-truncate">
+                        <a href="{{ faq.url }}" target="_blank" rel="noopener noreferrer">{{ faq.url }}</a>
+                        </p>
                     {% endif %}
                     {%  if faq.video %}
                         {% if not 'youtube' in faq.video and not 'youtu.be' in faq.video %}
