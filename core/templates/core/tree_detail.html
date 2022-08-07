@@ -29,11 +29,30 @@
           </div>
         </div>
         <div class="row mt-2 mb-2">
-        {% for photo in photos %}
+        {% for photo in page_obj %}
           <div class="col mt-2 mb-2">
               <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}" class="autoresizeimg2"></a>
           </div>
         {% endfor%}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="btn btn-sm btn-outline-info mb-4">&laquo; {% trans 'first' %}</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'previous' %}</a>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a href="?page={{ num }}" class="btn btn-sm btn-info mb-4">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}" class="btn btn-sm btn-outline-info mb-4">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'next' %}</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'last' %} &raquo;</a>
+            {% endif %}
+            </span>
         </div>
         {% if request.user == tree.ownerfk %}
         <div class="row mt-2 mb-2">

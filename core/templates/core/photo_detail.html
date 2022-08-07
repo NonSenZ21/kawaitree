@@ -34,6 +34,9 @@
             <img src="{{ object.picture.url }}" class="autoresizeimg" alt="Picture">
           </div>
         </div>
+{#        <div class="row">#}
+{#            <div class="col"><a href="{{ object.get_previous_by_shot_date.get_absolute_url }}">Prev</a></div>#}
+{#        </div>#}
             {% if request.user == object.treefk.ownerfk %}
               <a href="{% url 'photo-delete' photo.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
             {% endif %}

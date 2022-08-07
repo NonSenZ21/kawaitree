@@ -60,12 +60,15 @@ def treedetail(request, pk):
     tree = Tree.objects.get(pk=pk)
     treetasks = Task.objects.filter(treefk=pk).order_by('real_date', 'plan_date')
     photos = Photo.objects.filter(treefk=pk).order_by('-shot_date')
+    paginator = Paginator(photos, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     if request.user != tree.ownerfk and not tree.ownerfk.profile.public_profile:
         mes = _("Trying to see private tree?")
         messages.warning(request, mes)
         return redirect('core-tdb')
 
-    context = {'tree': tree, 'photos': photos, 'tasks': treetasks}
+    context = {'tree': tree, 'page_obj': page_obj, 'tasks': treetasks}
     return render(request, 'core/tree_detail.html', context)
 
 
@@ -153,7 +156,7 @@ def taskcreate(request, treepk):
                 return render(request, 'core/task_form.html', context)
             else:
                 form.save()
-                return redirect('core-tdb')
+                return redirect('tree-detail', pk=treepk)
     else:
         context = {'form': form}
         return render(request, 'core/task_form.html', context)
@@ -177,7 +180,7 @@ def taskupdate(request, pk):
                 return render(request, 'core/task_form.html', context)
             else:
                 form.save()
-                return redirect('core-tdb')
+                return redirect('task-detail', pk=pk)
     else:
         context = {'form': form}
         return render(request, 'core/task_form.html', context)
@@ -253,7 +256,7 @@ def photolistall(request, owner, species):
 
     form = PhotoListallFormTree(initial={'ownerfk': owner, 'speciesfk': species})
     context = {'form': form, 'owner': owner, 'species': species, 'page_obj': page_obj}
-    print(context)
+    # print(context)
     return render(request, 'core/photo_listall.html', context)
 
 
@@ -293,12 +296,12 @@ def photocreate(request, tree, task):
                 return redirect('photo-create', tree=tree, task=task)
             else:
                 form.save()
-            if task != 0:
-                return redirect('task-detail', pk=task)
-            elif tree != 0:
-                return redirect('tree-detail', pk=tree)
-            else:
-                return redirect('photo-create', tree=tree, task=task)
+                if task != 0:
+                    return redirect('task-detail', pk=task)
+                elif tree != 0:
+                    return redirect('tree-detail', pk=tree)
+                else:
+                    return redirect('photo-create', tree=tree, task=task)
 
         else:
             mes = _("Your form is not valid and I don't know why!")
