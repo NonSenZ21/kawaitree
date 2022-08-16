@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.core.paginator import Paginator
 from PIL import Image
-from datetime import timedelta
+from datetime import timedelta, datetime, date
 
 
 # Dashboard
@@ -353,12 +353,45 @@ def tasks(request, action):
             '-real_date')
         context = {'title': _('All tasks'), 'tasks': treetasks, 'action': 3}
         return render(request, 'core/tasks.html', context)
+
     # url hack
     else:
         mes = _('Unknown action... WTF are you doing?')
         messages.warning(request, mes)
         return redirect('core-tdb')
 
+# calendar
+@login_required
+def calendar(request):
+    treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user).order_by(
+        'real_date', 'plan_date')
+    list_tasks = []
+    for t in treetasks:
+        # print(t.id)
+        # print(t.tasklistfk.name)
+        # print(t.plan_date.day)
+        # print(t.plan_date.month)
+        # print(t.plan_date.year)
+        # print(t.real_date)
+        task = {'id': str(t.id), 'name': t.tasklistfk.name, 'tree': t.treefk.tname}
+        if t.real_date:
+            task['day'] = t.real_date.day
+            task['month'] = t.real_date.month
+            task['year'] = t.real_date.year
+            task['statut'] = 'done'
+        else:
+            task['day'] = t.plan_date.day
+            task['month'] = t.plan_date.month
+            task['year'] = t.plan_date.year
+            if t.plan_date < date.today():
+                task['statut'] = 'late'
+            else:
+                task['statut'] = 'planned'
+
+        list_tasks.append(task)
+
+    context = {'tasks': list_tasks}
+    return render(request, 'core/calendar.html', context)
 
 @login_required
 def membersmap(request):

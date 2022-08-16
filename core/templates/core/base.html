@@ -39,6 +39,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Maintenance" %}</a>
           <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core-calendar' %}">{% trans "Calendar" %}</a>
             <a class="dropdown-item" href="{% url 'core-tasks' '1' %}">{% trans "Next tasks" %}</a>
             <a class="dropdown-item" href="{% url 'core-tasks' '2' %}">{% trans "Overdue tasks" %}</a>
             <a class="dropdown-item" href="{% url 'core-tasks' '3' %}">{% trans "All tasks" %}</a>

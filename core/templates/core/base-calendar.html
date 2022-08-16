@@ -4,26 +4,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Kawaïtree</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-calendar.css' %}">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <!-- leaflet marker cluster -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" crossorigin=""/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" crossorigin=""></script>
-
 </head>
 <body>
 <div class="container-fluid noir no-pad-no-marg">
@@ -37,6 +35,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
+      {% if user.is_authenticated %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans 'Collection' %}</a>
           <div class="dropdown-menu">
@@ -55,8 +54,8 @@
         </li>
         {% if request.user.profile.weather is True %}
           <li class="nav-item">
-          <a class="nav-link" href="{% url 'weather' %}">{% trans "Weather" %}</a>
-        </li>
+            <a class="nav-link" href="{% url 'weather' %}">{% trans "Weather" %}</a>
+          </li>
         {% endif %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Members" %}</a>
@@ -66,11 +65,14 @@
             <a class="dropdown-item" href="{% url 'links' %}">{% trans "Links" %}</a>
           </div>
         </li>
+      {% endif %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About" %}</a>
           <div class="dropdown-menu">
+          {% if user.is_authenticated %}
             <a class="dropdown-item" href="{% url 'faq' %}">{% trans "FAQ/help" %}</a>
-            {% get_current_language as LANGUAGE_CODE %}
+          {% endif %}
+          {% get_current_language as LANGUAGE_CODE %}
               {% if LANGUAGE_CODE == 'fr' %}
                 <a class="dropdown-item" href="/generalinfo/fr/">{% trans "General info" %}</a>
                 <a class="dropdown-item" href="/privacypolicy/fr/">{% trans "Privacy policy" %}</a>
@@ -80,12 +82,17 @@
                 <a class="dropdown-item" href="/privacypolicy/">{% trans "Privacy policy" %}</a>
                 <a class="dropdown-item" href="/legalpolicies/">{% trans "Legal policies" %}</a>
               {% endif %}
-            <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
+          {% if user.is_authenticatd %}
             <a class="dropdown-item" href="#">{% trans "Contact the author" %}</a>
+          {% else %}
+              <a class="dropdown-item" href="/">{% trans "Home" %}</a>
+          {% endif %}
           </div>
         </li>
       </ul>
-      <div >
+    {% if user.is_authenticated %}
+      <div>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -97,6 +104,7 @@
         </li>
       </ul>
     </div>
+    {% endif %}
     </div>
   </div>
 </nav>
@@ -109,6 +117,7 @@
         </div>
     {% endfor%}
 {% endif %}
+
 {% block content %}{% endblock %}
 &nbsp;<br>
 <div class="fluid border-top border-primary">

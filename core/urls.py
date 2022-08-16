@@ -20,6 +20,7 @@ urlpatterns = [
    path('photo/listall/<int:owner>/<int:species>/', views.photolistall, name='photo-listall'),
    path('photo/<int:pk>/delete/', PhotoDeleteView.as_view(), name='photo-delete'),
    path('tasks/<int:action>/', views.tasks, name='core-tasks'),
+   path('calendar/', views.calendar, name='core-calendar'),
    path('members_map/', views.membersmap, name='members_map'),
    path('faq/', FaqView.as_view(), name='faq'),
    path('links/', LinksView.as_view(), name='links'),
