@@ -31,13 +31,11 @@
         </div>
         <div class="row mt-2 mb-2">
           <div class="col">
-            <img src="{{ object.picture.url }}" class="autoresizeimg" alt="Picture">
+              <a href="javascript:history.back()"><img src="{{ object.picture.url }}" class="autoresizeimg" alt="Picture"></a>
           </div>
         </div>
-{#        <div class="row">#}
-{#            <div class="col"><a href="{{ object.get_previous_by_shot_date.get_absolute_url }}">Prev</a></div>#}
-{#        </div>#}
             {% if request.user == object.treefk.ownerfk %}
+              <a href="javascript:history.back()" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Back' %}</a>
               <a href="{% url 'photo-delete' photo.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
             {% endif %}
       </div>
