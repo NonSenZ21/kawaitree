@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-16 08:37+0200\n"
+"POT-Creation-Date: 2022-08-19 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -580,6 +580,10 @@ msgstr "Votre formulaire n'est pas valide et je ne sais pas pourquoi."
 #: core/views.py:359
 msgid "Unknown action... WTF are you doing?"
 msgstr "Action inconnue... WTF ?"
+
+#: core/views.py:393
+msgid "There is no task planned for this date."
+msgstr "Il n'y a pas de tâche prévue à cette date."
 
 #: core/views.py:399
 msgid "Members map"
@@ -1469,278 +1473,369 @@ msgstr ""
 "Pas d'information pour l'instant. Vérifiez que vous avez coché la case "
 "\"Alertes météo\" dans votre profil et vous aurez la météo demain ici."
 
-#~ msgid "YouTube"
-#~ msgstr "YouTube"
-
-#~ msgid "Shops"
-#~ msgstr "Boutiques"
-
-#~ msgid "Websites"
-#~ msgstr "Sites web"
-
-#~ msgid "Seed"
-#~ msgstr "Graine"
-
-#~ msgid "Picking"
-#~ msgstr "Bouture"
-
-#~ msgid "Tree nusery"
-#~ msgstr "Pépinière"
-
-#~ msgid "Private individual"
-#~ msgstr "Particulier"
-
-#~ msgid "Taking"
-#~ msgstr "Prélèvement"
-
-#~ msgid "Air layering"
-#~ msgstr "Marcote"
-
-#~ msgid "Ficus (Ficus retusa or ginseng)"
-#~ msgstr "Ficus (Ficus retusa ou ginseng)"
-
-#~ msgid "Dwarf Jade (Crassula or portulacaria)"
-#~ msgstr "Crassula (Crassula ou portulacaria)"
-
-#~ msgid "Fukien tea (Carmona)"
-#~ msgstr "Carmona (Carmona)"
-
-#~ msgid "Azalea (Rhododendron)"
-#~ msgstr "Azalée (Rhododendron)"
-
-#~ msgid "Bougainvillea (Bougainvillea)"
-#~ msgstr "Bougainvillier (Bougainvillea)"
-
-#~ msgid "Snow rose (Serissa)"
-#~ msgstr "Neige de juin (Serissa)"
-
-#~ msgid "Box or boxwood (Buxus)"
-#~ msgstr "Buis (Buxus)"
-
-#~ msgid "Sweet plum (Sageretia theezans)"
-#~ msgstr "Sageretia theezans (Sageretia theezans)"
-
-#~ msgid "Olive (Olea europaea)"
-#~ msgstr "Olivier (Olea europaea)"
-
-#~ msgid "Money tree (Pachira aquatica)"
-#~ msgstr "Arbre à monnaie (Pachira aquatica)"
-
-#~ msgid "Privet (Ligustrum)"
-#~ msgstr "Troène (Ligustrum)"
-
-#~ msgid "Cotoneaster (Cotoneaster)"
-#~ msgstr "Cotonéaster (Cotoneaster)"
-
-#~ msgid "Hawaiian umbrella (Schefflera arboricola)"
-#~ msgstr "Schefflera (Schefflera arboricola)"
-
-#~ msgid "Citrus or Lemon (Citrus limon and sinensis)"
-#~ msgstr "Citronier (Citrus limon et sinensis)"
-
-#~ msgid "Fuchsia (Fuchsia)"
-#~ msgstr "Fuchsia (Fuchsia)"
-
-#~ msgid "Brush cherry (Eugenia myrtifolia and syzygium)"
-#~ msgstr "Cerisier du Japon (Eugenia myrtifolia et syzygium)"
-
-#~ msgid "Brazilian rain tree (Pithecellobium tortum)"
-#~ msgstr "Acacia vincentis (Pithecellobium tortum)"
-
-#~ msgid "Japanese holly (Ilex crenata)"
-#~ msgstr "Houx japonais (Ilex crenata)"
-
-#~ msgid "Premna (Premna)"
-#~ msgstr "Premna (Premna)"
-
-#~ msgid "Jasmine (Gardenia)"
-#~ msgstr "Jasmin (Gardénia)"
-
-#~ msgid "Crepe myrtle (Lagerstroemia indica)"
-#~ msgstr "Myrte de crêpe (Lagerstroemia indica)"
-
-#~ msgid "Myrtle (Myrtus communis)"
-#~ msgstr "Myrte (Myrtus communis)"
-
-#~ msgid "Firethorn (Pyracantha)"
-#~ msgstr "Pyracantha (Pyracantha)"
-
-#~ msgid "Water jasmine (Wrightia religiosa)"
-#~ msgstr "Etoile de Marie (Wrightia religiosa)"
-
-#~ msgid "Wattle (Acacia)"
-#~ msgstr "Acacia (Acacia)"
-
-#~ msgid "Camellia (Camellia)"
-#~ msgstr "Camélia (Camélia)"
-
-#~ msgid "Eucalypt (Eucalyptus)"
-#~ msgstr "Eucalyptus (Eucalyptus)"
-
-#~ msgid "Bamboo (Bambusoideae)"
-#~ msgstr "Bambou (Bambusoideae)"
-
-#~ msgid "Hibiscus (Hibiscus)"
-#~ msgstr "Hibiscus (Hibiscus)"
-
-#~ msgid "Japanese maple (Acer palmatum)"
-#~ msgstr "Érable du Japon (Acer palmatum)"
-
-#~ msgid "Chinese elm (Ulmus parviflora)"
-#~ msgstr "Orme de Chine (Ulmus parviflora)"
-
-#~ msgid "Cherry (Prunus Sakura)"
-#~ msgstr "Cerisier (Prunus Sakura)"
-
-#~ msgid "Oak (Quercus)"
-#~ msgstr "Chêne (Quercus)"
-
-#~ msgid "Wisteria (Wisteria)"
-#~ msgstr "Glycine (Glycine)"
-
-#~ msgid "Japanese elm (Zelkova)"
-#~ msgstr "Orme du Japon (Zelkova)"
-
-#~ msgid "Pomegranate (Punica granatum)"
-#~ msgstr "Grenade (Punica granatum)"
-
-#~ msgid "Jacaranda (Jacaranda mimosifolia)"
-#~ msgstr "Jacaranda (Jacaranda mimosifolia)"
-
-#~ msgid "Trident maple (Acer buergerianum)"
-#~ msgstr "Érable de Buerger (Acer buergerianum)"
-
-#~ msgid "Apple and crabapple (Malus)"
-#~ msgstr "Pommier d'ornement (Malus)"
-
-#~ msgid "Desert rose (Adenium obesum)"
-#~ msgstr "Rose du désert (Adenium obesum)"
-
-#~ msgid "Hornbeam and beech (Carpinus and fagus)"
-#~ msgstr "Charme et hêtre (Carpinus et fagus)"
-
-#~ msgid "Star magnolia (Magnolia stellata)"
-#~ msgstr "Magnolia étoilé (Magnolia stellata)"
-
-#~ msgid "Chinese pepper (Xanthoxylum piperitum)"
-#~ msgstr "Poivre du Sichuan (Xanthoxylum piperitum)"
-
-#~ msgid "Hackberry (Celtis)"
-#~ msgstr "Micocoulier (Celtis)"
-
-#~ msgid "Ginkgo (Ginkgo biloba)"
-#~ msgstr "Ginkgo (Ginkgo biloba)"
-
-#~ msgid "Flame tree (Delonix regia or Royal poinciana)"
-#~ msgstr "Flamboyant (Delonix regia ou Royal poinciana)"
-
-#~ msgid "Weeping willow (Salix)"
-#~ msgstr "Saule pleureur (Salix)"
-
-#~ msgid "Japanese winterberry (Ilex serrata)"
-#~ msgstr "L'hiver du Japon (Ilex serrata)"
-
-#~ msgid "Baobab (Baobab)"
-#~ msgstr "Baobab (baobab)"
-
-#~ msgid "Birch (Betula)"
-#~ msgstr "Bouleau (Betula)"
-
-#~ msgid "Chinese quince (Pseudocydonia)"
-#~ msgstr "Cognassier de Chine (Pseudocydonia)"
-
-#~ msgid "Judas tree (Cercis)"
-#~ msgstr "Arbre de Judée (Cercis)"
-
-#~ msgid "Hawthorn (Crataegus)"
-#~ msgstr "Aubépine (Crataegus)"
-
-#~ msgid "Silk tree (Albizia or mimosa)"
-#~ msgstr "Arbre à soie (Albizia ou mimosa)"
-
-#~ msgid "Rose (Rosa)"
-#~ msgstr "Arbre à soie (Albizia ou mimosa)"
-
-#~ msgid "Jabuticaba (Plinia cauliflora)"
-#~ msgstr "Jaboticaba (Plinia cauliflora)"
-
-#~ msgid "Ash (Fraxinus)"
-#~ msgstr "Frêne (Fraxinus)"
-
-#~ msgid "Dogwood (Cornus)"
-#~ msgstr "Cornouiller (Cornus)"
-
-#~ msgid "Liquidambar (Sweetgum)"
-#~ msgstr "Liquidambar (Sweetgum)"
-
-#~ msgid "Juniper (Juniperus)"
-#~ msgstr "Genévrier (Juniperus)"
-
-#~ msgid "Pines (Pinus)"
-#~ msgstr "Pins (Pinus)"
-
-#~ msgid "Spruce (Picea)"
-#~ msgstr "Epicéa (Picea)"
-
-#~ msgid "Bald cypress (Taxodium distichum)"
-#~ msgstr "Cyprès chauve (Taxodium distichum)"
-
-#~ msgid "Larch and Golden Larch (Larix)"
-#~ msgstr "Mélèze et mélèze doré (Larix)"
-
-#~ msgid "Redwoods (Metasequoia and sequoia)"
-#~ msgstr "Séquoias (métasequoia et séquoia)"
-
-#~ msgid "Cedar (Cedrus)"
-#~ msgstr "Cèdre (Cedrus)"
-
-#~ msgid "Buddhist pine (Podocarpus)"
-#~ msgstr "Pin des bouddhistes (Podocarpus)"
-
-#~ msgid "Yew (Taxus or taxaceae)"
-#~ msgstr "If (Taxus ou taxacées)"
-
-#~ msgid "Hinoki cypress (Chamaecyparis)"
-#~ msgstr "Cyprès d'Hinoki (Chamaecyparis)"
-
-#~ msgid "Japanese cedar (Cryptomeria)"
-#~ msgstr "Cèdre du Japon (Cryptomeria)"
-
-#~ msgid "Hemlock (Tsuga)"
-#~ msgstr "Pruche (Tsuga)"
-
-#~ msgid "Thuja (Northern white cedar)"
-#~ msgstr "Thuya (Cèdre du Canada)"
-
-#~ msgid "Fir (Abies)"
-#~ msgstr "Sapin (Abies)"
-
-#~ msgid "Other"
-#~ msgstr "Autre"
-
-#~ msgid "Seeding"
-#~ msgstr "Semis"
-
-#~ msgid "Cutting"
-#~ msgstr "Bouture"
-
-#~ msgid "Pruning"
-#~ msgstr "Taille"
-
-#~ msgid "Shaping"
-#~ msgstr "Former"
-
-#~ msgid "Repotting"
-#~ msgstr "Rempoter"
-
-#~ msgid "Pinching"
-#~ msgstr "Pincer"
-
-#~ msgid "Defoliating"
-#~ msgstr "Défoliation"
-
-#~ msgid "Grafting"
-#~ msgstr "Greffe"
+#: core.Linkcat/name:1
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core.Linkcat/name:2
+msgid "Shops"
+msgstr "Boutiques"
+
+#: core.Linkcat/name:3
+msgid "Websites"
+msgstr "Sites web"
+
+#: core.Origin/name:1
+msgid "Seed"
+msgstr "Graine"
+
+#: core.Origin/name:2
+msgid "Picking"
+msgstr "Bouture"
+
+#: core.Origin/name:3
+msgid "Tree nusery"
+msgstr "Pépinière"
+
+#: core.Origin/name:4
+msgid "Private individual"
+msgstr "Particulier"
+
+#: core.Origin/name:5
+msgid "Taking"
+msgstr "Prélèvement"
+
+#: core.Origin/name:6 core.Tasklist/name:4
+msgid "Air layering"
+msgstr "Marcote"
+
+#: core.Species/name:1
+msgid "Ficus (Ficus retusa or ginseng)"
+msgstr "Ficus (Ficus retusa ou ginseng)"
+
+#: core.Species/name:2
+msgid "Dwarf Jade (Crassula or portulacaria)"
+msgstr "Crassula (Crassula ou portulacaria)"
+
+#: core.Species/name:3
+msgid "Fukien tea (Carmona)"
+msgstr "Carmona (Carmona)"
+
+#: core.Species/name:4
+msgid "Azalea (Rhododendron)"
+msgstr "Azalée (Rhododendron)"
+
+#: core.Species/name:5
+msgid "Bougainvillea (Bougainvillea)"
+msgstr "Bougainvillier (Bougainvillea)"
+
+#: core.Species/name:6
+msgid "Snow rose (Serissa)"
+msgstr "Neige de juin (Serissa)"
+
+#: core.Species/name:7
+msgid "Box or boxwood (Buxus)"
+msgstr "Buis (Buxus)"
+
+#: core.Species/name:8
+msgid "Sweet plum (Sageretia theezans)"
+msgstr "Sageretia theezans (Sageretia theezans)"
+
+#: core.Species/name:9
+msgid "Olive (Olea europaea)"
+msgstr "Olivier (Olea europaea)"
+
+#: core.Species/name:10
+msgid "Money tree (Pachira aquatica)"
+msgstr "Arbre à monnaie (Pachira aquatica)"
+
+#: core.Species/name:11
+msgid "Privet (Ligustrum)"
+msgstr "Troène (Ligustrum)"
+
+#: core.Species/name:12
+msgid "Cotoneaster (Cotoneaster)"
+msgstr "Cotonéaster (Cotoneaster)"
+
+#: core.Species/name:13
+msgid "Hawaiian umbrella (Schefflera arboricola)"
+msgstr "Schefflera (Schefflera arboricola)"
+
+#: core.Species/name:14
+msgid "Citrus or Lemon (Citrus limon and sinensis)"
+msgstr "Citronier (Citrus limon et sinensis)"
+
+#: core.Species/name:15
+msgid "Fuchsia (Fuchsia)"
+msgstr "Fuchsia (Fuchsia)"
+
+#: core.Species/name:16
+msgid "Brush cherry (Eugenia myrtifolia and syzygium)"
+msgstr "Cerisier du Japon (Eugenia myrtifolia et syzygium)"
+
+#: core.Species/name:17
+msgid "Brazilian rain tree (Pithecellobium tortum)"
+msgstr "Acacia vincentis (Pithecellobium tortum)"
+
+#: core.Species/name:18
+msgid "Japanese holly (Ilex crenata)"
+msgstr "Houx japonais (Ilex crenata)"
+
+#: core.Species/name:19
+msgid "Premna (Premna)"
+msgstr "Premna (Premna)"
+
+#: core.Species/name:20
+msgid "Jasmine (Gardenia)"
+msgstr "Jasmin (Gardénia)"
+
+#: core.Species/name:21
+msgid "Crepe myrtle (Lagerstroemia indica)"
+msgstr "Myrte de crêpe (Lagerstroemia indica)"
+
+#: core.Species/name:22
+msgid "Myrtle (Myrtus communis)"
+msgstr "Myrte (Myrtus communis)"
+
+#: core.Species/name:23
+msgid "Firethorn (Pyracantha)"
+msgstr "Pyracantha (Pyracantha)"
+
+#: core.Species/name:24
+msgid "Water jasmine (Wrightia religiosa)"
+msgstr "Etoile de Marie (Wrightia religiosa)"
+
+#: core.Species/name:25
+msgid "Wattle (Acacia)"
+msgstr "Acacia (Acacia)"
+
+#: core.Species/name:26
+msgid "Camellia (Camellia)"
+msgstr "Camélia (Camélia)"
+
+#: core.Species/name:27
+msgid "Eucalypt (Eucalyptus)"
+msgstr "Eucalyptus (Eucalyptus)"
+
+#: core.Species/name:28
+msgid "Bamboo (Bambusoideae)"
+msgstr "Bambou (Bambusoideae)"
+
+#: core.Species/name:29
+msgid "Hibiscus (Hibiscus)"
+msgstr "Hibiscus (Hibiscus)"
+
+#: core.Species/name:30
+msgid "Japanese maple (Acer palmatum)"
+msgstr "Érable du Japon (Acer palmatum)"
+
+#: core.Species/name:31
+msgid "Chinese elm (Ulmus parviflora)"
+msgstr "Orme de Chine (Ulmus parviflora)"
+
+#: core.Species/name:32
+msgid "Cherry (Prunus Sakura)"
+msgstr "Cerisier (Prunus Sakura)"
+
+#: core.Species/name:33
+msgid "Oak (Quercus)"
+msgstr "Chêne (Quercus)"
+
+#: core.Species/name:34
+msgid "Wisteria (Wisteria)"
+msgstr "Glycine (Glycine)"
+
+#: core.Species/name:35
+msgid "Japanese elm (Zelkova)"
+msgstr "Orme du Japon (Zelkova)"
+
+#: core.Species/name:36
+msgid "Pomegranate (Punica granatum)"
+msgstr "Grenade (Punica granatum)"
+
+#: core.Species/name:37
+msgid "Jacaranda (Jacaranda mimosifolia)"
+msgstr "Jacaranda (Jacaranda mimosifolia)"
+
+#: core.Species/name:38
+msgid "Trident maple (Acer buergerianum)"
+msgstr "Érable de Buerger (Acer buergerianum)"
+
+#: core.Species/name:39
+msgid "Apple and crabapple (Malus)"
+msgstr "Pommier d'ornement (Malus)"
+
+#: core.Species/name:40
+msgid "Desert rose (Adenium obesum)"
+msgstr "Rose du désert (Adenium obesum)"
+
+#: core.Species/name:41
+msgid "Hornbeam and beech (Carpinus and fagus)"
+msgstr "Charme et hêtre (Carpinus et fagus)"
+
+#: core.Species/name:42
+msgid "Star magnolia (Magnolia stellata)"
+msgstr "Magnolia étoilé (Magnolia stellata)"
+
+#: core.Species/name:43
+msgid "Chinese pepper (Xanthoxylum piperitum)"
+msgstr "Poivre du Sichuan (Xanthoxylum piperitum)"
+
+#: core.Species/name:44
+msgid "Hackberry (Celtis)"
+msgstr "Micocoulier (Celtis)"
+
+#: core.Species/name:45
+msgid "Ginkgo (Ginkgo biloba)"
+msgstr "Ginkgo (Ginkgo biloba)"
+
+#: core.Species/name:46
+msgid "Flame tree (Delonix regia or Royal poinciana)"
+msgstr "Flamboyant (Delonix regia ou Royal poinciana)"
+
+#: core.Species/name:47
+msgid "Weeping willow (Salix)"
+msgstr "Saule pleureur (Salix)"
+
+#: core.Species/name:48
+msgid "Japanese winterberry (Ilex serrata)"
+msgstr "L'hiver du Japon (Ilex serrata)"
+
+#: core.Species/name:49
+msgid "Baobab (Baobab)"
+msgstr "Baobab (baobab)"
+
+#: core.Species/name:50
+msgid "Birch (Betula)"
+msgstr "Bouleau (Betula)"
+
+#: core.Species/name:51
+msgid "Chinese quince (Pseudocydonia)"
+msgstr "Cognassier de Chine (Pseudocydonia)"
+
+#: core.Species/name:52
+msgid "Judas tree (Cercis)"
+msgstr "Arbre de Judée (Cercis)"
+
+#: core.Species/name:53
+msgid "Hawthorn (Crataegus)"
+msgstr "Aubépine (Crataegus)"
+
+#: core.Species/name:54
+msgid "Silk tree (Albizia or mimosa)"
+msgstr "Arbre à soie (Albizia ou mimosa)"
+
+#: core.Species/name:55
+msgid "Rose (Rosa)"
+msgstr "Arbre à soie (Albizia ou mimosa)"
+
+#: core.Species/name:56
+msgid "Jabuticaba (Plinia cauliflora)"
+msgstr "Jaboticaba (Plinia cauliflora)"
+
+#: core.Species/name:57
+msgid "Ash (Fraxinus)"
+msgstr "Frêne (Fraxinus)"
+
+#: core.Species/name:58
+msgid "Dogwood (Cornus)"
+msgstr "Cornouiller (Cornus)"
+
+#: core.Species/name:59
+msgid "Liquidambar (Sweetgum)"
+msgstr "Liquidambar (Sweetgum)"
+
+#: core.Species/name:60
+msgid "Juniper (Juniperus)"
+msgstr "Genévrier (Juniperus)"
+
+#: core.Species/name:61
+msgid "Pines (Pinus)"
+msgstr "Pins (Pinus)"
+
+#: core.Species/name:62
+msgid "Spruce (Picea)"
+msgstr "Epicéa (Picea)"
+
+#: core.Species/name:63
+msgid "Bald cypress (Taxodium distichum)"
+msgstr "Cyprès chauve (Taxodium distichum)"
+
+#: core.Species/name:64
+msgid "Larch and Golden Larch (Larix)"
+msgstr "Mélèze et mélèze doré (Larix)"
+
+#: core.Species/name:65
+msgid "Redwoods (Metasequoia and sequoia)"
+msgstr "Séquoias (métasequoia et séquoia)"
+
+#: core.Species/name:66
+msgid "Cedar (Cedrus)"
+msgstr "Cèdre (Cedrus)"
+
+#: core.Species/name:67
+msgid "Buddhist pine (Podocarpus)"
+msgstr "Pin des bouddhistes (Podocarpus)"
+
+#: core.Species/name:68
+msgid "Yew (Taxus or taxaceae)"
+msgstr "If (Taxus ou taxacées)"
+
+#: core.Species/name:69
+msgid "Hinoki cypress (Chamaecyparis)"
+msgstr "Cyprès d'Hinoki (Chamaecyparis)"
+
+#: core.Species/name:70
+msgid "Japanese cedar (Cryptomeria)"
+msgstr "Cèdre du Japon (Cryptomeria)"
+
+#: core.Species/name:71
+msgid "Hemlock (Tsuga)"
+msgstr "Pruche (Tsuga)"
+
+#: core.Species/name:72
+msgid "Thuja (Northern white cedar)"
+msgstr "Thuya (Cèdre du Canada)"
+
+#: core.Species/name:73
+msgid "Fir (Abies)"
+msgstr "Sapin (Abies)"
+
+#: core.Tasklist/name:1
+msgid "Other"
+msgstr "Autre"
+
+#: core.Tasklist/name:2
+msgid "Seeding"
+msgstr "Semis"
+
+#: core.Tasklist/name:3
+msgid "Cutting"
+msgstr "Bouture"
+
+#: core.Tasklist/name:5
+msgid "Pruning"
+msgstr "Taille"
+
+#: core.Tasklist/name:8
+msgid "Shaping"
+msgstr "Former"
+
+#: core.Tasklist/name:10
+msgid "Repotting"
+msgstr "Rempoter"
+
+#: core.Tasklist/name:11
+msgid "Pinching"
+msgstr "Pincer"
+
+#: core.Tasklist/name:12
+msgid "Defoliating"
+msgstr "Défoliation"
+
+#: core.Tasklist/name:13
+msgid "Grafting"
+msgstr "Greffe"
 
 #~ msgid "FAQ"
 #~ msgstr "FAQ"

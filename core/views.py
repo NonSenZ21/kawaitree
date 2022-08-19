@@ -373,7 +373,7 @@ def calendar(request):
         # print(t.plan_date.month)
         # print(t.plan_date.year)
         # print(t.real_date)
-        task = {'id': str(t.id), 'name': t.tasklistfk.name, 'tree': t.treefk.tname}
+        task = {'id': str(t.id), 'name': _(t.tasklistfk.name), 'tree': t.treefk.tname}
         if t.real_date:
             task['day'] = t.real_date.day
             task['month'] = t.real_date.month
@@ -390,7 +390,7 @@ def calendar(request):
 
         list_tasks.append(task)
 
-    context = {'tasks': list_tasks}
+    context = {'tasks': list_tasks, 'notask':_('There is no task planned for this date.')}
     return render(request, 'core/calendar.html', context)
 
 @login_required

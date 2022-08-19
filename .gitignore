@@ -7,7 +7,7 @@ db.sqlite3
 media
 settings.py
 env.py
-static
+# static
 
 # Backup files # 
 *.bak 

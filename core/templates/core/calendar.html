@@ -38,13 +38,13 @@
 				        </table>
 
 				        <table class="days-table w-100">
-				          <td class="day">Sun</td>
 				          <td class="day">Mon</td>
 				          <td class="day">Tue</td>
 				          <td class="day">Wed</td>
 				          <td class="day">Thu</td>
 				          <td class="day">Fri</td>
 				          <td class="day">Sat</td>
+                          <td class="day">Sun</td>
 				        </table>
 				        <div class="frame">
 				          <table class="dates-table w-100">
@@ -81,6 +81,7 @@
 {#  <script src="js/bootstrap.min.js"></script>#}
     <script>
         var tasks = {{ tasks|safe }};
+        var notask = "{{ notask|safe }}";
     </script>
   <script src="{% static 'js/main.js' %}"></script>
 </div>
