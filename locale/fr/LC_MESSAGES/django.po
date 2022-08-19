@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 11:20+0000\n"
+"POT-Creation-Date: 2022-08-19 15:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -347,7 +347,11 @@ msgstr "Photo prise avant l'exécution."
 msgid "Picture taken after executing the task."
 msgstr "Photo prise après l'exécution."
 
-#: core/templates/core/photo_detail.html:41
+#: core/templates/core/photo_detail.html:38
+msgid "Back"
+msgstr "Retour"
+
+#: core/templates/core/photo_detail.html:39
 #: core/templates/core/task_detail.html:22 core/templates/core/tasks.html:47
 #: core/templates/core/tdb.html:49 core/templates/core/tdb.html:105
 #: core/templates/core/tdb.html:143 core/templates/core/tdb.html:176
