@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 15:04+0000\n"
+"POT-Creation-Date: 2022-09-18 16:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,20 +65,20 @@ msgstr "Arbre"
 
 #: core/models.py:88 core/templates/core/task_form.html:29
 #: core/templates/core/tasks.html:12 core/templates/core/tdb.html:22
-#: core/templates/core/tdb.html:78 core/templates/core/tree_detail.html:70
+#: core/templates/core/tdb.html:78 core/templates/core/tree_detail.html:71
 msgid "Planned date"
 msgstr "Date prévue"
 
 #: core/models.py:89 core/templates/core/task_form.html:35
-#: core/templates/core/tasks.html:14 core/templates/core/tdb.html:153
-#: core/templates/core/tree_detail.html:71
+#: core/templates/core/tasks.html:14 core/templates/core/tdb.html:154
+#: core/templates/core/tree_detail.html:72
 msgid "Realisation date"
 msgstr "Date de réalisation"
 
 #: core/models.py:107 core/templates/core/task_form.html:12
 #: core/templates/core/tasks.html:17 core/templates/core/tdb.html:24
-#: core/templates/core/tdb.html:80 core/templates/core/tdb.html:152
-#: core/templates/core/tree_detail.html:69
+#: core/templates/core/tdb.html:80 core/templates/core/tdb.html:153
+#: core/templates/core/tree_detail.html:70
 msgid "Task"
 msgstr "Tâche"
 
@@ -130,137 +130,136 @@ msgstr "Question"
 msgid "Answer"
 msgstr "Réponse"
 
-#: core/templates/core/base-calendar.html:40
-#: core/templates/core/base-leaflet.html:41 core/templates/core/base.html:33
+#: core/templates/core/base-calendar.html:44
+#: core/templates/core/base-leaflet.html:49 core/templates/core/base.html:41
 msgid "Collection"
 msgstr "Collection"
 
-#: core/templates/core/base-calendar.html:42
-#: core/templates/core/base-leaflet.html:43 core/templates/core/base.html:35
-#: core/views.py:38
+#: core/templates/core/base-calendar.html:46
+#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:43
+#: core/views.py:40
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: core/templates/core/base-calendar.html:43
-#: core/templates/core/base-leaflet.html:44 core/templates/core/base.html:36
+#: core/templates/core/base-calendar.html:47
+#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:44
 msgid "All photos"
 msgstr "Toutes les photos"
 
-#: core/templates/core/base-calendar.html:47
-#: core/templates/core/base-leaflet.html:48 core/templates/core/base.html:40
+#: core/templates/core/base-calendar.html:51
+#: core/templates/core/base-leaflet.html:56 core/templates/core/base.html:48
 msgid "Maintenance"
 msgstr "Entretien"
 
-#: core/templates/core/base-calendar.html:49
-#: core/templates/core/base-leaflet.html:50 core/templates/core/base.html:42
+#: core/templates/core/base-calendar.html:53
+#: core/templates/core/base-leaflet.html:58 core/templates/core/base.html:50
 #: core/templates/core/calendar.html:10
 msgid "Calendar"
 msgstr "Calendrier"
 
-#: core/templates/core/base-calendar.html:50
-#: core/templates/core/base-leaflet.html:51 core/templates/core/base.html:43
-#: core/views.py:340
+#: core/templates/core/base-calendar.html:54
+#: core/templates/core/base-leaflet.html:59 core/templates/core/base.html:51
+#: core/views.py:386
 msgid "Next tasks"
 msgstr "Prochaines tâches"
 
-#: core/templates/core/base-calendar.html:51
-#: core/templates/core/base-leaflet.html:52 core/templates/core/base.html:44
-#: core/templates/core/tdb.html:9 core/views.py:348
+#: core/templates/core/base-calendar.html:55
+#: core/templates/core/base-leaflet.html:60 core/templates/core/base.html:52
+#: core/templates/core/tdb.html:9 core/views.py:395
 msgid "Overdue tasks"
 msgstr "Tâches en retard"
 
-#: core/templates/core/base-calendar.html:52
-#: core/templates/core/base-leaflet.html:53 core/templates/core/base.html:45
-#: core/views.py:354
+#: core/templates/core/base-calendar.html:56
+#: core/templates/core/base-leaflet.html:61 core/templates/core/base.html:53
+#: core/views.py:401
 msgid "All tasks"
 msgstr "Toutes les tâches"
 
-#: core/templates/core/base-calendar.html:57
-#: core/templates/core/base-leaflet.html:58 core/templates/core/base.html:50
+#: core/templates/core/base-calendar.html:61
+#: core/templates/core/base-leaflet.html:66 core/templates/core/base.html:58
 #: users/views.py:125
 msgid "Weather"
 msgstr "Météo"
 
-#: core/templates/core/base-calendar.html:61
-#: core/templates/core/base-leaflet.html:62 core/templates/core/base.html:54
+#: core/templates/core/base-calendar.html:65
+#: core/templates/core/base-leaflet.html:70 core/templates/core/base.html:62
 msgid "Members"
 msgstr "Membres"
 
-#: core/templates/core/base-calendar.html:63
-#: core/templates/core/base-leaflet.html:64 core/templates/core/base.html:56
+#: core/templates/core/base-calendar.html:67
+#: core/templates/core/base-leaflet.html:72 core/templates/core/base.html:64
 msgid "Map"
 msgstr "Carte"
 
-#: core/templates/core/base-calendar.html:64
-#: core/templates/core/base-leaflet.html:65 core/templates/core/base.html:57
+#: core/templates/core/base-calendar.html:68
+#: core/templates/core/base-leaflet.html:73 core/templates/core/base.html:65
 msgid "Gallery"
 msgstr "Galerie"
 
-#: core/templates/core/base-calendar.html:65
-#: core/templates/core/base-leaflet.html:66 core/templates/core/base.html:58
+#: core/templates/core/base-calendar.html:69
+#: core/templates/core/base-leaflet.html:74 core/templates/core/base.html:66
 #: core/templates/core/link_list.html:5
 msgid "Links"
 msgstr "Liens"
 
-#: core/templates/core/base-calendar.html:70
-#: core/templates/core/base-leaflet.html:70 core/templates/core/base.html:63
+#: core/templates/core/base-calendar.html:74
+#: core/templates/core/base-leaflet.html:78 core/templates/core/base.html:71
 msgid "About"
 msgstr "A propos"
 
-#: core/templates/core/base-calendar.html:73
-#: core/templates/core/base-leaflet.html:72 core/templates/core/base.html:66
+#: core/templates/core/base-calendar.html:77
+#: core/templates/core/base-leaflet.html:80 core/templates/core/base.html:74
 #: core/templates/core/faq_list.html:5
 msgid "FAQ/help"
 msgstr "FAQ/aide"
 
-#: core/templates/core/base-calendar.html:77
 #: core/templates/core/base-calendar.html:81
-#: core/templates/core/base-leaflet.html:75
-#: core/templates/core/base-leaflet.html:79 core/templates/core/base.html:70
-#: core/templates/core/base.html:74 start/templates/start/home.html:41
+#: core/templates/core/base-calendar.html:85
+#: core/templates/core/base-leaflet.html:83
+#: core/templates/core/base-leaflet.html:87 core/templates/core/base.html:78
+#: core/templates/core/base.html:82 start/templates/start/home.html:41
 #: start/templates/start/home.html:45
 msgid "General info"
 msgstr "Infos générales"
 
-#: core/templates/core/base-calendar.html:78
 #: core/templates/core/base-calendar.html:82
-#: core/templates/core/base-leaflet.html:76
-#: core/templates/core/base-leaflet.html:80 core/templates/core/base.html:71
-#: core/templates/core/base.html:75 start/templates/socialaccount/login.html:19
+#: core/templates/core/base-calendar.html:86
+#: core/templates/core/base-leaflet.html:84
+#: core/templates/core/base-leaflet.html:88 core/templates/core/base.html:79
+#: core/templates/core/base.html:83 start/templates/socialaccount/login.html:19
 #: start/templates/socialaccount/login.html:22
 #: start/templates/start/home.html:42 start/templates/start/home.html:46
 msgid "Privacy policy"
 msgstr "Politique de confidentialité"
 
-#: core/templates/core/base-calendar.html:79
 #: core/templates/core/base-calendar.html:83
-#: core/templates/core/base-leaflet.html:77
-#: core/templates/core/base-leaflet.html:81 core/templates/core/base.html:72
-#: core/templates/core/base.html:76 start/templates/socialaccount/login.html:19
+#: core/templates/core/base-calendar.html:87
+#: core/templates/core/base-leaflet.html:85
+#: core/templates/core/base-leaflet.html:89 core/templates/core/base.html:80
+#: core/templates/core/base.html:84 start/templates/socialaccount/login.html:19
 #: start/templates/socialaccount/login.html:22
 #: start/templates/start/home.html:43 start/templates/start/home.html:47
 msgid "Legal policies"
 msgstr "Mentions légales"
 
-#: core/templates/core/base-calendar.html:87
-#: core/templates/core/base-leaflet.html:84 core/templates/core/base.html:80
+#: core/templates/core/base-calendar.html:91 core/templates/core/base.html:88
 msgid "Contact the author"
 msgstr "Contacter l'auteur"
 
-#: core/templates/core/base-calendar.html:89 core/templates/core/base.html:82
+#: core/templates/core/base-calendar.html:93 core/templates/core/base.html:90
 msgid "Home"
 msgstr "Accueil"
 
-#: core/templates/core/base-calendar.html:99
-#: core/templates/core/base-calendar.html:101
-#: core/templates/core/base-leaflet.html:92
-#: core/templates/core/base-leaflet.html:94 core/templates/core/base.html:92
-#: core/templates/core/base.html:94
+#: core/templates/core/base-calendar.html:103
+#: core/templates/core/base-calendar.html:105
+#: core/templates/core/base-leaflet.html:100
+#: core/templates/core/base-leaflet.html:102 core/templates/core/base.html:100
+#: core/templates/core/base.html:102
 msgid "Profile"
 msgstr "Profil"
 
-#: core/templates/core/base-calendar.html:102
-#: core/templates/core/base-leaflet.html:95 core/templates/core/base.html:95
+#: core/templates/core/base-calendar.html:106
+#: core/templates/core/base-leaflet.html:103 core/templates/core/base.html:103
 msgid "Logout"
 msgstr "Se déconnecter"
 
@@ -271,6 +270,29 @@ msgstr "Pas encore de FAQ."
 #: core/templates/core/faq_list.html:34
 msgid "Video:"
 msgstr "Vidéo :"
+
+#: core/templates/core/instant_task.html:12
+msgid "Instant task"
+msgstr "Tâche instantanée"
+
+#: core/templates/core/instant_task.html:28
+#: core/templates/core/photo_form.html:49
+#: core/templates/core/photo_listall.html:50
+#: core/templates/core/task_form.html:47 core/templates/core/tree_form.html:57
+msgid "Ok"
+msgstr "Ok"
+
+#: core/templates/core/instant_task.html:29
+#: core/templates/core/photo_confirm_delete.html:14
+#: core/templates/core/photo_form.html:50
+#: core/templates/core/task_confirm_delete.html:14
+#: core/templates/core/task_form.html:48
+#: core/templates/core/tree_confirm_delete.html:14
+#: core/templates/core/tree_form.html:58
+#: users/templates/users/User_confirm_delete.html:19
+#: users/templates/users/profile.html:110
+msgid "Cancel"
+msgstr "Annuler"
 
 #: core/templates/core/link_list.html:7
 msgid "No link yet."
@@ -295,23 +317,12 @@ msgstr "Etes vous sûr de vouloir supprimer cette photo&nbsp;?"
 msgid "Yes delete"
 msgstr "Oui supprimer"
 
-#: core/templates/core/photo_confirm_delete.html:14
-#: core/templates/core/photo_form.html:50
-#: core/templates/core/task_confirm_delete.html:14
-#: core/templates/core/task_form.html:48
-#: core/templates/core/tree_confirm_delete.html:14
-#: core/templates/core/tree_form.html:58
-#: users/templates/users/User_confirm_delete.html:19
-#: users/templates/users/profile.html:110
-msgid "Cancel"
-msgstr "Annuler"
-
 #: core/templates/core/photo_detail.html:6
 #: core/templates/core/task_detail.html:6 core/templates/core/tasks.html:41
 #: core/templates/core/tdb.html:43 core/templates/core/tdb.html:99
-#: core/templates/core/tdb.html:141 core/templates/core/tdb.html:170
+#: core/templates/core/tdb.html:141 core/templates/core/tdb.html:171
 #: core/templates/core/tree_detail.html:6
-#: core/templates/core/tree_detail.html:91
+#: core/templates/core/tree_detail.html:92
 #: core/templates/core/tree_list.html:33
 #: users/templates/users/public_profile.html:66
 msgid "Detail"
@@ -354,9 +365,9 @@ msgstr "Retour"
 #: core/templates/core/photo_detail.html:39
 #: core/templates/core/task_detail.html:22 core/templates/core/tasks.html:47
 #: core/templates/core/tdb.html:49 core/templates/core/tdb.html:105
-#: core/templates/core/tdb.html:143 core/templates/core/tdb.html:176
+#: core/templates/core/tdb.html:143 core/templates/core/tdb.html:177
 #: core/templates/core/tree_detail.html:24
-#: core/templates/core/tree_detail.html:97
+#: core/templates/core/tree_detail.html:98
 #: core/templates/core/tree_list.html:35
 msgid "Delete"
 msgstr "Supprimer"
@@ -364,12 +375,6 @@ msgstr "Supprimer"
 #: core/templates/core/photo_form.html:12
 msgid "Photo"
 msgstr "Photo"
-
-#: core/templates/core/photo_form.html:49
-#: core/templates/core/photo_listall.html:50
-#: core/templates/core/task_form.html:47 core/templates/core/tree_form.html:57
-msgid "Ok"
-msgstr "Ok"
 
 #: core/templates/core/photo_list.html:6
 msgid "Photos of "
@@ -381,28 +386,28 @@ msgstr "Pas de photo dans votre collection."
 
 #: core/templates/core/photo_list.html:19
 #: core/templates/core/photo_listall.html:21
-#: core/templates/core/tree_detail.html:41
+#: core/templates/core/tree_detail.html:42
 #: users/templates/users/public_profile.html:95
 msgid "first"
 msgstr "premier"
 
 #: core/templates/core/photo_list.html:20
 #: core/templates/core/photo_listall.html:22
-#: core/templates/core/tree_detail.html:42
+#: core/templates/core/tree_detail.html:43
 #: users/templates/users/public_profile.html:96
 msgid "previous"
 msgstr "précédent"
 
 #: core/templates/core/photo_list.html:30
 #: core/templates/core/photo_listall.html:32
-#: core/templates/core/tree_detail.html:52
+#: core/templates/core/tree_detail.html:53
 #: users/templates/users/public_profile.html:106
 msgid "next"
 msgstr "suivant"
 
 #: core/templates/core/photo_list.html:31
 #: core/templates/core/photo_listall.html:33
-#: core/templates/core/tree_detail.html:53
+#: core/templates/core/tree_detail.html:54
 #: users/templates/users/public_profile.html:107
 msgid "last"
 msgstr "dernier"
@@ -445,9 +450,9 @@ msgstr "Date de réalisation&nbsp;:"
 
 #: core/templates/core/task_detail.html:21 core/templates/core/tasks.html:44
 #: core/templates/core/tdb.html:46 core/templates/core/tdb.html:102
-#: core/templates/core/tdb.html:142 core/templates/core/tdb.html:173
+#: core/templates/core/tdb.html:142 core/templates/core/tdb.html:174
 #: core/templates/core/tree_detail.html:23
-#: core/templates/core/tree_detail.html:94
+#: core/templates/core/tree_detail.html:95
 #: core/templates/core/tree_list.html:34
 msgid "Edit"
 msgstr "Modifier"
@@ -465,7 +470,7 @@ msgid "After"
 msgstr "Après"
 
 #: core/templates/core/task_detail.html:59
-#: core/templates/core/tree_detail.html:60
+#: core/templates/core/tree_detail.html:61
 msgid "Add picture"
 msgstr "Ajouter une photo"
 
@@ -527,11 +532,11 @@ msgstr "Date d'acquisition&nbsp;:"
 msgid "Origin:"
 msgstr "Origine&nbsp;:"
 
-#: core/templates/core/tdb.html:183 core/templates/core/tree_detail.html:106
+#: core/templates/core/tdb.html:184 core/templates/core/tree_detail.html:107
 msgid "Add task"
 msgstr "Ajouter une tâche"
 
-#: core/templates/core/tdb.html:189 core/templates/core/tree_list.html:41
+#: core/templates/core/tdb.html:190 core/templates/core/tree_list.html:41
 msgid "Add a tree"
 msgstr "Ajouter un arbre"
 
@@ -548,48 +553,59 @@ msgid "A = Evergreen tree, B = Deciduous tree, C = Pines and Conifers"
 msgstr ""
 "A =  Feuillages persistants, B = Feuilles caduques, C = Pins et Conifères"
 
-#: core/views.py:67
+#: core/views.py:69
 msgid "Trying to see private tree?"
 msgstr "Vous essayez de supprimer un arbre privé&nbsp;?"
 
-#: core/views.py:130
+#: core/views.py:132
 msgid "Trying to see private task?"
 msgstr "Vous essayez de voir une tâche privée&nbsp;?"
 
-#: core/views.py:153 core/views.py:177
+#: core/views.py:155 core/views.py:220
 msgid "You need to specify a planned date or a realisation date please."
 msgstr ""
 "Vous devez choisir au moins une date planifiée ou une date de réalisation."
 
-#: core/views.py:212 core/views.py:238 users/views.py:145
+#: core/views.py:178
+msgid "Do not try to add tasks to other users trees please."
+msgstr ""
+
+#: core/views.py:202
+#, fuzzy
+#| msgid "You need to specify a planned date or a realisation date please."
+msgid "You need to select one of your trees please."
+msgstr ""
+"Vous devez choisir au moins une date planifiée ou une date de réalisation."
+
+#: core/views.py:255 core/views.py:281 users/views.py:145
 msgid "Are you trying to list private pictures?"
 msgstr "Vous essayez de regarder des photos privées&nbsp;?"
 
-#: core/views.py:276
+#: core/views.py:321
 msgid "Trying to add an image to unidentified tree?"
 msgstr "Vous essayez d'ajouter une image à un arbre non identifié&nbsp;?"
 
-#: core/views.py:282
+#: core/views.py:327
 msgid "Trying to add an image to someone else's tree?"
 msgstr "Vous essayez d'ajouter une photo à l'arbre de quelqu'un d'autre&nbsp;?"
 
-#: core/views.py:294
+#: core/views.py:339
 msgid "Only JPG images are allowed, sorry!"
 msgstr "Seules les images JPG sont autorisées, désolé."
 
-#: core/views.py:307
+#: core/views.py:352
 msgid "Your form is not valid and I don't know why!"
 msgstr "Votre formulaire n'est pas valide et je ne sais pas pourquoi."
 
-#: core/views.py:359
+#: core/views.py:406
 msgid "Unknown action... WTF are you doing?"
 msgstr "Action inconnue... WTF ?"
 
-#: core/views.py:393
+#: core/views.py:441
 msgid "There is no task planned for this date."
 msgstr "Il n'y a pas de tâche prévue à cette date."
 
-#: core/views.py:399
+#: core/views.py:448
 msgid "Members map"
 msgstr "Carte des membres"
 
@@ -749,8 +765,8 @@ msgstr ""
 #: start/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 
 #: start/templates/account/login.html:6 start/templates/account/login.html:10
@@ -1049,8 +1065,8 @@ msgstr ""
 #, python-format
 msgid ""
 "You decided to cancel logging in to our site using one of your existing "
-"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
-"\">sign in</a>."
+"accounts. If this was a mistake, please proceed to <a "
+"href=\"%(login_url)s\">sign in</a>."
 msgstr ""
 
 #: start/templates/socialaccount/messages/account_connected.txt:2

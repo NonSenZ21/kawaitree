@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.views.generic import (
     ListView,
     DetailView,
@@ -23,7 +24,7 @@ from datetime import timedelta, datetime, date
 def tdb(request):
     trees = Tree.objects.filter(ownerfk=request.user).order_by('tname')
     treetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
-                                                                      real_date__isnull=False,).order_by('-real_date')
+                                                                      real_date__isnull=False, ).order_by('-real_date')
     nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                       real_date__isnull=True,
                                                                       plan_date__isnull=False,
@@ -33,7 +34,8 @@ def tdb(request):
     overduetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                          real_date__isnull=True,
                                                                          plan_date__isnull=False,
-                                                                         plan_date__lt=timezone.now()).order_by('plan_date')
+                                                                         plan_date__lt=timezone.now()).order_by(
+        'plan_date')
     content = {
         'titre': _("Dashboard"),
     }
@@ -162,6 +164,47 @@ def taskcreate(request, treepk):
         return render(request, 'core/task_form.html', context)
 
 
+class InstantTaskCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Task
+    fields = ['tasklistfk', 'treefk', 'real_date']
+    template_name = 'core/instant_task.html'
+
+    def test_func(self, *args, **kwargs):
+        tpk = self.kwargs['treepk']
+        tree = Tree.objects.filter(pk=tpk).first()
+        print('tree.ownerfk:', tree.ownerfk)
+        print('request user', self.request.user)
+        if tree.ownerfk != self.request.user:
+            mes = _("Do not try to add tasks to other users trees please.")
+            messages.warning(self.request, mes)
+            return False
+        else:
+            return True
+    def get_form(self, *args, **kwargs):
+        form = super().get_form()
+
+        tpk = self.kwargs['treepk']
+        form.fields['treefk'].queryset = Tree.objects.filter(pk=tpk)
+        form.fields['treefk'].empty_label = None
+        # Realisation date field
+        form.fields['real_date'].initial = date.today()
+        return form
+
+    def get_success_url(self):
+        return reverse('task-detail', kwargs={'pk': self.object.pk})
+
+    def form_valid(self, form):
+        print('valeur:', form.instance.treefk.ownerfk)
+        print('request.user:', self.request.user)
+        if form.instance.treefk.ownerfk == self.request.user:
+            return super().form_valid(form)
+        else:
+            mes = _("You need to select one of your trees please.")
+            messages.warning(self.request, mes)
+            return redirect('core-tdb')
+
+
+
 @login_required
 def taskupdate(request, pk):
     task = Task.objects.get(id=pk)
@@ -242,11 +285,13 @@ def photolistall(request, owner, species):
         speciesobj = get_object_or_404(Species, pk=species)
 
     if owner != 0 and species != 0:
-        photos = Photo.objects.filter(treefk__ownerfk=ownerobj, treefk__speciesfk=speciesobj).order_by('-shot_date')[:100]
+        photos = Photo.objects.filter(treefk__ownerfk=ownerobj, treefk__speciesfk=speciesobj).order_by('-shot_date')[
+                 :100]
     elif owner != 0:
         photos = Photo.objects.filter(treefk__ownerfk=ownerobj).order_by('-shot_date')[:100]
     elif species != 0:
-        photos = Photo.objects.filter(treefk__ownerfk__profile__public_profile=True).filter(treefk__speciesfk=speciesobj).order_by('-shot_date')[:100]
+        photos = Photo.objects.filter(treefk__ownerfk__profile__public_profile=True).filter(
+            treefk__speciesfk=speciesobj).order_by('-shot_date')[:100]
     else:
         photos = Photo.objects.filter(treefk__ownerfk__profile__public_profile=True).order_by('-shot_date')[:100]
 
@@ -336,7 +381,8 @@ def tasks(request, action):
         nexttasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                           real_date__isnull=True,
                                                                           plan_date__isnull=False,
-                                                                          plan_date__gt=timezone.now()).order_by('plan_date')
+                                                                          plan_date__gt=timezone.now()).order_by(
+            'plan_date')
         context = {'title': _('Next tasks'), 'tasks': nexttasks, 'action': 1}
         return render(request, 'core/tasks.html', context)
     # Overdue tasks
@@ -344,7 +390,8 @@ def tasks(request, action):
         overduetasks = Task.objects.select_related('treefk__ownerfk').filter(treefk__ownerfk=request.user,
                                                                              real_date__isnull=True,
                                                                              plan_date__isnull=False,
-                                                                             plan_date__lt=timezone.now()).order_by('plan_date')
+                                                                             plan_date__lt=timezone.now()).order_by(
+            'plan_date')
         context = {'title': _('Overdue tasks'), 'tasks': overduetasks, 'action': 2}
         return render(request, 'core/tasks.html', context)
     # All tasks
@@ -359,6 +406,7 @@ def tasks(request, action):
         mes = _('Unknown action... WTF are you doing?')
         messages.warning(request, mes)
         return redirect('core-tdb')
+
 
 # calendar
 @login_required
@@ -390,8 +438,9 @@ def calendar(request):
 
         list_tasks.append(task)
 
-    context = {'tasks': list_tasks, 'notask':_('There is no task planned for this date.')}
+    context = {'tasks': list_tasks, 'notask': _('There is no task planned for this date.')}
     return render(request, 'core/calendar.html', context)
+
 
 @login_required
 def membersmap(request):
@@ -412,4 +461,3 @@ class FaqView(LoginRequiredMixin, ListView):
     # template_name = 'core/link_list.html'
     context_object_name = 'faqs'
     ordering = ['faqcatfk', 'order']
-

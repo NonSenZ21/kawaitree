@@ -141,6 +141,7 @@
               <a href="{% url 'tree-detail' tree.id %}" class="btn btn-outline-info btn-sm mb-2" role="button" >{% trans 'Detail' %}</a>
               <a href="{% url 'tree-update' tree.id %}" class="btn btn-outline-info btn-sm mb-2" role="button" >{% trans 'Edit' %}</a>
               <a href="{% url 'tree-delete' tree.id %}" class="btn btn-outline-danger btn-sm mb-2" role="button" >{% trans 'Delete' %}</a>
+              <a href="{% url 'instant-task' tree.id %}" class="btn btn-outline-success btn-sm mb-2" role="button" >&#9201;</a>
             </div>
             <div class="col">
               <img src="{{ tree.treePic.url }}" class="autoresizeimg" alt="Tree Picture">

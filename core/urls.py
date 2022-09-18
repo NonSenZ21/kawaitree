@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import TreeListView, TreeCreateView, TreeUpdateView, TreeDeleteView, \
-   TaskDeleteView, PhotoDetailView, PhotoDeleteView, LinksView, FaqView
+   InstantTaskCreateView, TaskDeleteView, PhotoDetailView, PhotoDeleteView, \
+   LinksView, FaqView
 from . import views
 urlpatterns = [
    path('', views.tdb, name='core-tdb'),
@@ -11,6 +12,7 @@ urlpatterns = [
    path('tree/<int:pk>/delete/', TreeDeleteView.as_view(), name='tree-delete'),
    path('task/<int:pk>/', views.taskdetail, name='task-detail'),
    path('task/new/<int:treepk>/', views.taskcreate, name='task-create'),
+   path('task/instant/<int:treepk>/', InstantTaskCreateView.as_view(), name='instant-task'),
    path('task/update/<int:pk>/', views.taskupdate, name='task-update'),
    path('task/delete/<int:pk>/', TaskDeleteView.as_view(), name='task-delete'),
    path('photo/<int:pk>/', PhotoDetailView.as_view(), name='photo-detail'),
