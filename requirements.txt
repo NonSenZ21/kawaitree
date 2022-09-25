@@ -16,7 +16,7 @@ django-shortcuts==1.6
 django-vinaigrette==2.0.1
 idna==3.3
 jwcrypto==1.2
-oauthlib==3.2.0
+oauthlib==3.2.1
 Pillow==9.1.1
 psycopg2-binary==2.9.3
 pycparser==2.21
