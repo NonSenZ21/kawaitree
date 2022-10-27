@@ -1,0 +1,19 @@
+{% extends "start/base.html" %}
+{% load i18n %}
+{% block content %}
+{% load socialaccount %}
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card text-white bg-secondary mb-3">
+          <div class="card-header">{% trans "What?" %}</div>
+          <div class="card-body">
+            <h4 class="card-title">{% trans "Are you online?" %}</h4>
+            <p class="card-text">{% trans "Sorry, it seems that you are offline." %}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+{% endblock content%}
