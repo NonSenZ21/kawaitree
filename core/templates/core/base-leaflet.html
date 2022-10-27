@@ -4,6 +4,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
     {% if LANGUAGE_CODE == 'fr' %}
         <link rel="manifest" href="{% static 'manifest/manifest-fr.json' %}">
     {% else %}

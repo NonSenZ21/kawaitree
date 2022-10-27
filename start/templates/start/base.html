@@ -4,6 +4,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
     {% if LANGUAGE_CODE == 'fr' %}
         <link rel="manifest" href="{% static 'manifest/manifest-fr.json' %}">
     {% else %}
@@ -41,8 +43,7 @@
 
 </head>
 <body>
-{% get_current_language as LANGUAGE_CODE %}
-<!-- Current language: {{ LANGUAGE_CODE }} -->
+
 <div class="container-fluid noir no-padl">
   <div class="row row-cols-auto">
     <div class="col h-100 d-inline-block">
