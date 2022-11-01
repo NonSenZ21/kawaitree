@@ -4,7 +4,7 @@
 	"lang": "fr-FR",
 	"description": "Webapp pour la gestion des bonsaï",
 	"start_url": "/",
-	"scope": ".",
+	"scope": "/",
 	"background_color": "#490714",
 	"theme_color": "#490714",
 	"dir": "ltr",

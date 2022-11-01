@@ -6,10 +6,12 @@
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col">
         <div class="card text-white bg-secondary mb-3">
-          <div class="card-header">{% trans "What?" %}</div>
+          <div class="card-header">{% trans "Are you online?" %}</div>
           <div class="card-body">
-            <h4 class="card-title">{% trans "Are you online?" %}</h4>
-            <p class="card-text">{% trans "Sorry, it seems that you are offline." %}</p>
+            <h4 class="card-title">{% trans "OFFLINE" %}</h4>
+            <p class="card-text">{% trans "Sorry, it seems that you are offline. Please connect to the Internet and reload the page" %}</p>
+            <a href="{% static 'core-tdb' %}" class="btn-info">{% trans 'Reload' %}</a>
+
           </div>
         </div>
       </div>
