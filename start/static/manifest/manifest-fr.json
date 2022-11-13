@@ -15,85 +15,85 @@
 			"src": "/static/manifest/icon/icon-512.png",
 			"type": "image/png",
 			"sizes": "512x512",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/android-icon-192x192.png",
 			"type": "image/png",
 			"sizes": "192x192",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-180x180.png",
 			"type": "image/png",
 			"sizes": "180x180",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-152x152.png",
 			"type": "image/png",
 			"sizes": "152x152",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-144x144.png",
 			"type": "image/png",
 			"sizes": "144x144",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-120x120.png",
 			"type": "image/png",
 			"sizes": "120x120",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-114x114.png",
 			"type": "image/png",
 			"sizes": "114x114",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-76x76.png",
 			"type": "image/png",
 			"sizes": "76x76",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-72x72.png",
 			"type": "image/png",
 			"sizes": "72x72",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-60x60.png",
 			"type": "image/png",
 			"sizes": "60x60",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/apple-icon-57x57.png",
 			"type": "image/png",
 			"sizes": "57x57",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/favicon.png",
 			"type": "image/png",
 			"sizes": "96x96",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/favicon-32x32.png",
 			"type": "image/png",
 			"sizes": "32x32",
-			"purpose": "maskable"
+			"purpose": "any"
 		},
 		{
 			"src": "/static/manifest/icon/favicon-16x16.png",
 			"type": "image/png",
 			"sizes": "16x16",
-			"purpose": "maskable"
+			"purpose": "any"
 		}
 	],
 	"prefer_related_applications": false
