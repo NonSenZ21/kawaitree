@@ -1,14 +1,16 @@
 @charset "UTF-8";
-
+body {
+    padding-top: 45px;
+}
 .noir {
     background-color: black;
 }
 .no-pad-no-marg{
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     margin-right: auto;
     margin-left: auto;
-    border: 0px;
+    border: 0;
 }
 .no-padl{
     padding-left: 1px;
@@ -32,10 +34,8 @@
     min-width: 300px;
     max-width: 360px;
     height: 63px;
-    border: solid;
-    border-width: 1px;
-    border-color: black;
-    box-shadow: 5px 5px 5px 0px #000000;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px 0 #000000;
 }
 .googlebt2 {
     display: table-cell;
