@@ -18,8 +18,8 @@
         <div class="pagination">
             <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1" class="btn btn-sm btn-outline-info mb-4">&laquo; {% trans 'first' %}</a>
-                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'previous' %}</a>
+                <a href="?page=1" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-backward display-6"></i></a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-left display-6"></i></a>
             {% endif %}
             {% for num in page_obj.paginator.page_range %}
                 {% if page_obj.number == num %}
@@ -29,8 +29,8 @@
                 {% endif %}
             {% endfor %}
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'next' %}</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4">{% trans 'last' %} &raquo;</a>
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-right display-6"></i></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-forward display-6"></i></a>
             {% endif %}
             </span>
         </div>
@@ -47,14 +47,14 @@
           {{ form.speciesfk|as_crispy_field }}
         </div>
         <div class="col-md mb-2">
-          <button class="btn btn-outline-success" type="submit">{% trans 'Ok' %}</button>
+          <button class="btn btn-outline-success btn-sm" type="submit"><i class="bi bi-check display-6"></i></button>
         </div>
     </div>
      </fieldset>
 
   </form>
 
-
+<button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
 </div>
 
 {% endblock content%}

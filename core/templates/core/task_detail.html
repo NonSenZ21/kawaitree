@@ -18,8 +18,8 @@
             {% endif %}
             </p>
             {% if request.user == task.treefk.ownerfk %}
-              <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Edit' %}</a>
-              <a href="{% url 'task-delete' task.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+              <a href="{% url 'task-update' task.id %}" class="btn btn-outline-info btn-sm" role="button" ><i class="bi bi-pencil display-6"></i></a>
+                <a href="{% url 'task-delete' task.id %}" class="btn btn-outline-danger btn-sm" role="button" ><i class="bi bi-trash3 display-6"></i></a>
             </div>
           {% endif %}
         </div>
@@ -56,8 +56,9 @@
       <div class="row mt-2 mb-2">
         <div class="col mt-2 mb-2">
             {% if request.user == task.treefk.ownerfk %}
-              <a href="{% url 'photo-create' task.treefk.id task.id %}" class="btn btn-outline-success btn-sm mt-1" role="button" >{% trans 'Add picture' %}</a>
+                <a href="{% url 'photo-create' task.treefk.id task.id %}" class="btn btn-outline-success btn-sm mt-1" role="button" ><i class="bi bi-plus-circle display-6"></i> <i class="bi bi-camera display-6"></i></a><br>
             {% endif %}
+        <button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
           </div>
         </div>
       </div>

@@ -34,9 +34,10 @@
               <a href="javascript:history.back()"><img src="{{ object.picture.url }}" class="autoresizeimg" alt="Picture"></a>
           </div>
         </div>
+        <button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
             {% if request.user == object.treefk.ownerfk %}
-              <a href="javascript:history.back()" class="btn btn-outline-info btn-sm" role="button" >{% trans 'Back' %}</a>
-              <a href="{% url 'photo-delete' photo.id %}" class="btn btn-outline-danger btn-sm" role="button" >{% trans 'Delete' %}</a>
+
+                <a href="{% url 'photo-delete' photo.id %}" class="btn btn-outline-danger btn-sm mt-2" role="button" ><i class="bi bi-trash3  display-6"></i></a>
             {% endif %}
       </div>
     </div>
