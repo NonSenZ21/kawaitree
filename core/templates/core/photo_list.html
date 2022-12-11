@@ -10,11 +10,11 @@
         <p>{% trans 'No photo in your collection.' %}</p>
     {% else %}
         <section class="slider-section">
-          <div id="carousel" class="carousel slide pointer-event" data-ride="carousel">
+          <div id="carousel" class="carousel slide pointer-event" data-bs-ride="carousel" data-bs-touch="true">
               <div class="carousel-controls">
                   <ol class="carousel-indicators">
                       {% for photo in page_obj %}
-                      <li data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter|add:-1 }}" {% if forloop.counter == 1 %}class="active" {% endif %}style="background-image:url('{{ photo.thumb.url }}')"></li>
+                      <li data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter|add:-1 }}" {% if forloop.counter == 1 %}class="active" aria-current="true" {% endif %}style="background-image:url('{{ photo.thumb.url }}')"></li>
                       {% endfor %}
 
                 </ol>
@@ -58,5 +58,4 @@
     {% endif %}
 <button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
 </div>
-
 {% endblock content%}
