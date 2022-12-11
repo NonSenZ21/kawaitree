@@ -49,7 +49,7 @@
 /*    width: 100%;*/
 /*    text-decoration: none;*/
 /*}*/
-.slider-section .carousel-item.active a{
+.slider-section .carousel-item a{
 	display: flex;
 	background-color: #ffffff;
 	opacity: 0.75;
@@ -164,7 +164,7 @@
   .slider-section .carousel-item p{
   	font-size: 22px;
   }
-  .slider-section .carousel-loupe {
+ .slider-section .carousel-item a{
 	  width: 40px;
 	  height: 40px;
   }

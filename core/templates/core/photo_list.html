@@ -29,7 +29,7 @@
               <div class="carousel-inner">
                   {% for photo in page_obj %}
                     <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" style="background-image:url('{{  photo.picture.url }}')">
-                            <a href="{% url 'photo-detail' photo.pk %}" class="carousel-loupe"><i class="bi bi-search"></i></a>
+                            <a href="{% url 'photo-detail' photo.pk %}"><i class="bi bi-search"></i></a>
                     </div>
                   {% endfor %}
           </div>
