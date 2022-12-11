@@ -10,7 +10,7 @@
         <p>{% trans 'No photo in your collection.' %}</p>
     {% else %}
         <section class="slider-section">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
+          <div id="carousel" class="carousel slide pointer-event" data-ride="carousel">
               <div class="carousel-controls">
                   <ol class="carousel-indicators">
                       {% for photo in page_obj %}
