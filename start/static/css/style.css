@@ -2,6 +2,9 @@
 body {
     padding-top: 45px;
 }
+.accordion .accordion-item{
+    color: #ffffff;
+}
 .noir {
     background-color: black;
 }
@@ -19,7 +22,7 @@ body {
 }
 .droite {
     text-align: right;
-    align-items: right;
+    align-items: end;
 }
 .vcenter {
     margin-top: auto;
@@ -70,7 +73,10 @@ body {
     width: 100%;
     text-decoration: none;
 }
-
+.pagination {
+    align-items: center;
+    justify-content:center;
+}
 #profile_map { height: 400px; }
 #public_profile_map { height: 200px;}
 #members_map { height: 600px; }
