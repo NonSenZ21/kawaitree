@@ -8,53 +8,54 @@
 
     {% if not page_obj %}
         <p>{% trans 'No photo in your collection.' %}</p>
-    {% endif %}
-    <section class="slider-section">
-      <div id="carousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-controls">
-              <ol class="carousel-indicators">
+    {% else %}
+        <section class="slider-section">
+          <div id="carousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-controls">
+                  <ol class="carousel-indicators">
+                      {% for photo in page_obj %}
+                      <li data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter|add:-1 }}" {% if forloop.counter == 1 %}class="active" {% endif %}style="background-image:url('{{ photo.thumb.url }}')"></li>
+                      {% endfor %}
+
+                </ol>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+                 <img src="{% static 'img/left-arrow.svg' %}" alt="Prev">
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+                <img src="{% static 'img/right-arrow.svg' %}" alt="Next">
+              </a>
+
+              </div>
+              <div class="carousel-inner">
                   {% for photo in page_obj %}
-                  <li data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter|add:-1 }}" {% if forloop.counter == 1 %}class="active" {% endif %}style="background-image:url('{{ photo.thumb.url }}')"></li>
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" style="background-image:url('{{  photo.picture.url }}')">
+                            <a href="{% url 'photo-detail' photo.pk %}" class="carousel-loupe"><i class="bi bi-search"></i></a>
+                    </div>
                   {% endfor %}
-
-            </ol>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
-             <img src="{% static 'img/left-arrow.svg' %}" alt="Prev">
-          </a>
-          <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
-            <img src="{% static 'img/right-arrow.svg' %}" alt="Next">
-          </a>
-
           </div>
-          <div class="carousel-inner">
-              {% for photo in page_obj %}
-                <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" style="background-image:url('{{  photo.picture.url }}')">
-                        <a href="{% url 'photo-detail' photo.pk %}" class="carousel-loupe"><i class="bi bi-search"></i></a>
-                </div>
-              {% endfor %}
-      </div>
-    </div>
-    </section>
+        </div>
+        </section>
 
-    <div class="pagination">
-        <span class="step-links mt-2">
-        {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-backward display-6"></i></a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-left display-6"></i></a>
-        {% endif %}
-        {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                <a href="?page={{ num }}" class="btn btn-sm btn-info mb-4">{{ num }}</a>
-            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                <a href="?page={{ num }}" class="btn btn-sm btn-outline-info mb-4">{{ num }}</a>
+        <div class="pagination">
+            <span class="step-links mt-2">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-backward display-6"></i></a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-left display-6"></i></a>
             {% endif %}
-        {% endfor %}
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-right display-6"></i></a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-forward display-6"></i></a>
-        {% endif %}
-        </span>
-    </div>
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a href="?page={{ num }}" class="btn btn-sm btn-info mb-4">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}" class="btn btn-sm btn-outline-info mb-4">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-right display-6"></i></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-forward display-6"></i></a>
+            {% endif %}
+            </span>
+        </div>
+    {% endif %}
 <button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
 </div>
 
