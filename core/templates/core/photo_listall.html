@@ -2,21 +2,44 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load socialaccount %}
+{% load static %}
 {% block content %}
 
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <h1 class="mt-3">{% trans 'Photos of the members' %}</h1>
 
     {% if not page_obj %}
-        <p>{% trans 'No photo matching your parameters.' %}</p>
+        <p>{% trans 'No photo in your collection.' %}</p>
     {% else %}
-        <div>
-        {% for photo in page_obj %}
-        <a href="{% url 'photo-detail' photo.pk %}"><img src="{{ photo.thumb.url }}" class="mb-2"></a>
-        {% endfor %}
+        <section class="slider-section">
+          <div id="carousel" class="carousel slide pointer-event" data-bs-ride="carousel" data-bs-touch="true">
+              <div class="carousel-controls">
+                  <ol class="carousel-indicators">
+                      {% for photo in page_obj %}
+                      <li data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter|add:-1 }}" {% if forloop.counter == 1 %}class="active" aria-current="true" {% endif %}style="background-image:url('{{ photo.thumb.url }}')"></li>
+                      {% endfor %}
+
+                </ol>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+                 <img src="{% static 'img/left-arrow.svg' %}" alt="Prev">
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+                <img src="{% static 'img/right-arrow.svg' %}" alt="Next">
+              </a>
+
+              </div>
+              <div class="carousel-inner">
+                  {% for photo in page_obj %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" style="background-image:url('{{  photo.picture.url }}')">
+                            <a href="{% url 'photo-detail' photo.pk %}"><i class="bi bi-search"></i></a>
+                    </div>
+                  {% endfor %}
+          </div>
         </div>
+        </section>
+
         <div class="pagination">
-            <span class="step-links">
+            <span class="step-links mt-2">
             {% if page_obj.has_previous %}
                 <a href="?page=1" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-skip-backward display-6"></i></a>
                 <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-info mb-4"><i class="bi bi-caret-left display-6"></i></a>
