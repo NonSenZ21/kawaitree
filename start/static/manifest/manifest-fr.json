@@ -94,6 +94,12 @@
 			"type": "image/png",
 			"sizes": "16x16",
 			"purpose": "any"
+		},
+		{
+		      "src": "/static/manifest/icon/maskable_icon.png",
+		      "sizes": "192x192",
+		      "type": "image/png",
+		      "purpose": "any maskable"
 		}
 	],
 	"prefer_related_applications": false

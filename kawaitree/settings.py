@@ -124,7 +124,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kawaitree.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 if ENV == 'dev':
@@ -174,6 +173,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+#bug Allauth iOS 12
+SESSION_COOKIE_SAMESITE = 'None'
 
 
 # Internationalization
