@@ -100,7 +100,7 @@ SOCIALACCOUNT_PROVIDERS = {
          'email',
       ],
       'AUTH_PARAMS': {
-         'access_type': 'offline',
+         'access_type': 'online',
       }
    }
 }
@@ -176,6 +176,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 #bug Allauth iOS 12
 SESSION_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SAMESITE ='None'
 
 
 # Internationalization
