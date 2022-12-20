@@ -10,7 +10,7 @@
     {% if not request.user.profile.expert %}
         <div class="alert alert-info mt-1">{% trans 'Click on the markers to get more info...' %}</div>
     {% endif %}
-<button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()"><i class="bi bi-arrow-left display-6"></i></button>
+<button class="btn btn-outline-info btn-sm mt-2" onclick="history.back()" type="button"><i class="bi bi-arrow-left display-6"></i></button>
 </div>
 <script>
     var jsmembers = {};
