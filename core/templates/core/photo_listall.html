@@ -62,7 +62,7 @@
     {% csrf_token %}
     <fieldset class="form-group">
     <div class="row align-items-end">
-      <legend class="border-bottom mp-4">{% trans 'Filter' %}</legend>
+      <legend class="border-bottom mt-4">{% trans 'Filter' %}</legend>
         <div class="col-md">
           {{ form.ownerfk|as_crispy_field }}
         </div>

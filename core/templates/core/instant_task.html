@@ -9,7 +9,7 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mp-4">{% trans 'Instant task' %}</legend>
+      <legend class="border-bottom mt-4">{% trans 'Instant task' %}</legend>
       <div class="row">
         <div class="col-xl">
           {{ form.tasklistfk|as_crispy_field }}
