@@ -1,13 +1,13 @@
-asgiref==3.5.1
+asgiref>=3.5.1
 backports.zoneinfo==0.2.1;python_version<"3.9"
-certifi==2021.10.8
+certifi>=2022.12.07
 cffi==1.15.0
 charset-normalizer==2.0.12
 crispy-bootstrap5==0.6
 cryptography==38.0.3
 defusedxml==0.7.1
 Deprecated==1.2.13
-Django==4.0.8
+Django==4.1.1
 django-allauth==0.50.0
 django-cors-headers==3.11.0
 django-crispy-forms==1.14.0
@@ -17,7 +17,7 @@ django-vinaigrette==2.0.1
 idna==3.3
 jwcrypto>=1.4
 oauthlib==3.2.1
-Pillow==9.1.1
+pillow>=9.2.0
 psycopg2-binary==2.9.3
 pycparser==2.21
 PyJWT==2.4.0
